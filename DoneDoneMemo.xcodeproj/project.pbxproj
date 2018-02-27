@@ -137,6 +137,7 @@
 				A90FF0302044526600124266 /* Frameworks */,
 				A90FF0312044526600124266 /* Resources */,
 				A99B54D62045A61A002DFA2B /* ShellScript */,
+				A99B54D82045AB0A002DFA2B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -243,6 +244,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		A99B54D82045AB0A002DFA2B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
