@@ -17,6 +17,7 @@
 		A99B54D32045A5E9002DFA2B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54CD2045A5E9002DFA2B /* Realm.framework */; };
 		A99B54D42045A5EA002DFA2B /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54CE2045A5E9002DFA2B /* RxCocoa.framework */; };
 		A99B54D52045A5EA002DFA2B /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54CF2045A5E9002DFA2B /* RxSwift.framework */; };
+		A99B54E020483144002DFA2B /* MemoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54DF20483144002DFA2B /* MemoListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		A99B54CD2045A5E9002DFA2B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		A99B54CE2045A5E9002DFA2B /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		A99B54CF2045A5E9002DFA2B /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		A99B54DF20483144002DFA2B /* MemoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		A99B54DB2046FA53002DFA2B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A99B54DF20483144002DFA2B /* MemoListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			files = (
 				A90FF0392044526600124266 /* ViewController.swift in Sources */,
 				A90FF0372044526600124266 /* AppDelegate.swift in Sources */,
+				A99B54E020483144002DFA2B /* MemoListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
