@@ -7,23 +7,11 @@
 //
 
 struct MemoListViewModel {
+    private let repository = MemoRipository()
     var memos: [Memo] = []
 
     init() {
-        // TODO: MemoRepositoryからFetchする
-        for i in 0...100 {
-            memos.append(Memo(title: "Memo \(i)", tasks: []))
-        }
+        memos = repository.fetch()
     }
     // TODO: CRUD処理
-}
-
-struct Memo {
-    var title: String
-    var tasks: [Task]
-}
-
-struct Task {
-    var title: String
-    var done: Bool
 }
