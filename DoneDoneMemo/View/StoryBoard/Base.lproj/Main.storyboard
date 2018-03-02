@@ -57,5 +57,20 @@
             </objects>
             <point key="canvasLocation" x="-820" y="113"/>
         </scene>
+        <!--Memo View Controller-->
+        <scene sceneID="yyW-1z-clf">
+            <objects>
+                <viewController storyboardIdentifier="MemoViewController" id="NC3-dB-O3a" customClass="MemoViewController" customModule="DoneDoneMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EpL-hZ-bTk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="8wa-x1-6tp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N0a-8S-6Xv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="321" y="117"/>
+        </scene>
     </scenes>
 </document>

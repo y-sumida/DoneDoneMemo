@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         navigationItem.title = "メモ一覧"
 
         tableView.dataSource = self
+        tableView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,5 +44,13 @@ extension ViewController: UITableViewDataSource {
             cell.textLabel?.text = viewModel.memos[indexPath.row].title
         }
         return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MemoViewController") as? MemoViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
