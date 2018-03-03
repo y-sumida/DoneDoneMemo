@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  DoneDoneMemo
-//
-//  Created by Yuki Sumida on 2018/02/26.
-//  Copyright © 2018年 Yuki Sumida. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -28,7 +20,6 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 

@@ -1,11 +1,3 @@
-//
-//  DoneDoneMemoTests.swift
-//  DoneDoneMemoTests
-//
-//  Created by Yuki Sumida on 2018/02/26.
-//  Copyright © 2018年 Yuki Sumida. All rights reserved.
-//
-
 import XCTest
 @testable import DoneDoneMemo
 

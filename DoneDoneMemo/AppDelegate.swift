@@ -1,14 +1,5 @@
-//
-//  AppDelegate.swift
-//  DoneDoneMemo
-//
-//  Created by Yuki Sumida on 2018/02/26.
-//  Copyright © 2018年 Yuki Sumida. All rights reserved.
-//
-
 import UIKit
 
-// swiftlint:disable line_length
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -41,4 +32,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 }
-// swiftlint:enable line_length
