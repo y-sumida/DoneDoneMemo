@@ -8,6 +8,13 @@ class MemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30, weight: .black),
+            NSAttributedStringKey.foregroundColor: UIColor.black
+        ]
+        navigationItem.title = viewModel?.memo.title ?? "メモ"
+
         tableView.dataSource = self
     }
 
