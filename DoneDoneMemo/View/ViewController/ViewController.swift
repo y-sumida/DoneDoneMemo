@@ -18,6 +18,15 @@ class ViewController: UIViewController {
         tableView.delegate = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let indexPathForSelectedRow = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: indexPathForSelectedRow, animated: true)
+            self.tableView.flashScrollIndicators()
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
