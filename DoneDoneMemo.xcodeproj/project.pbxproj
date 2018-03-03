@@ -20,6 +20,7 @@
 		A99B54E020483144002DFA2B /* MemoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54DF20483144002DFA2B /* MemoListViewModel.swift */; };
 		A99B54E220483D99002DFA2B /* MemoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54E120483D99002DFA2B /* MemoRepository.swift */; };
 		A99B54E420499589002DFA2B /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54E320499588002DFA2B /* MemoViewController.swift */; };
+		A99B54E6204AD12B002DFA2B /* MemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54E5204AD12B002DFA2B /* MemoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		A99B54DF20483144002DFA2B /* MemoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewModel.swift; sourceTree = "<group>"; };
 		A99B54E120483D99002DFA2B /* MemoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoRepository.swift; sourceTree = "<group>"; };
 		A99B54E320499588002DFA2B /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
+		A99B54E5204AD12B002DFA2B /* MemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				A99B54DF20483144002DFA2B /* MemoListViewModel.swift */,
+				A99B54E5204AD12B002DFA2B /* MemoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A99B54E6204AD12B002DFA2B /* MemoViewModel.swift in Sources */,
 				A90FF0392044526600124266 /* ViewController.swift in Sources */,
 				A99B54E220483D99002DFA2B /* MemoRepository.swift in Sources */,
 				A99B54E420499589002DFA2B /* MemoViewController.swift in Sources */,

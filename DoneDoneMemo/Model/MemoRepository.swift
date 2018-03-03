@@ -11,6 +11,12 @@ class MemoRipository {
             memo.id = i
             memo.title = "Memo \(i)"
 
+            let task = Task()
+            task.id = i
+            task.title = "Task \(i)"
+
+            memo.tasks.append(task)
+
             try! realm.write {
                 realm.add(memo, update: true)
             }
