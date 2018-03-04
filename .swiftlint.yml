@@ -7,3 +7,5 @@ disabled_rules: # rule identifiers to exclude from running
     - vertical_whitespace
 opt_in_rules:
     - empty_count
+excluded:
+    - Carthage
