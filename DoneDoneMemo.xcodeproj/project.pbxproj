@@ -21,6 +21,8 @@
 		A99B54E220483D99002DFA2B /* MemoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54E120483D99002DFA2B /* MemoRepository.swift */; };
 		A99B54E420499589002DFA2B /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54E320499588002DFA2B /* MemoViewController.swift */; };
 		A99B54E6204AD12B002DFA2B /* MemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54E5204AD12B002DFA2B /* MemoViewModel.swift */; };
+		A99B54E8204C257A002DFA2B /* InstantiateStandard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54E7204C257A002DFA2B /* InstantiateStandard.framework */; };
+		A99B54EA204C278B002DFA2B /* Instantiate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54E9204C278A002DFA2B /* Instantiate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		A99B54E120483D99002DFA2B /* MemoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoRepository.swift; sourceTree = "<group>"; };
 		A99B54E320499588002DFA2B /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
 		A99B54E5204AD12B002DFA2B /* MemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewModel.swift; sourceTree = "<group>"; };
+		A99B54E7204C257A002DFA2B /* InstantiateStandard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InstantiateStandard.framework; path = Carthage/Build/iOS/InstantiateStandard.framework; sourceTree = "<group>"; };
+		A99B54E9204C278A002DFA2B /* Instantiate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Instantiate.framework; path = Carthage/Build/iOS/Instantiate.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A99B54EA204C278B002DFA2B /* Instantiate.framework in Frameworks */,
+				A99B54E8204C257A002DFA2B /* InstantiateStandard.framework in Frameworks */,
 				A99B54D12045A5E9002DFA2B /* RxBlocking.framework in Frameworks */,
 				A99B54D22045A5E9002DFA2B /* RealmSwift.framework in Frameworks */,
 				A99B54D32045A5E9002DFA2B /* Realm.framework in Frameworks */,
@@ -122,6 +128,8 @@
 		A99B54C92045A5E9002DFA2B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A99B54E9204C278A002DFA2B /* Instantiate.framework */,
+				A99B54E7204C257A002DFA2B /* InstantiateStandard.framework */,
 				A99B54CD2045A5E9002DFA2B /* Realm.framework */,
 				A99B54CC2045A5E9002DFA2B /* RealmSwift.framework */,
 				A99B54CB2045A5E9002DFA2B /* RxBlocking.framework */,
@@ -286,6 +294,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Instantiate.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/InstantiateStandard.framework",
 			);
 			outputPaths = (
 			);
