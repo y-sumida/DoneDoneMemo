@@ -1,7 +1,9 @@
 import UIKit
+import Instantiate
+import InstantiateStandard
 
 class MemoViewController: UIViewController {
-    var viewModel: MemoViewModel?
+    private var viewModel: MemoViewModel!
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -13,7 +15,7 @@ class MemoViewController: UIViewController {
             NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30, weight: .black),
             NSAttributedStringKey.foregroundColor: UIColor.black
         ]
-        navigationItem.title = viewModel?.memo.title ?? "メモ"
+        navigationItem.title = viewModel.memo.title
 
         tableView.dataSource = self
     }
@@ -25,16 +27,21 @@ class MemoViewController: UIViewController {
 
 extension MemoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.memo.tasks.count ?? 0
+        return viewModel.memo.tasks.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        guard let vm = viewModel else { return UITableViewCell() }
 
-        if indexPath.row < vm.memo.tasks.count {
-            cell.textLabel?.text = vm.memo.tasks[indexPath.row].title
+        if indexPath.row < viewModel.memo.tasks.count {
+            cell.textLabel?.text = viewModel.memo.tasks[indexPath.row].title
         }
         return cell
+    }
+}
+
+extension MemoViewController: StoryboardInstantiatable {
+    func inject(_ dependency: MemoViewModel) {
+        self.viewModel = dependency
     }
 }

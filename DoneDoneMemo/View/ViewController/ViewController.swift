@@ -50,9 +50,8 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row < viewModel.memos.count else { return }
-        if let vc = UIStoryboard(name: "MemoViewController", bundle: nil).instantiateViewController(withIdentifier: "MemoViewController") as? MemoViewController {
-            vc.viewModel = MemoViewModel(memo: viewModel.memos[indexPath.row])
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let vm = MemoViewModel(memo: viewModel.memos[indexPath.row])
+        let vc = MemoViewController(with: vm)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
