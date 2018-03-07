@@ -11,11 +11,12 @@ class MemoRipository {
             memo.id = i
             memo.title = "Memo \(i)"
 
-            let task = Task()
-            task.id = i
-            task.title = "Task \(i)"
-
-            memo.tasks.append(task)
+            for j in 0...10 {
+                let task = Task()
+                task.id = i * 100 + j
+                task.title = "Task \(j)"
+                memo.tasks.append(task)
+            }
 
             try! realm.write {
                 realm.add(memo, update: true)
