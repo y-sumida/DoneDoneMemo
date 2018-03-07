@@ -48,7 +48,8 @@ extension MemoViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete, viewModel.numberOfTasks > indexPath.row {
-            print("TODO 削除処理")
+            viewModel.deleteTask(at: indexPath.row)
+            tableView.reloadData() // TODO RxSwiftで検知する
         }
     }
 }

@@ -10,4 +10,9 @@ struct MemoViewModel {
         self.memo = memo
     }
     // TODO: CRUD処理
+
+    func deleteTask(at: Int) {
+        // TODO id指定したい
+        memo.tasks.remove(at: at)
+    }
 }
