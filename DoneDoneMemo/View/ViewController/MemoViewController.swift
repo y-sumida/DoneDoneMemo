@@ -28,13 +28,13 @@ class MemoViewController: UIViewController {
 
 extension MemoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.memo.tasks.count
+        return viewModel.numberOfTasks
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
 
-        if indexPath.row < viewModel.memo.tasks.count {
+        if indexPath.row < viewModel.numberOfTasks {
             cell.textLabel?.text = viewModel.memo.tasks[indexPath.row].title
         }
         return cell
@@ -47,7 +47,7 @@ extension MemoViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete, viewModel.memo.tasks.count > indexPath.row {
+        if editingStyle == .delete, viewModel.numberOfTasks > indexPath.row {
             print("TODO 削除処理")
         }
     }
