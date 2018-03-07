@@ -18,6 +18,7 @@ class MemoViewController: UIViewController {
         navigationItem.title = viewModel.memo.title
 
         tableView.dataSource = self
+        tableView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +38,18 @@ extension MemoViewController: UITableViewDataSource {
             cell.textLabel?.text = viewModel.memo.tasks[indexPath.row].title
         }
         return cell
+    }
+}
+
+extension MemoViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "削除"
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete, viewModel.memo.tasks.count > indexPath.row {
+            print("TODO 削除処理")
+        }
     }
 }
 
