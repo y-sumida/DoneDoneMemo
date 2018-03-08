@@ -19,6 +19,9 @@ class MemoViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
+
+        let nib = UINib(nibName: "TaskCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "TaskCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,10 +35,9 @@ extension MemoViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell") as? TaskCell else { return UITableViewCell() }
         if indexPath.row < viewModel.numberOfTasks {
-            cell.textLabel?.text = viewModel.memo.tasks[indexPath.row].title
+            cell.textField.text = viewModel.memo.tasks[indexPath.row].title
         }
         return cell
     }
