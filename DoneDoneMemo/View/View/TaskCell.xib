@@ -25,11 +25,14 @@
                             <constraint firstAttribute="width" constant="37" id="KWS-pP-26o"/>
                         </constraints>
                         <state key="normal" title="Done"/>
+                        <connections>
+                            <action selector="tapDoneButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3K8-8S-Tfv"/>
+                        </connections>
                     </button>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-Zj-eL3">
-                        <rect key="frame" x="53" y="4" width="205" height="35.5"/>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-Zj-eL3">
+                        <rect key="frame" x="53" y="8" width="205" height="27.5"/>
                         <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jo-Jb-YPc">
@@ -38,21 +41,26 @@
                             <constraint firstAttribute="width" constant="46" id="f2X-ln-9Hb"/>
                         </constraints>
                         <state key="normal" title="Edit"/>
+                        <connections>
+                            <action selector="tapEditButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bRK-fY-QW9"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ZLj-Pq-va8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="0aZ-bU-soY"/>
                     <constraint firstItem="ZLj-Pq-va8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5vA-bT-RSy"/>
                     <constraint firstAttribute="trailing" secondItem="8jo-Jb-YPc" secondAttribute="trailing" constant="8" id="D5L-mI-PdE"/>
-                    <constraint firstAttribute="bottom" secondItem="JTs-Zj-eL3" secondAttribute="bottom" constant="4" id="MkG-LJ-u64"/>
+                    <constraint firstAttribute="bottom" secondItem="JTs-Zj-eL3" secondAttribute="bottom" constant="8" id="MkG-LJ-u64"/>
                     <constraint firstItem="8jo-Jb-YPc" firstAttribute="leading" secondItem="JTs-Zj-eL3" secondAttribute="trailing" constant="8" id="PHL-gy-Ha3"/>
                     <constraint firstItem="JTs-Zj-eL3" firstAttribute="leading" secondItem="ZLj-Pq-va8" secondAttribute="trailing" constant="8" id="REz-Ds-VBo"/>
                     <constraint firstItem="8jo-Jb-YPc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gbg-ko-pZP"/>
-                    <constraint firstItem="JTs-Zj-eL3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="hNR-7o-NU6"/>
+                    <constraint firstItem="JTs-Zj-eL3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="hNR-7o-NU6"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="doneButton" destination="5vA-bT-RSy" id="FfA-jp-ADl"/>
+                <outlet property="editButton" destination="8jo-Jb-YPc" id="qYC-uL-luL"/>
                 <outlet property="textField" destination="JTs-Zj-eL3" id="Dwa-cs-JcE"/>
             </connections>
         </tableViewCell>
