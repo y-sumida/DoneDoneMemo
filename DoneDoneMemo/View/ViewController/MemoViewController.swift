@@ -37,7 +37,7 @@ extension MemoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell") as? TaskCell else { return UITableViewCell() }
         if indexPath.row < viewModel.numberOfTasks {
-            cell.textField.text = viewModel.memo.tasks[indexPath.row].title
+            cell.task = viewModel.memo.tasks[indexPath.row].title
         }
         return cell
     }

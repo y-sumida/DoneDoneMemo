@@ -12,6 +12,16 @@ class TaskCell: UITableViewCell {
         }
     }
 
+    var task: String = "task" {
+        didSet {
+            let stringAttributes: [NSAttributedStringKey: Any] = [
+                .font: UIFont.systemFont(ofSize: 17, weight: .black)
+            ]
+            let string = NSAttributedString(string: task, attributes: stringAttributes)
+            textField.attributedText = string
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         textField.isUserInteractionEnabled = false // いらない？

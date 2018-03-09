@@ -29,10 +29,9 @@
                             <action selector="tapDoneButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3K8-8S-Tfv"/>
                         </connections>
                     </button>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-Zj-eL3">
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-Zj-eL3">
                         <rect key="frame" x="53" y="8" width="205" height="27.5"/>
-                        <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <attributedString key="attributedText"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jo-Jb-YPc">
