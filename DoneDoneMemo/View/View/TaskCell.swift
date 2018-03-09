@@ -9,6 +9,7 @@ class TaskCell: UITableViewCell {
         didSet {
             editButton.isEnabled = !done
             // TODO 取り消し線とかチェックマークとか
+            self.toggleTask()
         }
     }
 
@@ -37,5 +38,19 @@ class TaskCell: UITableViewCell {
 
     @IBAction func tapEditButton(_ sender: Any) {
         textField.becomeFirstResponder()
+    }
+
+    private func toggleTask() {
+        if let attributedText = textField.attributedText {
+            var stringAttributes: [NSAttributedStringKey: Any] = [
+                .font: UIFont.systemFont(ofSize: 17, weight: .black)
+            ]
+            if done {
+                stringAttributes[.strikethroughStyle] = 2
+                stringAttributes[.foregroundColor] = UIColor.lightGray
+            }
+            let string = NSAttributedString(string: attributedText.string, attributes: stringAttributes)
+            textField.attributedText = string
+        }
     }
 }
