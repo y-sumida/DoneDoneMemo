@@ -1,6 +1,6 @@
 struct MemoListViewModel {
     private let repository = MemoRipository()
-    var memos: [Memo] = [] // TODO privateにする
+    private var memos: [Memo] = []
 
     var numberOfMemos: Int {
         return memos.count
@@ -8,6 +8,11 @@ struct MemoListViewModel {
 
     init() {
         memos = repository.fetch()
+    }
+
+    func memo(at index: Int) -> Memo? {
+        guard index < numberOfMemos else { return nil }
+        return memos[index]
     }
 
     // TODO: CRUD処理

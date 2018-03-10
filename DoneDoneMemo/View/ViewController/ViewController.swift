@@ -41,7 +41,7 @@ extension ViewController: UITableViewDataSource {
         let cell = UITableViewCell()
 
         if indexPath.row < viewModel.numberOfMemos {
-            cell.textLabel?.text = viewModel.memos[indexPath.row].title
+            cell.textLabel?.text = viewModel.memo(at: indexPath.row)?.title
         }
         return cell
     }
@@ -49,8 +49,8 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard indexPath.row < viewModel.numberOfMemos else { return }
-        let vm = MemoViewModel(memo: viewModel.memos[indexPath.row])
+        guard let memo = viewModel.memo(at: indexPath.row) else { return }
+        let vm = MemoViewModel(memo: memo)
         let vc = MemoViewController(with: vm)
         self.navigationController?.pushViewController(vc, animated: true)
     }
