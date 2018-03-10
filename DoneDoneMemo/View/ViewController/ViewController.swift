@@ -50,7 +50,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let memo = viewModel.memo(at: indexPath.row) else { return }
-        let vm = MemoViewModel(memo: memo)
+        let vm = MemoViewModel(from: memo)
         let vc = MemoViewController(with: vm)
         self.navigationController?.pushViewController(vc, animated: true)
     }

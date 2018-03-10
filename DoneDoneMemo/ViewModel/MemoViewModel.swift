@@ -6,7 +6,7 @@ struct MemoViewModel {
         return memo.tasks.count
     }
 
-    init(memo: Memo) {
+    init(from memo: Memo) {
         self.memo = memo
     }
     // TODO: CRUD処理
