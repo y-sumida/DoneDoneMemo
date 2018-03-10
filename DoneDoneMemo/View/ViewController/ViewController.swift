@@ -54,4 +54,15 @@ extension ViewController: UITableViewDelegate {
         let vc = MemoViewController(with: vm)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "削除"
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete, viewModel.memos.count > indexPath.row {
+            viewModel.deleteMemo(at: indexPath.row)
+            tableView.reloadData() // TODO RxSwiftで検知する
+        }
+    }
 }
