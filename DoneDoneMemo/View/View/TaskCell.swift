@@ -5,7 +5,7 @@ class TaskCell: UITableViewCell {
     @IBOutlet weak var doneButton: NSLayoutConstraint!
     @IBOutlet weak var editButton: UIButton!
 
-    var done: Bool = false {
+    private var done: Bool = false {
         didSet {
             editButton.isEnabled = !done
             // TODO 取り消し線とかチェックマークとか
@@ -13,13 +13,21 @@ class TaskCell: UITableViewCell {
         }
     }
 
-    var task: String = "task" {
+    private var title: String = "task" {
         didSet {
             let stringAttributes: [NSAttributedStringKey: Any] = [
                 .font: UIFont.systemFont(ofSize: 17, weight: .black)
             ]
-            let string = NSAttributedString(string: task, attributes: stringAttributes)
+            let string = NSAttributedString(string: title, attributes: stringAttributes)
             textField.attributedText = string
+        }
+    }
+
+    var task: Task? {
+        didSet {
+            guard let value = task else { return }
+            done = value.done
+            title = value.title
         }
     }
 
@@ -33,6 +41,7 @@ class TaskCell: UITableViewCell {
     }
 
     @IBAction func tapDoneButton(_ sender: Any) {
+        // TODO ViewContoller側で検知して、VM経由でRealmを更新する
         done = !done
     }
 

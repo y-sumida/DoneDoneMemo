@@ -9,6 +9,12 @@ struct MemoViewModel {
     init(from memo: Memo) {
         self.memo = memo
     }
+
+    func task(at index: Int) -> Task? {
+        guard index < numberOfTasks else { return nil }
+        return memo.tasks[index]
+    }
+
     // TODO: CRUD処理
 
     func deleteTask(at: Int) {
