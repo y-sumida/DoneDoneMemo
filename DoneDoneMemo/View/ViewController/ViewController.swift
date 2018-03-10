@@ -34,13 +34,13 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.memos.count
+        return viewModel.numberOfMemos
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
 
-        if indexPath.row < viewModel.memos.count {
+        if indexPath.row < viewModel.numberOfMemos {
             cell.textLabel?.text = viewModel.memos[indexPath.row].title
         }
         return cell
@@ -49,7 +49,7 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard indexPath.row < viewModel.memos.count else { return }
+        guard indexPath.row < viewModel.numberOfMemos else { return }
         let vm = MemoViewModel(memo: viewModel.memos[indexPath.row])
         let vc = MemoViewController(with: vm)
         self.navigationController?.pushViewController(vc, animated: true)
@@ -60,7 +60,7 @@ extension ViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete, viewModel.memos.count > indexPath.row {
+        if editingStyle == .delete, viewModel.numberOfMemos > indexPath.row {
             viewModel.deleteMemo(at: indexPath.row)
             tableView.reloadData() // TODO RxSwiftで検知する
         }
