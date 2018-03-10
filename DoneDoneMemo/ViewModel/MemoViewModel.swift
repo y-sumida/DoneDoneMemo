@@ -1,6 +1,9 @@
 struct MemoViewModel {
-    // TODO private化する
-    var memo: Memo!
+    private var memo: Memo!
+
+    var title: String {
+        return memo.title
+    }
 
     var numberOfTasks: Int {
         return memo.tasks.count

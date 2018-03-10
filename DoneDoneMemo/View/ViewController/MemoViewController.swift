@@ -15,7 +15,7 @@ class MemoViewController: UIViewController {
             NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30, weight: .black),
             NSAttributedStringKey.foregroundColor: UIColor.black
         ]
-        navigationItem.title = viewModel.memo.title
+        navigationItem.title = viewModel.title
 
         tableView.dataSource = self
         tableView.delegate = self
