@@ -24,13 +24,24 @@
                                     <segue destination="ZrF-VG-yoy" kind="embed" id="whd-w5-q0m"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCQ-dQ-t2T">
+                                <rect key="frame" x="299" y="591" width="56" height="56"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="ISj-rI-bEJ"/>
+                                    <constraint firstAttribute="width" constant="56" id="PlP-UR-7QF"/>
+                                </constraints>
+                                <state key="normal" image="ic_add"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4AP-4a-2XF" firstAttribute="leading" secondItem="NKJ-Uj-pdR" secondAttribute="leading" id="6fL-sG-6SC"/>
+                            <constraint firstItem="NKJ-Uj-pdR" firstAttribute="trailing" secondItem="KCQ-dQ-t2T" secondAttribute="trailing" constant="20" id="Ca5-ur-rmm"/>
                             <constraint firstItem="4AP-4a-2XF" firstAttribute="top" secondItem="NKJ-Uj-pdR" secondAttribute="top" id="NUT-ad-lnv"/>
                             <constraint firstItem="NKJ-Uj-pdR" firstAttribute="bottom" secondItem="4AP-4a-2XF" secondAttribute="bottom" id="hS3-Wb-YYa"/>
                             <constraint firstItem="4AP-4a-2XF" firstAttribute="trailing" secondItem="NKJ-Uj-pdR" secondAttribute="trailing" id="jUi-OP-KGA"/>
+                            <constraint firstItem="NKJ-Uj-pdR" firstAttribute="bottom" secondItem="KCQ-dQ-t2T" secondAttribute="bottom" constant="20" id="pIa-1x-hJu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NKJ-Uj-pdR"/>
                     </view>
@@ -54,6 +65,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="z7d-yx-6RC"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="bJ1-Ag-PlN" id="Vvr-tN-a8M"/>
@@ -64,4 +76,7 @@
             <point key="canvasLocation" x="1065" y="-89"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_add" width="48" height="48"/>
+    </resources>
 </document>
