@@ -3,7 +3,26 @@ import Instantiate
 import InstantiateStandard
 
 class MemoViewController: UIViewController {
+    private var container: MemoContainerViewController!
     private var viewModel: MemoViewModel!
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let table = segue.destination as? MemoContainerViewController {
+            container = table
+            container.viewModel = viewModel
+            return
+        }
+    }
+}
+
+extension MemoViewController: StoryboardInstantiatable {
+    func inject(_ dependency: MemoViewModel) {
+        self.viewModel = dependency
+    }
+}
+
+class MemoContainerViewController: UIViewController {
+    var viewModel: MemoViewModel!
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -29,7 +48,7 @@ class MemoViewController: UIViewController {
     }
 }
 
-extension MemoViewController: UITableViewDataSource {
+extension MemoContainerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfTasks
     }
@@ -43,7 +62,7 @@ extension MemoViewController: UITableViewDataSource {
     }
 }
 
-extension MemoViewController: UITableViewDelegate {
+extension MemoContainerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "削除"
     }
@@ -56,8 +75,3 @@ extension MemoViewController: UITableViewDelegate {
     }
 }
 
-extension MemoViewController: StoryboardInstantiatable {
-    func inject(_ dependency: MemoViewModel) {
-        self.viewModel = dependency
-    }
-}
