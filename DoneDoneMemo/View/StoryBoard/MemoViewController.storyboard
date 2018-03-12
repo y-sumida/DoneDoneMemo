@@ -24,7 +24,7 @@
                                     <segue destination="ZrF-VG-yoy" kind="embed" id="whd-w5-q0m"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCQ-dQ-t2T">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCQ-dQ-t2T" customClass="AddButton" customModule="DoneDoneMemo" customModuleProvider="target">
                                 <rect key="frame" x="299" y="591" width="56" height="56"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
