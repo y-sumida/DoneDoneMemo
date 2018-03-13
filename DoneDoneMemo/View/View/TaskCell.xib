@@ -19,18 +19,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLj-Pq-va8">
-                        <rect key="frame" x="8" y="6" width="37" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLj-Pq-va8">
+                        <rect key="frame" x="8" y="-3" width="37" height="48"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="37" id="KWS-pP-26o"/>
                         </constraints>
-                        <state key="normal" title="Done"/>
+                        <state key="normal" title="Done" image="ic_done"/>
                         <connections>
-                            <action selector="tapDoneButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3K8-8S-Tfv"/>
+                            <action selector="tapDoneButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NRH-j8-xhE"/>
                         </connections>
                     </button>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-Zj-eL3">
-                        <rect key="frame" x="53" y="8" width="205" height="27.5"/>
+                        <rect key="frame" x="53" y="16" width="205" height="11.5"/>
                         <attributedString key="attributedText"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
@@ -49,19 +49,22 @@
                     <constraint firstItem="ZLj-Pq-va8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="0aZ-bU-soY"/>
                     <constraint firstItem="ZLj-Pq-va8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5vA-bT-RSy"/>
                     <constraint firstAttribute="trailing" secondItem="8jo-Jb-YPc" secondAttribute="trailing" constant="8" id="D5L-mI-PdE"/>
-                    <constraint firstAttribute="bottom" secondItem="JTs-Zj-eL3" secondAttribute="bottom" constant="8" id="MkG-LJ-u64"/>
+                    <constraint firstAttribute="bottom" secondItem="JTs-Zj-eL3" secondAttribute="bottom" constant="16" id="MkG-LJ-u64"/>
                     <constraint firstItem="8jo-Jb-YPc" firstAttribute="leading" secondItem="JTs-Zj-eL3" secondAttribute="trailing" constant="8" id="PHL-gy-Ha3"/>
                     <constraint firstItem="JTs-Zj-eL3" firstAttribute="leading" secondItem="ZLj-Pq-va8" secondAttribute="trailing" constant="8" id="REz-Ds-VBo"/>
                     <constraint firstItem="8jo-Jb-YPc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gbg-ko-pZP"/>
-                    <constraint firstItem="JTs-Zj-eL3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="hNR-7o-NU6"/>
+                    <constraint firstItem="JTs-Zj-eL3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="hNR-7o-NU6"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="doneButton" destination="5vA-bT-RSy" id="FfA-jp-ADl"/>
+                <outlet property="doneButton" destination="ZLj-Pq-va8" id="ona-G6-9au"/>
                 <outlet property="editButton" destination="8jo-Jb-YPc" id="qYC-uL-luL"/>
                 <outlet property="textField" destination="JTs-Zj-eL3" id="Dwa-cs-JcE"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic_done" width="48" height="48"/>
+    </resources>
 </document>
