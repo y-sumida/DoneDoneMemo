@@ -47,31 +47,6 @@
             </objects>
             <point key="canvasLocation" x="321" y="117"/>
         </scene>
-        <!--Memo Container View Controller-->
-        <scene sceneID="j3S-Xh-zc6">
-            <objects>
-                <viewController storyboardIdentifier="MemoContainerViewController" id="ZrF-VG-yoy" customClass="MemoContainerViewController" customModule="DoneDoneMemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4Of-bk-hMr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bJ1-Ag-PlN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="z7d-yx-6RC"/>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="bJ1-Ag-PlN" id="Vvr-tN-a8M"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rDk-WW-b7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1065" y="-89"/>
-        </scene>
     </scenes>
     <resources>
         <image name="ic_add" width="48" height="48"/>

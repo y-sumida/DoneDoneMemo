@@ -3,13 +3,13 @@ import Instantiate
 import InstantiateStandard
 
 class MemoViewController: UIViewController {
-    private var content: MemoContainerViewController!
+    private var content: MemoContentViewController!
     private var viewModel: MemoViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        content = MemoContainerViewController(with: viewModel)
+        content = MemoContentViewController(with: viewModel)
         addChildViewController(content)
         content.view.frame = self.view.bounds
         self.view.addSubview(content.view)
@@ -23,7 +23,7 @@ extension MemoViewController: StoryboardInstantiatable {
     }
 }
 
-class MemoContainerViewController: UIViewController {
+class MemoContentViewController: UIViewController {
     var viewModel: MemoViewModel!
 
     @IBOutlet weak var tableView: UITableView!
@@ -50,15 +50,13 @@ class MemoContainerViewController: UIViewController {
     }
 }
 
-extension MemoContainerViewController: StoryboardInstantiatable {
-    static var storyboard = MemoViewController.storyboard
-    static var instantiateSource: InstantiateSource { return .identifier(.from(MemoContainerViewController.self)) }
+extension MemoContentViewController: StoryboardInstantiatable {
     func inject(_ dependency: MemoViewModel) {
         self.viewModel = dependency
     }
 }
 
-extension MemoContainerViewController: UITableViewDataSource {
+extension MemoContentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfTasks
     }
@@ -72,7 +70,7 @@ extension MemoContainerViewController: UITableViewDataSource {
     }
 }
 
-extension MemoContainerViewController: UITableViewDelegate {
+extension MemoContentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "削除"
     }
