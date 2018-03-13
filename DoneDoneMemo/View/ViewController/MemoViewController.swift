@@ -6,6 +6,8 @@ class MemoViewController: UIViewController {
     private var content: MemoContentViewController!
     private var viewModel: MemoViewModel!
 
+    @IBOutlet weak var addButton: AddButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -14,6 +16,8 @@ class MemoViewController: UIViewController {
         content.view.frame = self.view.bounds
         self.view.addSubview(content.view)
         content.didMove(toParentViewController: self)
+
+        self.view.bringSubview(toFront: addButton)
     }
 }
 
