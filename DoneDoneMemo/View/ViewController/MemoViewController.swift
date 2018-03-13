@@ -3,15 +3,17 @@ import Instantiate
 import InstantiateStandard
 
 class MemoViewController: UIViewController {
-    private var container: MemoContainerViewController!
+    private var content: MemoContainerViewController!
     private var viewModel: MemoViewModel!
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let table = segue.destination as? MemoContainerViewController {
-            container = table
-            container.viewModel = viewModel
-            return
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        content = MemoContainerViewController(with: viewModel)
+        addChildViewController(content)
+        content.view.frame = self.view.bounds
+        self.view.addSubview(content.view)
+        content.didMove(toParentViewController: self)
     }
 }
 
@@ -45,6 +47,14 @@ class MemoContainerViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+extension MemoContainerViewController: StoryboardInstantiatable {
+    static var storyboard = MemoViewController.storyboard
+    static var instantiateSource: InstantiateSource { return .identifier(.from(MemoContainerViewController.self)) }
+    func inject(_ dependency: MemoViewModel) {
+        self.viewModel = dependency
     }
 }
 
