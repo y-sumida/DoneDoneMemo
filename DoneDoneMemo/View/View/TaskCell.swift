@@ -37,7 +37,7 @@ class TaskCell: UITableViewCell {
         super.awakeFromNib()
         textField.isUserInteractionEnabled = false // いらない？
 
-        doneButton.layer.cornerRadius = 4.0
+        doneButton.layer.cornerRadius = 8.0
         doneButton.layer.borderWidth = 2.0
         doneButton.layer.borderColor = UIColor.gray.cgColor
         doneButton.tintColor = UIColor.lightGray
