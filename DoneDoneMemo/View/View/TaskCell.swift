@@ -41,6 +41,8 @@ class TaskCell: UITableViewCell {
         doneButton.layer.borderWidth = 2.0
         doneButton.layer.borderColor = UIColor.gray.cgColor
         doneButton.tintColor = UIColor.lightGray
+
+        textField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -53,6 +55,7 @@ class TaskCell: UITableViewCell {
     }
 
     @IBAction func tapEditButton(_ sender: Any) {
+        textField.isUserInteractionEnabled = true
         textField.becomeFirstResponder()
     }
 
@@ -81,5 +84,13 @@ class TaskCell: UITableViewCell {
             doneButton.setImage(nil, for: .normal)
             doneButton.layer.borderColor = UIColor.gray.cgColor
         }
+    }
+}
+
+extension TaskCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.isUserInteractionEnabled = false
+        textField.resignFirstResponder()
+        return true
     }
 }
