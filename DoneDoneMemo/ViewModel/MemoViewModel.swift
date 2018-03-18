@@ -24,4 +24,8 @@ struct MemoViewModel {
         // TODO id指定したい
         memo.tasks.remove(at: at)
     }
+
+    func toggleDone(at index: Int) {
+        memo.toggleDone(at: index)
+    }
 }

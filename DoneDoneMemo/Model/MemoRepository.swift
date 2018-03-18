@@ -38,6 +38,16 @@ class Memo: RealmSwift.Object {
     override static func primaryKey() -> String? {
         return "id"
     }
+
+    func toggleDone(at index: Int) {
+        guard index < tasks.count else { return }
+        let task = tasks[index]
+        let realm = try! Realm()
+        try! realm.write {
+            task.done = !task.done
+            realm.add(task)
+        }
+    }
 }
 
 class Task: RealmSwift.Object {
