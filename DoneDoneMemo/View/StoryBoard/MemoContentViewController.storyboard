@@ -13,7 +13,6 @@
         <!--Memo Content View Controller-->
         <scene sceneID="Z5l-bW-irs">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="85n-mI-jeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MemoContentViewController" id="qy9-3T-TtK" customClass="MemoContentViewController" customModule="DoneDoneMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kPx-WE-g0y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -22,6 +21,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cK6-gS-gNg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,6 +37,7 @@
                         <outlet property="tableView" destination="cK6-gS-gNg" id="To8-ne-cER"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="85n-mI-jeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1065" y="-89"/>
         </scene>
