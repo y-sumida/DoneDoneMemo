@@ -28,6 +28,7 @@
 		A99B54F420516DB7002DFA2B /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99B54F220516DB7002DFA2B /* TaskCell.xib */; };
 		A99B54F62056BDD4002DFA2B /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54F52056BDD4002DFA2B /* AddButton.swift */; };
 		A99B54F8205805F0002DFA2B /* MemoContentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A99B54F7205805F0002DFA2B /* MemoContentViewController.storyboard */; };
+		A99B54FA205FEB04002DFA2B /* MemoContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54F9205FEB04002DFA2B /* MemoContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		A99B54F220516DB7002DFA2B /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		A99B54F52056BDD4002DFA2B /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		A99B54F7205805F0002DFA2B /* MemoContentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoContentViewController.storyboard; sourceTree = "<group>"; };
+		A99B54F9205FEB04002DFA2B /* MemoContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 		A99B54DD2046FA67002DFA2B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A99B54F9205FEB04002DFA2B /* MemoContentViewController.swift */,
 				A90FF0382044526600124266 /* MemoListViewController.swift */,
 				A99B54E320499588002DFA2B /* MemoViewController.swift */,
 			);
@@ -353,6 +356,7 @@
 				A99B54F320516DB7002DFA2B /* TaskCell.swift in Sources */,
 				A90FF0392044526600124266 /* MemoListViewController.swift in Sources */,
 				A99B54E220483D99002DFA2B /* MemoRepository.swift in Sources */,
+				A99B54FA205FEB04002DFA2B /* MemoContentViewController.swift in Sources */,
 				A99B54E420499589002DFA2B /* MemoViewController.swift in Sources */,
 				A90FF0372044526600124266 /* AppDelegate.swift in Sources */,
 				A99B54E020483144002DFA2B /* MemoListViewModel.swift in Sources */,
