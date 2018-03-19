@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class MemoListViewController: UIViewController {
     private var viewModel = MemoListViewModel()
     @IBOutlet weak var tableView: UITableView!
 
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension MemoListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfMemos
     }
@@ -47,7 +47,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension MemoListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let memo = viewModel.memo(at: indexPath.row) else { return }
         let vm = MemoViewModel(from: memo)
