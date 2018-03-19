@@ -17,19 +17,15 @@ class TaskCell: UITableViewCell {
 
     private var title: String = "task" {
         didSet {
-            let stringAttributes: [NSAttributedStringKey: Any] = [
-                .font: UIFont.systemFont(ofSize: 17, weight: .black)
-            ]
-            let string = NSAttributedString(string: title, attributes: stringAttributes)
-            textField.attributedText = string
+            textField.text = title
         }
     }
 
     var task: Task? {
         didSet {
             guard let value = task else { return }
-            done = value.done
             title = value.title
+            done = value.done
         }
     }
 
