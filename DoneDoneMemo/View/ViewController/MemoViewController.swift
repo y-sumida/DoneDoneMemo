@@ -13,6 +13,8 @@ class MemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = viewModel.title
+
         content = MemoContentViewController(with: viewModel)
         addChildViewController(content)
         content.view.frame = self.view.bounds
@@ -38,13 +40,6 @@ class MemoContentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30, weight: .black),
-            NSAttributedStringKey.foregroundColor: UIColor.black
-        ]
-        navigationItem.title = viewModel.title
 
         tableView.dataSource = self
         tableView.delegate = self
