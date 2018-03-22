@@ -10,8 +10,11 @@ class TaskCell: UITableViewCell {
     private var done: Bool = false {
         didSet {
             editButton.isEnabled = !done
-            // TODO 取り消し線とかチェックマークとか
-            self.toggleTask()
+            if done {
+                check()
+            } else {
+                uncheck()
+            }
         }
     }
 
@@ -47,7 +50,7 @@ class TaskCell: UITableViewCell {
 
     @IBAction func tapDoneButton(_ sender: Any) {
         // TODO ViewContoller側で検知して、VM経由でRealmを更新する
-        done = !done
+        toggleTask()
     }
 
     @IBAction func tapEditButton(_ sender: Any) {
@@ -55,31 +58,38 @@ class TaskCell: UITableViewCell {
         textField.becomeFirstResponder()
     }
 
-    private func toggleTask() {
+    func toggleTask() {
+        done = !done
+    }
+
+    private func check() {
         if let attributedText = textField.attributedText {
-            var stringAttributes: [NSAttributedStringKey: Any] = [
-                .font: UIFont.systemFont(ofSize: 17, weight: .black)
+            let stringAttributes: [NSAttributedStringKey: Any] = [
+                .font: UIFont.systemFont(ofSize: 17, weight: .black),
+                .strikethroughStyle: 2,
+                .foregroundColor: UIColor.lightGray
             ]
-            if done {
-                stringAttributes[.strikethroughStyle] = 2
-                stringAttributes[.foregroundColor] = UIColor.lightGray
-                doneButton.imageView?.isHidden = false
-                doneButton.layer.borderColor = UIColor.lightGray.cgColor
-            } else {
-                doneButton.imageView?.isHidden = true
-                doneButton.layer.borderColor = UIColor.gray.cgColor
-            }
             let string = NSAttributedString(string: attributedText.string, attributes: stringAttributes)
             textField.attributedText = string
         }
 
-        if done {
-            doneButton.setImage(doneImage, for: .normal)
-            doneButton.layer.borderColor = UIColor.lightGray.cgColor
-        } else {
-            doneButton.setImage(nil, for: .normal)
-            doneButton.layer.borderColor = UIColor.gray.cgColor
+        doneButton.imageView?.isHidden = false
+        doneButton.setImage(doneImage, for: .normal)
+        doneButton.layer.borderColor = UIColor.lightGray.cgColor
+    }
+
+    private func uncheck() {
+        if let attributedText = textField.attributedText {
+            let stringAttributes: [NSAttributedStringKey: Any] = [
+                .font: UIFont.systemFont(ofSize: 17, weight: .black)
+            ]
+            let string = NSAttributedString(string: attributedText.string, attributes: stringAttributes)
+            textField.attributedText = string
         }
+
+        doneButton.imageView?.isHidden = true
+        doneButton.setImage(nil, for: .normal)
+        doneButton.layer.borderColor = UIColor.gray.cgColor
     }
 }
 
