@@ -55,9 +55,7 @@ extension MemoContentViewController: UITableViewDataSource {
 extension MemoContentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? TaskCell else { return }
-        cell.setSelected(true, animated: true)
         cell.toggleTask()
-        cell.setSelected(false, animated: true)
         viewModel.toggleDone(at: indexPath.row)
     }
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {

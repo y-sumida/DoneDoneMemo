@@ -59,7 +59,9 @@ class TaskCell: UITableViewCell {
     }
 
     func toggleTask() {
+        setSelected(true, animated: true)
         done = !done
+        setSelected(false, animated: true)
     }
 
     private func check() {
