@@ -16,22 +16,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLj-Pq-va8">
-                        <rect key="frame" x="8" y="7.5" width="44" height="44"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="44" id="7Uj-yd-aA4"/>
-                            <constraint firstAttribute="width" constant="44" id="KWS-pP-26o"/>
-                        </constraints>
-                        <state key="normal" image="ic_done"/>
-                        <connections>
-                            <action selector="tapDoneButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NRH-j8-xhE"/>
-                        </connections>
-                    </button>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-Zj-eL3">
-                        <rect key="frame" x="60" y="19.5" width="198" height="21"/>
+                        <rect key="frame" x="56" y="19.5" width="202" height="21"/>
                         <attributedString key="attributedText"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
@@ -45,28 +34,34 @@
                             <action selector="tapEditButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bRK-fY-QW9"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_checkbox" translatesAutoresizingMaskIntoConstraints="NO" id="Sya-SE-E1o">
+                        <rect key="frame" x="8" y="14" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="386-q3-dI7"/>
+                            <constraint firstAttribute="height" constant="32" id="9px-38-aK7"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ZLj-Pq-va8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="0aZ-bU-soY"/>
                     <constraint firstItem="JTs-Zj-eL3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8Z6-vG-Apg"/>
-                    <constraint firstItem="ZLj-Pq-va8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="BBC-C2-L58"/>
                     <constraint firstAttribute="trailing" secondItem="8jo-Jb-YPc" secondAttribute="trailing" constant="8" id="D5L-mI-PdE"/>
                     <constraint firstItem="8jo-Jb-YPc" firstAttribute="leading" secondItem="JTs-Zj-eL3" secondAttribute="trailing" constant="8" id="PHL-gy-Ha3"/>
-                    <constraint firstItem="JTs-Zj-eL3" firstAttribute="leading" secondItem="ZLj-Pq-va8" secondAttribute="trailing" constant="8" id="REz-Ds-VBo"/>
-                    <constraint firstAttribute="bottom" secondItem="ZLj-Pq-va8" secondAttribute="bottom" constant="8" id="ouU-ZN-qKH"/>
+                    <constraint firstItem="JTs-Zj-eL3" firstAttribute="leading" secondItem="Sya-SE-E1o" secondAttribute="trailing" constant="16" id="Pfz-Xn-pda"/>
+                    <constraint firstItem="Sya-SE-E1o" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fGG-6t-YBb"/>
+                    <constraint firstItem="Sya-SE-E1o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="plw-Ru-LJO"/>
                     <constraint firstItem="8jo-Jb-YPc" firstAttribute="centerY" secondItem="JTs-Zj-eL3" secondAttribute="centerY" id="tlE-Zi-Iet"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="doneButton" destination="ZLj-Pq-va8" id="ona-G6-9au"/>
                 <outlet property="editButton" destination="8jo-Jb-YPc" id="qYC-uL-luL"/>
+                <outlet property="iconView" destination="Sya-SE-E1o" id="2Ea-Na-h1n"/>
                 <outlet property="textField" destination="JTs-Zj-eL3" id="Dwa-cs-JcE"/>
             </connections>
             <point key="canvasLocation" x="33" y="57"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic_done" width="48" height="48"/>
+        <image name="ic_checkbox" width="24" height="24"/>
     </resources>
 </document>

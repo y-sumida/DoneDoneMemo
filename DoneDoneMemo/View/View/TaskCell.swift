@@ -2,10 +2,11 @@ import UIKit
 
 class TaskCell: UITableViewCell {
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var iconView: UIImageView!
 
     let doneImage = UIImage(named: "ic_done")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+    let boxImage = UIImage(named: "ic_checkbox")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
 
     private var done: Bool = false {
         didSet {
@@ -35,22 +36,11 @@ class TaskCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         textField.isUserInteractionEnabled = false // いらない？
-
-        doneButton.layer.cornerRadius = 8.0
-        doneButton.layer.borderWidth = 2.0
-        doneButton.layer.borderColor = UIColor.gray.cgColor
-        doneButton.tintColor = UIColor.lightGray
-
         textField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-    }
-
-    @IBAction func tapDoneButton(_ sender: Any) {
-        // TODO ViewContoller側で検知して、VM経由でRealmを更新する
-        toggleTask()
     }
 
     @IBAction func tapEditButton(_ sender: Any) {
@@ -75,9 +65,8 @@ class TaskCell: UITableViewCell {
             textField.attributedText = string
         }
 
-        doneButton.imageView?.isHidden = false
-        doneButton.setImage(doneImage, for: .normal)
-        doneButton.layer.borderColor = UIColor.lightGray.cgColor
+        iconView.image = doneImage
+        iconView.tintColor = UIColor.lightGray
     }
 
     private func uncheck() {
@@ -89,9 +78,8 @@ class TaskCell: UITableViewCell {
             textField.attributedText = string
         }
 
-        doneButton.imageView?.isHidden = true
-        doneButton.setImage(nil, for: .normal)
-        doneButton.layer.borderColor = UIColor.gray.cgColor
+        iconView.image = boxImage
+        iconView.tintColor = UIColor.gray
     }
 }
 
