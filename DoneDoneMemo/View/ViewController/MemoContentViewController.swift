@@ -1,13 +1,9 @@
 import UIKit
 import Instantiate
 import InstantiateStandard
-import RxSwift
-import RxCocoa
 
 class MemoContentViewController: UIViewController {
     var viewModel: MemoViewModel!
-
-    private let bag: DisposeBag = DisposeBag()
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -43,11 +39,6 @@ extension MemoContentViewController: UITableViewDataSource {
         if let task = viewModel.task(at: indexPath.row) {
             cell.task = task
         }
-        cell.doneButton.rx.tap.subscribe(onNext: { _ in
-            guard let index = tableView.indexPath(for: cell) else { return }
-            self.viewModel.toggleDone(at: index.row)
-        }).disposed(by: bag)
-
         return cell
     }
 }
