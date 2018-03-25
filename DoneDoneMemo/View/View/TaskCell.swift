@@ -54,7 +54,7 @@ class TaskCell: UITableViewCell {
     private func check() {
         if let attributedText = titleLabel.attributedText {
             let stringAttributes: [NSAttributedStringKey: Any] = [
-                .font: UIFont.systemFont(ofSize: 17, weight: .black),
+                .font: UIFont.systemFont(ofSize: 20),
                 .strikethroughStyle: 2,
                 .foregroundColor: UIColor.lightGray
             ]
@@ -69,7 +69,7 @@ class TaskCell: UITableViewCell {
     private func uncheck() {
         if let attributedText = titleLabel.attributedText {
             let stringAttributes: [NSAttributedStringKey: Any] = [
-                .font: UIFont.systemFont(ofSize: 17, weight: .black)
+                .font: UIFont.systemFont(ofSize: 20)
             ]
             let string = NSAttributedString(string: attributedText.string, attributes: stringAttributes)
             titleLabel.attributedText = string

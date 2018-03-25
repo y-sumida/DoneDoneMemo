@@ -31,14 +31,14 @@
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_checkbox" translatesAutoresizingMaskIntoConstraints="NO" id="Sya-SE-E1o">
-                        <rect key="frame" x="8" y="14" width="32" height="32"/>
+                        <rect key="frame" x="12" y="14" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="386-q3-dI7"/>
                             <constraint firstAttribute="height" constant="32" id="9px-38-aK7"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYd-49-X7G">
-                        <rect key="frame" x="56" y="19" width="194" height="22"/>
+                        <rect key="frame" x="52" y="19" width="198" height="22"/>
                         <attributedString key="attributedText">
                             <fragment content="Label">
                                 <attributes>
@@ -53,10 +53,10 @@
                     <constraint firstAttribute="trailing" secondItem="8jo-Jb-YPc" secondAttribute="trailing" constant="8" id="D5L-mI-PdE"/>
                     <constraint firstItem="KYd-49-X7G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="Mck-05-NDR"/>
                     <constraint firstAttribute="bottomMargin" secondItem="KYd-49-X7G" secondAttribute="bottom" constant="8" id="Ye0-ci-RTp"/>
-                    <constraint firstItem="KYd-49-X7G" firstAttribute="leading" secondItem="Sya-SE-E1o" secondAttribute="trailing" constant="16" id="de9-0L-GKM"/>
+                    <constraint firstItem="KYd-49-X7G" firstAttribute="leading" secondItem="Sya-SE-E1o" secondAttribute="trailing" constant="8" id="de9-0L-GKM"/>
                     <constraint firstItem="8jo-Jb-YPc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eNr-1P-taP"/>
                     <constraint firstItem="Sya-SE-E1o" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fGG-6t-YBb"/>
-                    <constraint firstItem="Sya-SE-E1o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="plw-Ru-LJO"/>
+                    <constraint firstItem="Sya-SE-E1o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="plw-Ru-LJO"/>
                     <constraint firstItem="8jo-Jb-YPc" firstAttribute="leading" secondItem="KYd-49-X7G" secondAttribute="trailing" constant="16" id="tcO-c1-KF2"/>
                 </constraints>
             </tableViewCellContentView>
