@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,14 +17,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-Zj-eL3">
-                        <rect key="frame" x="56" y="19.5" width="202" height="21"/>
-                        <attributedString key="attributedText"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jo-Jb-YPc">
                         <rect key="frame" x="266" y="15" width="46" height="30"/>
                         <constraints>
@@ -41,22 +37,34 @@
                             <constraint firstAttribute="height" constant="32" id="9px-38-aK7"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYd-49-X7G">
+                        <rect key="frame" x="56" y="19" width="194" height="22"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Label">
+                                <attributes>
+                                    <font key="NSFont" metaFont="system" size="17"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="JTs-Zj-eL3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8Z6-vG-Apg"/>
                     <constraint firstAttribute="trailing" secondItem="8jo-Jb-YPc" secondAttribute="trailing" constant="8" id="D5L-mI-PdE"/>
-                    <constraint firstItem="8jo-Jb-YPc" firstAttribute="leading" secondItem="JTs-Zj-eL3" secondAttribute="trailing" constant="8" id="PHL-gy-Ha3"/>
-                    <constraint firstItem="JTs-Zj-eL3" firstAttribute="leading" secondItem="Sya-SE-E1o" secondAttribute="trailing" constant="16" id="Pfz-Xn-pda"/>
+                    <constraint firstItem="KYd-49-X7G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="Mck-05-NDR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="KYd-49-X7G" secondAttribute="bottom" constant="8" id="Ye0-ci-RTp"/>
+                    <constraint firstItem="KYd-49-X7G" firstAttribute="leading" secondItem="Sya-SE-E1o" secondAttribute="trailing" constant="16" id="de9-0L-GKM"/>
+                    <constraint firstItem="8jo-Jb-YPc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eNr-1P-taP"/>
                     <constraint firstItem="Sya-SE-E1o" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fGG-6t-YBb"/>
                     <constraint firstItem="Sya-SE-E1o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="plw-Ru-LJO"/>
-                    <constraint firstItem="8jo-Jb-YPc" firstAttribute="centerY" secondItem="JTs-Zj-eL3" secondAttribute="centerY" id="tlE-Zi-Iet"/>
+                    <constraint firstItem="8jo-Jb-YPc" firstAttribute="leading" secondItem="KYd-49-X7G" secondAttribute="trailing" constant="16" id="tcO-c1-KF2"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="editButton" destination="8jo-Jb-YPc" id="qYC-uL-luL"/>
                 <outlet property="iconView" destination="Sya-SE-E1o" id="2Ea-Na-h1n"/>
-                <outlet property="textField" destination="JTs-Zj-eL3" id="Dwa-cs-JcE"/>
+                <outlet property="titleLabel" destination="KYd-49-X7G" id="kte-SC-NTU"/>
             </connections>
             <point key="canvasLocation" x="33" y="57"/>
         </tableViewCell>

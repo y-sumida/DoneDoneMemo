@@ -1,7 +1,7 @@
 import UIKit
 
 class TaskCell: UITableViewCell {
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var iconView: UIImageView!
 
@@ -21,7 +21,7 @@ class TaskCell: UITableViewCell {
 
     private var title: String = "task" {
         didSet {
-            textField.text = title
+            titleLabel.text = title
         }
     }
 
@@ -35,8 +35,6 @@ class TaskCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        textField.isUserInteractionEnabled = false // いらない？
-        textField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -44,8 +42,7 @@ class TaskCell: UITableViewCell {
     }
 
     @IBAction func tapEditButton(_ sender: Any) {
-        textField.isUserInteractionEnabled = true
-        textField.becomeFirstResponder()
+        // TODO VC側で監視する
     }
 
     func toggleTask() {
@@ -55,14 +52,14 @@ class TaskCell: UITableViewCell {
     }
 
     private func check() {
-        if let attributedText = textField.attributedText {
+        if let attributedText = titleLabel.attributedText {
             let stringAttributes: [NSAttributedStringKey: Any] = [
                 .font: UIFont.systemFont(ofSize: 17, weight: .black),
                 .strikethroughStyle: 2,
                 .foregroundColor: UIColor.lightGray
             ]
             let string = NSAttributedString(string: attributedText.string, attributes: stringAttributes)
-            textField.attributedText = string
+            titleLabel.attributedText = string
         }
 
         iconView.image = doneImage
@@ -70,23 +67,15 @@ class TaskCell: UITableViewCell {
     }
 
     private func uncheck() {
-        if let attributedText = textField.attributedText {
+        if let attributedText = titleLabel.attributedText {
             let stringAttributes: [NSAttributedStringKey: Any] = [
                 .font: UIFont.systemFont(ofSize: 17, weight: .black)
             ]
             let string = NSAttributedString(string: attributedText.string, attributes: stringAttributes)
-            textField.attributedText = string
+            titleLabel.attributedText = string
         }
 
         iconView.image = boxImage
         iconView.tintColor = UIColor.gray
-    }
-}
-
-extension TaskCell: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.isUserInteractionEnabled = false
-        textField.resignFirstResponder()
-        return true
     }
 }
