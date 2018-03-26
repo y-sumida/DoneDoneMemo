@@ -49,6 +49,7 @@ extension MemoContentViewController: UITableViewDelegate {
         guard let cell = tableView.cellForRow(at: indexPath) as? TaskCell else { return }
         cell.toggleTask()
         viewModel.toggleDone(at: indexPath.row)
+        self.tableView.deselectRow(at: indexPath, animated: false)
     }
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "削除"

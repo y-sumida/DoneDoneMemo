@@ -37,8 +37,8 @@ class TaskCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    override func prepareForReuse() {
+        setSelected(false, animated: false)
     }
 
     @IBAction func tapEditButton(_ sender: Any) {
