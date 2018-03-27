@@ -62,7 +62,7 @@ extension MemoListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete, viewModel.numberOfMemos > indexPath.row {
             viewModel.deleteMemo(at: indexPath.row)
-            tableView.reloadData() // TODO RxSwiftで検知する
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
 }
