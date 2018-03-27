@@ -54,10 +54,18 @@ class Task: RealmSwift.Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var title: String = ""
     @objc dynamic var done: Bool = false
+    @objc dynamic var active: Bool = true
 
     let memo = LinkingObjects(fromType: Memo.self, property: "tasks")
 
     override static func primaryKey() -> String? {
         return "id"
+    }
+
+    func delete() {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(self)
+        }
     }
 }

@@ -20,9 +20,11 @@ struct MemoViewModel {
 
     // TODO: CRUD処理
 
-    func deleteTask(at: Int) {
-        // TODO id指定したい
-        memo.tasks.remove(at: at)
+    func deleteTask(at index: Int) {
+        guard index < numberOfTasks else { return }
+        let task = memo.tasks[index]
+        memo.tasks.remove(at: index)
+        task.delete()
     }
 
     func toggleDone(at index: Int) {
