@@ -25,14 +25,6 @@ class TaskCell: UITableViewCell {
         }
     }
 
-    var task: Task? {
-        didSet {
-            guard let value = task else { return }
-            title = value.title
-            done = value.done
-        }
-    }
-
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -49,6 +41,11 @@ class TaskCell: UITableViewCell {
         setSelected(true, animated: true)
         done = !done
         setSelected(false, animated: true)
+    }
+
+    func configure(task: Task) {
+        title = task.title
+        done = task.done
     }
 
     private func check() {
