@@ -3,7 +3,7 @@ import Instantiate
 import InstantiateStandard
 
 final class MemoContentViewController: UIViewController {
-    var viewModel: MemoViewModel!
+    private var viewModel: MemoViewModel!
 
     @IBOutlet weak var tableView: UITableView!
 

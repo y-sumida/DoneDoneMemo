@@ -5,8 +5,8 @@ final class TaskCell: UITableViewCell {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var iconView: UIImageView!
 
-    let doneImage = UIImage(named: "ic_done")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
-    let boxImage = UIImage(named: "ic_checkbox")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+    private let doneImage = UIImage(named: "ic_done")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+    private let boxImage = UIImage(named: "ic_checkbox")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
 
     private var done: Bool = false {
         didSet {
