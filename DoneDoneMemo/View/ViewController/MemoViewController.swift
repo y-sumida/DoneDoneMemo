@@ -2,7 +2,7 @@ import UIKit
 import Instantiate
 import InstantiateStandard
 
-class MemoViewController: UIViewController {
+final class MemoViewController: UIViewController {
     private var content: MemoContentViewController!
     private var viewModel: MemoViewModel!
 

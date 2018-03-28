@@ -2,7 +2,7 @@ import UIKit
 import Instantiate
 import InstantiateStandard
 
-class MemoContentViewController: UIViewController {
+final class MemoContentViewController: UIViewController {
     var viewModel: MemoViewModel!
 
     @IBOutlet weak var tableView: UITableView!

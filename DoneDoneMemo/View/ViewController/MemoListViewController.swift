@@ -1,6 +1,6 @@
 import UIKit
 
-class MemoListViewController: UIViewController {
+final class MemoListViewController: UIViewController {
     private var viewModel = MemoListViewModel()
     @IBOutlet weak var tableView: UITableView!
 
