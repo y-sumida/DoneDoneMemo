@@ -5,6 +5,7 @@ import InstantiateStandard
 final class MemoViewController: UIViewController {
     private var content: MemoContentViewController!
     private var viewModel: MemoViewModel!
+    private var accessoryView: KeyboardTextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +17,16 @@ final class MemoViewController: UIViewController {
         content.view.frame = self.view.bounds
         self.view.addSubview(content.view)
         content.didMove(toParentViewController: self)
+
+        accessoryView = KeyboardTextView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+    }
+
+    override var inputAccessoryView: UIView? {
+        return accessoryView
+    }
+
+    override var canBecomeFirstResponder: Bool {
+        return true
     }
 }
 

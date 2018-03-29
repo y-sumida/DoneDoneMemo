@@ -1,6 +1,7 @@
 import UIKit
 import Instantiate
 import InstantiateStandard
+import RxCocoa
 
 final class MemoContentViewController: UIViewController {
     private var viewModel: MemoViewModel!
@@ -13,7 +14,7 @@ final class MemoContentViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.keyboardDismissMode = .onDrag
-        tableView.contentInset.bottom = 80
+        tableView.contentInset.bottom = 50
 
         let nib = UINib(nibName: "TaskCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "TaskCell")
