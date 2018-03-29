@@ -19,6 +19,7 @@ final class MemoViewController: UIViewController {
         content.didMove(toParentViewController: self)
 
         accessoryView = KeyboardTextView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+        accessoryView.textField.delegate = self
     }
 
     override var inputAccessoryView: UIView? {
@@ -26,6 +27,18 @@ final class MemoViewController: UIViewController {
     }
 
     override var canBecomeFirstResponder: Bool {
+        return true
+    }
+}
+
+extension MemoViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // TODO リロード
+        if let title = textField.text {
+            viewModel.addTask(title: title)
+        }
+        textField.text = ""
+        textField.resignFirstResponder()
         return true
     }
 }

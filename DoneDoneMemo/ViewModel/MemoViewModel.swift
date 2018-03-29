@@ -19,6 +19,9 @@ struct MemoViewModel {
     }
 
     // TODO: CRUD処理
+    func addTask(title: String) {
+       memo.addTask(title: title)
+    }
 
     func deleteTask(at index: Int) {
         guard index < numberOfTasks else { return }

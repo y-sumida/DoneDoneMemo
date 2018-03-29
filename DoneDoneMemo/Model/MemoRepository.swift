@@ -48,6 +48,18 @@ class Memo: RealmSwift.Object {
             realm.add(task)
         }
     }
+
+    func addTask(title: String) {
+        let task = Task()
+        task.id = self.id * 100 + self.tasks.count + 1
+        task.title = title
+
+        let realm = try! Realm()
+        try! realm.write {
+            self.tasks.append(task)
+            realm.add(self, update: true)
+        }
+    }
 }
 
 class Task: RealmSwift.Object {
