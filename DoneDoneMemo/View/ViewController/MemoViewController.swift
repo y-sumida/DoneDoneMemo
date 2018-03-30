@@ -80,12 +80,12 @@ extension MemoViewController: UITableViewDelegate {
 
 extension MemoViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // TODO リロード
         if let title = textField.text {
             viewModel.addTask(title: title)
         }
         textField.text = ""
         textField.resignFirstResponder()
+        tableView.reloadData()
         return true
     }
 }
