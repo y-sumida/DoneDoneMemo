@@ -25,9 +25,7 @@ struct MemoViewModel {
 
     func deleteTask(at index: Int) {
         guard index < numberOfTasks else { return }
-        let task = memo.tasks[index]
-        memo.tasks.remove(at: index)
-        task.delete()
+        memo.tasks[index].delete()
     }
 
     func toggleDone(at index: Int) {
