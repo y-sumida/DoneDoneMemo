@@ -12,6 +12,8 @@ final class MemoContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = viewModel.title
+
         tableView.dataSource = self
         tableView.delegate = self
         tableView.keyboardDismissMode = .onDrag
