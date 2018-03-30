@@ -51,7 +51,7 @@ extension MemoListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let memo = viewModel.memo(at: indexPath.row) else { return }
         let vm = MemoViewModel(from: memo)
-        let vc = MemoContentViewController(with: vm)
+        let vc = MemoViewController(with: vm)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
