@@ -5,6 +5,7 @@ import RxCocoa
 
 final class MemoContentViewController: UIViewController {
     private var viewModel: MemoViewModel!
+    private var accessoryView: KeyboardTextView!
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -18,10 +19,21 @@ final class MemoContentViewController: UIViewController {
 
         let nib = UINib(nibName: "TaskCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "TaskCell")
+
+        accessoryView = KeyboardTextView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+        accessoryView.textField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    override var inputAccessoryView: UIView? {
+        return accessoryView
+    }
+
+    override var canBecomeFirstResponder: Bool {
+        return true
     }
 }
 
@@ -61,5 +73,17 @@ extension MemoContentViewController: UITableViewDelegate {
             viewModel.deleteTask(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+    }
+}
+
+extension MemoContentViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // TODO リロード
+        if let title = textField.text {
+            viewModel.addTask(title: title)
+        }
+        textField.text = ""
+        textField.resignFirstResponder()
+        return true
     }
 }
