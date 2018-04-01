@@ -15,7 +15,7 @@ struct MemoViewModel {
 
     func task(at index: Int) -> Task? {
         guard index < numberOfTasks else { return nil }
-        return memo.tasks[numberOfTasks - index - 1]
+        return memo.tasks[index]
     }
 
     // TODO: CRUD処理

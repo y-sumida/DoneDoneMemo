@@ -15,7 +15,7 @@ class MemoRipository {
                 let task = Task()
                 task.id = i * 100 + j
                 task.title = "Task \(j)"
-                memo.tasks.append(task)
+                memo.tasks.insert(task, at: 0)
             }
 
             try! realm.write {
@@ -56,7 +56,7 @@ class Memo: RealmSwift.Object {
 
         let realm = try! Realm()
         try! realm.write {
-            self.tasks.append(task)
+            self.tasks.insert(task, at: 0)
             realm.add(self, update: true)
         }
     }
