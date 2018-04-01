@@ -80,9 +80,9 @@ extension MemoViewController: UITableViewDelegate {
 
 extension MemoViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let title = textField.text {
-            viewModel.addTask(title: title)
-        }
+        guard let title = textField.text, title.isNotEmpty else { return false }
+
+        viewModel.addTask(title: title)
         textField.text = ""
         tableView.reloadData()
         tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
