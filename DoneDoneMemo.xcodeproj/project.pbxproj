@@ -29,6 +29,7 @@
 		A99B54FA205FEB04002DFA2B /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54F9205FEB04002DFA2B /* MemoViewController.swift */; };
 		A99B54FC206BC9C2002DFA2B /* KeyboardTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54FB206BC9C2002DFA2B /* KeyboardTextView.swift */; };
 		A99B54FE206BC9F0002DFA2B /* KeyboardTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99B54FD206BC9F0002DFA2B /* KeyboardTextView.xib */; };
+		A99FD650207110710052587F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99FD64F207110710052587F /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		A99B54F9205FEB04002DFA2B /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
 		A99B54FB206BC9C2002DFA2B /* KeyboardTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTextView.swift; sourceTree = "<group>"; };
 		A99B54FD206BC9F0002DFA2B /* KeyboardTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyboardTextView.xib; sourceTree = "<group>"; };
+		A99FD64F207110710052587F /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				A90FF03D2044526600124266 /* Assets.xcassets */,
 				A90FF0422044526600124266 /* Info.plist */,
 				A99B54DA2046FA4A002DFA2B /* Model */,
+				A99FD64E2071104E0052587F /* Util */,
 				A99B54DE2046FA7A002DFA2B /* View */,
 				A99B54DB2046FA53002DFA2B /* ViewModel */,
 			);
@@ -207,6 +210,14 @@
 				A99B54F220516DB7002DFA2B /* TaskCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A99FD64E2071104E0052587F /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A99FD64F207110710052587F /* StringExtension.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +365,7 @@
 			files = (
 				A99B54E6204AD12B002DFA2B /* MemoViewModel.swift in Sources */,
 				A99B54F320516DB7002DFA2B /* TaskCell.swift in Sources */,
+				A99FD650207110710052587F /* StringExtension.swift in Sources */,
 				A90FF0392044526600124266 /* MemoListViewController.swift in Sources */,
 				A99B54E220483D99002DFA2B /* MemoRepository.swift in Sources */,
 				A99B54FC206BC9C2002DFA2B /* KeyboardTextView.swift in Sources */,
