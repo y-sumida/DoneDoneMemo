@@ -8,12 +8,10 @@ class MemoRipository {
         // dummy data
         for i in 0...100 {
             let memo = Memo()
-            memo.id = i
             memo.title = "Memo \(i)"
 
             for j in 0...10 {
                 let task = Task()
-                task.id = i * 100 + j
                 task.title = "Task \(j)"
                 memo.tasks.insert(task, at: 0)
             }
@@ -31,7 +29,7 @@ class MemoRipository {
 }
 
 class Memo: RealmSwift.Object {
-    @objc dynamic var id: Int = 0
+    @objc dynamic var id: String = NSUUID().uuidString
     @objc dynamic var title: String = ""
     let tasks = List<Task>()
 
@@ -51,7 +49,6 @@ class Memo: RealmSwift.Object {
 
     func addTask(title: String) {
         let task = Task()
-        task.id = self.id * 100 + self.tasks.count + 1
         task.title = title
 
         let realm = try! Realm()
@@ -60,10 +57,20 @@ class Memo: RealmSwift.Object {
             realm.add(self, update: true)
         }
     }
+
+    func deleteTask(at index: Int) {
+        guard index < tasks.count else { return }
+        let task = tasks[index]
+        let realm = try! Realm()
+        try! realm.write {
+            tasks.remove(at: index)
+            realm.delete(task)
+        }
+    }
 }
 
 class Task: RealmSwift.Object {
-    @objc dynamic var id: Int = 0
+    @objc dynamic var id: String = NSUUID().uuidString
     @objc dynamic var title: String = ""
     @objc dynamic var done: Bool = false
     @objc dynamic var active: Bool = true
