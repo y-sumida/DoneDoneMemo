@@ -18,6 +18,7 @@ final class MemoViewController: UIViewController {
         tableView.delegate = self
         tableView.keyboardDismissMode = .onDrag
         tableView.contentInset.bottom = 50
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
 
         let nib = UINib(nibName: "TaskCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "TaskCell")
