@@ -88,7 +88,7 @@ extension MemoViewController: UITextFieldDelegate {
 
         viewModel.addTask(title: title)
         textField.text = ""
-        tableView.reloadData()
+        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         return true
     }
