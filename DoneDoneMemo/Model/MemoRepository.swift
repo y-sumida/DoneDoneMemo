@@ -5,6 +5,11 @@ class MemoRipository {
     private let realm = try! Realm()
 
     init() {
+        let memos =  realm.objects(Memo.self)
+        try! realm.write {
+            realm.delete(memos)
+        }
+
         // dummy data
         for i in 0...100 {
             let memo = Memo()
