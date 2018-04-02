@@ -73,8 +73,11 @@ extension MemoViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete, viewModel.numberOfTasks > indexPath.row {
+            tableView.beginUpdates()
             viewModel.deleteTask(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.reloadData()
+            tableView.endUpdates()
         }
     }
 }
@@ -87,10 +90,12 @@ extension MemoViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let title = textField.text, title.isNotEmpty else { return false }
 
+        tableView.beginUpdates()
         viewModel.addTask(title: title)
-        textField.text = ""
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        tableView.endUpdates()
+        textField.text = ""
         return true
     }
 }
