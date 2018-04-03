@@ -32,18 +32,18 @@
                     <rect key="frame" x="4" y="6" width="258" height="38"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="next"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="XF8-7f-NkM" secondAttribute="bottom" constant="6" id="37R-IM-ca3"/>
-                <constraint firstAttribute="bottom" secondItem="1oU-qt-gIH" secondAttribute="bottom" constant="6" id="8Ua-Jn-O4g"/>
-                <constraint firstAttribute="trailing" secondItem="1oU-qt-gIH" secondAttribute="trailing" constant="4" id="BZX-18-7FP"/>
-                <constraint firstItem="XF8-7f-NkM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="Bgf-nv-93f"/>
-                <constraint firstItem="1oU-qt-gIH" firstAttribute="leading" secondItem="XF8-7f-NkM" secondAttribute="trailing" constant="4" id="Clk-NP-G6Y"/>
-                <constraint firstItem="XF8-7f-NkM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="6" id="XCv-Y6-C66"/>
-                <constraint firstItem="1oU-qt-gIH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="epm-f8-Dwh"/>
+                <constraint firstAttribute="bottom" secondItem="XF8-7f-NkM" secondAttribute="bottom" constant="6" identifier="a" id="37R-IM-ca3"/>
+                <constraint firstAttribute="bottom" secondItem="1oU-qt-gIH" secondAttribute="bottom" constant="6" identifier="d" id="8Ua-Jn-O4g"/>
+                <constraint firstAttribute="trailing" secondItem="1oU-qt-gIH" secondAttribute="trailing" constant="4" identifier="e" id="BZX-18-7FP"/>
+                <constraint firstItem="XF8-7f-NkM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" identifier="b" id="Bgf-nv-93f"/>
+                <constraint firstItem="1oU-qt-gIH" firstAttribute="leading" secondItem="XF8-7f-NkM" secondAttribute="trailing" constant="4" identifier="f" id="Clk-NP-G6Y"/>
+                <constraint firstItem="XF8-7f-NkM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="6" identifier="c" id="XCv-Y6-C66"/>
+                <constraint firstItem="1oU-qt-gIH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" identifier="g" id="epm-f8-Dwh"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
