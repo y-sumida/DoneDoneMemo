@@ -1,11 +1,13 @@
 import UIKit
 import Instantiate
 import InstantiateStandard
+import RxSwift
 import RxCocoa
 
 final class MemoViewController: UIViewController {
     private var viewModel: MemoViewModel!
     private var accessoryView: KeyboardTextView!
+    private let bag = DisposeBag()
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -25,6 +27,8 @@ final class MemoViewController: UIViewController {
 
         accessoryView = KeyboardTextView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
         accessoryView.textField.delegate = self
+
+        bind()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +41,20 @@ final class MemoViewController: UIViewController {
 
     override var canBecomeFirstResponder: Bool {
         return true
+    }
+
+    private func bind() {
+        accessoryView.sendButton.rx.controlEvent(UIControlEvents.touchUpInside).bind(onNext: { [weak self] in
+            guard let title = self?.accessoryView.textField.text, title.isNotEmpty else { return }
+
+            self?.tableView.beginUpdates()
+            self?.viewModel.addTask(title: title)
+            self?.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            self?.tableView.endUpdates()
+            self?.accessoryView.textField.text = ""
+            self?.accessoryView.textField.resignFirstResponder()
+        }).disposed(by: bag)
     }
 }
 
