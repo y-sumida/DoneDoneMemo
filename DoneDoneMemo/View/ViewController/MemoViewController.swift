@@ -45,16 +45,22 @@ final class MemoViewController: UIViewController {
 
     private func bind() {
         accessoryView.sendButton.rx.controlEvent(UIControlEvents.touchUpInside).bind(onNext: { [weak self] in
-            guard let title = self?.accessoryView.textField.text, title.isNotEmpty else { return }
-
-            self?.tableView.beginUpdates()
-            self?.viewModel.addTask(title: title)
-            self?.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-            self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-            self?.tableView.endUpdates()
-            self?.accessoryView.textField.text = ""
-            self?.accessoryView.textField.resignFirstResponder()
+            self?.addTask {
+                self?.accessoryView.textField.resignFirstResponder()
+            }
         }).disposed(by: bag)
+    }
+
+    private func addTask(completion: (() -> Void) = {}) {
+        guard let title = accessoryView.textField.text, title.isNotEmpty else { return }
+
+        tableView.beginUpdates()
+        viewModel.addTask(title: title)
+        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        tableView.endUpdates()
+        accessoryView.textField.text = ""
+        completion()
     }
 }
 
@@ -106,14 +112,7 @@ extension MemoViewController: UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let title = textField.text, title.isNotEmpty else { return false }
-
-        tableView.beginUpdates()
-        viewModel.addTask(title: title)
-        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-        tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-        tableView.endUpdates()
-        textField.text = ""
+        addTask()
         return true
     }
 }
