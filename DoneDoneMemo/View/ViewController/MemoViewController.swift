@@ -87,11 +87,13 @@ extension MemoViewController: UITableViewDataSource {
 extension MemoViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? TaskCell else { return }
+        accessoryView.textField.resignFirstResponder()
         cell.toggleTask()
         viewModel.toggleDone(at: indexPath.row)
         self.tableView.deselectRow(at: indexPath, animated: false)
     }
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        accessoryView.textField.resignFirstResponder()
         return "削除"
     }
 
