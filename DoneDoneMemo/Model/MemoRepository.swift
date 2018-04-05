@@ -85,11 +85,4 @@ class Task: RealmSwift.Object {
     override static func primaryKey() -> String? {
         return "id"
     }
-
-    func delete() {
-        let realm = try! Realm()
-        try! realm.write {
-            realm.delete(self)
-        }
-    }
 }
