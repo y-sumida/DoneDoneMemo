@@ -25,14 +25,6 @@ final class TaskCell: UITableViewCell {
         }
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func prepareForReuse() {
-        setSelected(false, animated: false)
-    }
-
     @IBAction func tapEditButton(_ sender: Any) {
         // TODO VC側で監視する
     }

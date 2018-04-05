@@ -102,7 +102,6 @@ extension MemoViewController: UITableViewDelegate {
             tableView.beginUpdates()
             viewModel.deleteTask(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.reloadData()
             tableView.endUpdates()
         }
     }
