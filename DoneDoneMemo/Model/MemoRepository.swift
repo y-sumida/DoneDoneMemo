@@ -49,6 +49,7 @@ class Memo: RealmSwift.Object {
         let realm = try! Realm()
         try! realm.write {
             task.done = !task.done
+            task.doneAt = Date()
             realm.add(task)
         }
     }
@@ -71,6 +72,7 @@ class Memo: RealmSwift.Object {
         try! realm.write {
             tasks.remove(at: index)
             task.active = false
+            task.deletedAt = Date()
             deletedTasks.append(task)
             realm.add(self, update: true)
         }
