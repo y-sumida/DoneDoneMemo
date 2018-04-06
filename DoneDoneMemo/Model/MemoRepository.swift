@@ -82,6 +82,9 @@ class Task: RealmSwift.Object {
     @objc dynamic var title: String = ""
     @objc dynamic var done: Bool = false
     @objc dynamic var active: Bool = true
+    @objc dynamic var createdAt: Date = Date()
+    @objc dynamic var deletedAt: Date = Date()
+    @objc dynamic var doneAt: Date = Date()
 
     let memo = LinkingObjects(fromType: Memo.self, property: "tasks")
 
