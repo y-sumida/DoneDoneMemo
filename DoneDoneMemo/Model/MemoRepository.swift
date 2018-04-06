@@ -37,6 +37,7 @@ class Memo: RealmSwift.Object {
     @objc dynamic var id: String = NSUUID().uuidString
     @objc dynamic var title: String = ""
     let tasks = List<Task>()
+    let deletedTasks = List<Task>()
 
     override static func primaryKey() -> String? {
         return "id"
@@ -69,7 +70,9 @@ class Memo: RealmSwift.Object {
         let realm = try! Realm()
         try! realm.write {
             tasks.remove(at: index)
-            realm.delete(task)
+            task.active = false
+            deletedTasks.append(task)
+            realm.add(self, update: true)
         }
     }
 }
