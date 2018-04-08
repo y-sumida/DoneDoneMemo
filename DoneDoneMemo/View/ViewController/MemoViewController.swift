@@ -78,8 +78,11 @@ extension MemoViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let task = viewModel.task(at: indexPath.row) else { return UITableViewCell() }
-
-        return TaskCell.dequeue(from: tableView, for: indexPath, with: task)
+        let cell = TaskCell.dequeue(from: tableView, for: indexPath, with: task)
+        cell.tapAction = { (text: String) -> Void in
+            print(text)
+        }
+        return cell
     }
 }
 

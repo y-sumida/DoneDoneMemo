@@ -29,8 +29,11 @@ final class TaskCell: UITableViewCell {
         }
     }
 
+    var tapAction: ((String) -> Void)?
+
     @IBAction func tapEditButton(_ sender: Any) {
         // TODO VC側で監視する
+        tapAction?(title)
     }
 
     func toggleTask() {
