@@ -1,6 +1,10 @@
 import UIKit
+import Instantiate
+import InstantiateStandard
 
 final class TaskCell: UITableViewCell {
+    typealias Dependency = Task
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var iconView: UIImageView!
@@ -66,5 +70,12 @@ final class TaskCell: UITableViewCell {
 
         iconView.image = boxImage
         iconView.tintColor = UIColor.gray
+    }
+}
+
+extension TaskCell: Reusable, NibType {
+    func inject(_ dependency: Task) {
+        title = dependency.title
+        done = dependency.done
     }
 }

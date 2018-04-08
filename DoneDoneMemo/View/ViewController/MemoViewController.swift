@@ -24,8 +24,7 @@ final class MemoViewController: UIViewController {
         tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableViewAutomaticDimension
 
-        let nib = UINib(nibName: "TaskCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "TaskCell")
+        tableView.registerNib(type: TaskCell.self)
 
         accessoryView = KeyboardTextView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
         accessoryView.textField.delegate = self
@@ -78,11 +77,9 @@ extension MemoViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell") as? TaskCell else { return UITableViewCell() }
-        if let task = viewModel.task(at: indexPath.row) {
-            cell.configure(task: task)
-        }
-        return cell
+        guard let task = viewModel.task(at: indexPath.row) else { return UITableViewCell() }
+
+        return TaskCell.dequeue(from: tableView, for: indexPath, with: task)
     }
 }
 
