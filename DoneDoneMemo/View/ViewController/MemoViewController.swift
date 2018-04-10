@@ -79,8 +79,9 @@ extension MemoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let task = viewModel.task(at: indexPath.row) else { return UITableViewCell() }
         let cell = TaskCell.dequeue(from: tableView, for: indexPath, with: task)
-        cell.tapAction = { (text: String) -> Void in
-            print(text)
+        cell.tapAction = {[weak self] (text: String) -> Void in
+            self?.accessoryView.textField.text = text
+            self?.accessoryView.textField.becomeFirstResponder()
         }
         return cell
     }
