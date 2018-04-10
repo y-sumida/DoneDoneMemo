@@ -108,6 +108,10 @@ extension MemoViewController: UITableViewDelegate {
             tableView.endUpdates()
         }
     }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        accessoryView.textField.text = ""
+    }
 }
 
 extension MemoViewController: UITextFieldDelegate {
