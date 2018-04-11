@@ -81,6 +81,7 @@ extension MemoViewController: UITableViewDataSource {
         let cell = TaskCell.dequeue(from: tableView, for: indexPath, with: task)
         cell.tapAction = {[weak self] (text: String) -> Void in
             self?.accessoryView.textField.text = text
+            self?.accessoryView.textField.returnKeyType = .done
             self?.accessoryView.textField.becomeFirstResponder()
         }
         return cell
@@ -121,6 +122,11 @@ extension MemoViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         addTask()
+        // TODO もっといい判定方法
+        if textField.returnKeyType == .done {
+            textField.returnKeyType = .next
+            textField.resignFirstResponder()
+        }
         return true
     }
 }
