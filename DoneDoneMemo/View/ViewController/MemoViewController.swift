@@ -9,7 +9,7 @@ final class MemoViewController: UIViewController {
     private var accessoryView: KeyboardTextView!
     private let bag = DisposeBag()
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

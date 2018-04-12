@@ -2,7 +2,7 @@ import UIKit
 
 final class MemoListViewController: UIViewController {
     private var viewModel = MemoListViewModel()
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

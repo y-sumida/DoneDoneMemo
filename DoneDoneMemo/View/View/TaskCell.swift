@@ -5,8 +5,8 @@ import InstantiateStandard
 final class TaskCell: UITableViewCell {
     typealias Dependency = Task
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var editButton: UIButton!
     @IBOutlet weak var iconView: UIImageView!
 
     private let doneImage = UIImage(named: "ic_done")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
@@ -31,7 +31,7 @@ final class TaskCell: UITableViewCell {
 
     var tapAction: ((String) -> Void)?
 
-    @IBAction func tapEditButton(_ sender: Any) {
+    @IBAction private func tapEditButton(_ sender: Any) {
         // TODO VC側で監視する
         tapAction?(title)
     }
