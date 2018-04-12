@@ -2,7 +2,8 @@ import UIKit
 
 final class KeyboardTextView: UIView {
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet private weak var sendButton: UIButton!
+    var tapAction: (() -> Void)?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,5 +49,9 @@ final class KeyboardTextView: UIView {
         sendButton.layer.cornerRadius = 8
         sendButton.setTitle("追加", for: .normal)
         textField.placeholder = "タスク"
+    }
+
+    @IBAction private func tapButton(_ sender: Any) {
+        tapAction?()
     }
 }

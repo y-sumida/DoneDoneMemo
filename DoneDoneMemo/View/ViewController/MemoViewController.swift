@@ -45,11 +45,11 @@ final class MemoViewController: UIViewController {
     }
 
     private func bind() {
-        accessoryView.sendButton.rx.controlEvent(UIControlEvents.touchUpInside).bind(onNext: { [weak self] in
+        accessoryView.tapAction = { [weak self] in
             self?.addTask {
                 self?.accessoryView.textField.resignFirstResponder()
             }
-        }).disposed(by: bag)
+        }
     }
 
     private func addTask(completion: (() -> Void) = {}) {
