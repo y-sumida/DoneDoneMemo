@@ -27,7 +27,7 @@ final class MemoViewController: UIViewController {
         tableView.registerNib(type: TaskCell.self)
 
         accessoryView = KeyboardTextView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
-        accessoryView.textField.delegate = self
+        accessoryView.delegate = self
 
         bind()
     }
