@@ -10,6 +10,12 @@ final class KeyboardTextView: UIView {
         }
     }
 
+    var title: String = "" {
+        didSet {
+            textField.text = title
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()

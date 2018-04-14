@@ -77,7 +77,7 @@ extension MemoViewController: UITableViewDataSource {
         guard let task = viewModel.task(at: indexPath.row) else { return UITableViewCell() }
         let cell = TaskCell.dequeue(from: tableView, for: indexPath, with: task)
         cell.tapAction = {[weak self] (text: String) -> Void in
-            self?.accessoryView.textField.text = text
+            self?.accessoryView.title = text
             self?.accessoryView.textField.returnKeyType = .done
             self?.accessoryView.showKeyboard()
         }
@@ -108,7 +108,7 @@ extension MemoViewController: UITableViewDelegate {
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        accessoryView.textField.text = ""
+        accessoryView.title = ""
     }
 }
 
