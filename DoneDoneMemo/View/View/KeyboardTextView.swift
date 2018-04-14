@@ -3,7 +3,7 @@ import UIKit
 final class KeyboardTextView: UIView {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet private weak var sendButton: UIButton!
-    var tapAction: (() -> Void)?
+    var tapAction: ((String) -> Void)?
     weak var delegate: UITextFieldDelegate? {
         didSet {
             textField.delegate = delegate
@@ -57,7 +57,8 @@ final class KeyboardTextView: UIView {
     }
 
     @IBAction private func tapButton(_ sender: Any) {
-        tapAction?()
+        tapAction?(textField.text ?? "")
+        hideKeyboard()
     }
 
     func showKeyboard() {

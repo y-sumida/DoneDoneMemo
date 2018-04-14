@@ -45,22 +45,19 @@ final class MemoViewController: UIViewController {
     }
 
     private func bind() {
-        accessoryView.tapAction = { [weak self] in
-            self?.addTask {
-                self?.accessoryView.hideKeyboard()
-            }
+        accessoryView.tapAction = { [weak self] (text: String) in
+            self?.addTask(title: text)
         }
     }
 
-    private func addTask(completion: (() -> Void) = {}) {
-        guard let title = accessoryView.textField.text, title.isNotEmpty else { return }
+    private func addTask(title: String, completion: (() -> Void) = {}) {
+        guard title.isNotEmpty else { return }
 
         tableView.beginUpdates()
         viewModel.addTask(title: title)
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         tableView.endUpdates()
-        accessoryView.textField.text = ""
         completion()
     }
 }
@@ -121,7 +118,7 @@ extension MemoViewController: UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        addTask()
+        addTask(title: textField.text ?? "")
         // TODO もっといい判定方法
         if textField.returnKeyType == .done {
             textField.returnKeyType = .next
