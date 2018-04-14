@@ -59,4 +59,13 @@ final class KeyboardTextView: UIView {
     @IBAction private func tapButton(_ sender: Any) {
         tapAction?()
     }
+
+    func showKeyboard() {
+       textField.becomeFirstResponder()
+    }
+
+    func hideKeyboard() {
+        textField.text = ""
+        textField.resignFirstResponder()
+    }
 }

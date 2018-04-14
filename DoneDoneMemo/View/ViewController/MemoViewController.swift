@@ -47,7 +47,7 @@ final class MemoViewController: UIViewController {
     private func bind() {
         accessoryView.tapAction = { [weak self] in
             self?.addTask {
-                self?.accessoryView.textField.resignFirstResponder()
+                self?.accessoryView.hideKeyboard()
             }
         }
     }
@@ -82,7 +82,7 @@ extension MemoViewController: UITableViewDataSource {
         cell.tapAction = {[weak self] (text: String) -> Void in
             self?.accessoryView.textField.text = text
             self?.accessoryView.textField.returnKeyType = .done
-            self?.accessoryView.textField.becomeFirstResponder()
+            self?.accessoryView.showKeyboard()
         }
         return cell
     }
@@ -91,13 +91,13 @@ extension MemoViewController: UITableViewDataSource {
 extension MemoViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? TaskCell else { return }
-        accessoryView.textField.resignFirstResponder()
+        accessoryView.hideKeyboard()
         cell.toggleTask()
         viewModel.toggleDone(at: indexPath.row)
         self.tableView.deselectRow(at: indexPath, animated: false)
     }
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        accessoryView.textField.resignFirstResponder()
+        accessoryView.hideKeyboard()
         return "削除"
     }
 
