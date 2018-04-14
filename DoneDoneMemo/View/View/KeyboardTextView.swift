@@ -4,7 +4,7 @@ final class KeyboardTextView: UIView {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet private weak var sendButton: UIButton!
     var tapAction: (() -> Void)?
-    var delegate: UITextFieldDelegate? {
+    weak var delegate: UITextFieldDelegate? {
         didSet {
             textField.delegate = delegate
         }
