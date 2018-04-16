@@ -1,6 +1,10 @@
 struct MemoViewModel {
     private var memo: Memo!
 
+    var memoId: String {
+        return memo.id
+    }
+
     var title: String {
         return memo.title
     }
