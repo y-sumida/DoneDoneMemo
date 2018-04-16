@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qy9-3T-TtK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zig-5h-5jp">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="eAc-xf-V8v">
+            <objects>
+                <navigationController id="Zig-5h-5jp" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="itK-tc-QaS">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="qy9-3T-TtK" kind="relationship" relationship="rootViewController" id="9aq-s5-381"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cOZ-HP-PjO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-525" y="-37"/>
+        </scene>
         <!--Memo View Controller-->
         <scene sceneID="Z5l-bW-irs">
             <objects>
-                <viewController storyboardIdentifier="MemoContentViewController" id="qy9-3T-TtK" customClass="MemoViewController" customModule="DoneDoneMemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qy9-3T-TtK" customClass="MemoViewController" customModule="DoneDoneMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kPx-WE-g0y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,6 +49,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8KY-fY-ZkS"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mPz-pf-vsk"/>
                     <connections>
                         <outlet property="tableView" destination="cK6-gS-gNg" id="To8-ne-cER"/>
                     </connections>

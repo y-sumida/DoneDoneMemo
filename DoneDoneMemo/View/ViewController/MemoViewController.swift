@@ -11,6 +11,8 @@ final class MemoViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
+    static var instantiateSource: InstantiateSource { return .identifier(.from(MemoViewController.self)) }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
