@@ -31,6 +31,10 @@ class MemoRipository {
         let memos =  realm.objects(Memo.self)
         return memos.map { Memo.init(value: $0) }
     }
+
+    func findMemoById(_ id: String) -> Memo? {
+        return realm.objects(Memo.self).filter("id = %@", id).first
+    }
 }
 
 class Memo: RealmSwift.Object {
