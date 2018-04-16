@@ -17,6 +17,14 @@ struct MemoViewModel {
         self.memo = memo
     }
 
+    init(from id: String) {
+        if let memo = MemoRipository().findMemoById(id) {
+           self.memo = memo
+        } else {
+            memo = Memo()
+        }
+    }
+
     func task(at index: Int) -> Task? {
         guard index < numberOfTasks else { return nil }
         return memo.tasks[index]
