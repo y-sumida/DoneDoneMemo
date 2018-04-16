@@ -65,6 +65,10 @@ final class MemoViewController: UIViewController {
 extension MemoViewController: StoryboardInstantiatable {
     func inject(_ dependency: MemoViewModel) {
         self.viewModel = dependency
+
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "memoId")
+        defaults.setValue(viewModel.memoId, forKey: "memoId")
     }
 }
 
