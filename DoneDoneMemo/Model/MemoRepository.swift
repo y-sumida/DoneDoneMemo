@@ -32,6 +32,15 @@ class MemoRipository {
         return memos.map { Memo.init(value: $0) }
     }
 
+    func createMemo() -> Memo {
+        let memo = Memo()
+        memo.title = "無題のメモ"
+        try! realm.write {
+            realm.add(memo, update: true)
+        }
+        return memo
+    }
+
     func findMemoById(_ id: String) -> Memo? {
         return realm.objects(Memo.self).filter("id = %@", id).first
     }
