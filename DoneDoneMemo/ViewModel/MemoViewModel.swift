@@ -21,7 +21,7 @@ struct MemoViewModel {
         if let memo = MemoRipository().findMemoById(id) {
            self.memo = memo
         } else {
-            memo = Memo()
+            memo = MemoRipository().createMemo()
         }
     }
 
