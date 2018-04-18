@@ -120,11 +120,13 @@ extension MemoViewController: UITableViewDelegate {
 
 extension MemoViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard viewModel.numberOfTasks > 0 else { return }
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         addTask(title: textField.text ?? "")
+        textField.text = ""
         // TODO もっといい判定方法
         if textField.returnKeyType == .done {
             textField.returnKeyType = .next
