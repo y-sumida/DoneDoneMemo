@@ -16,6 +16,13 @@ final class MemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let defaults = UserDefaults.standard
+        if let id = defaults.value(forKey: "momoId") as? String {
+            viewModel = MemoViewModel(from: id)
+        } else {
+            viewModel = MemoViewModel(from: "")
+        }
+
         navigationItem.title = viewModel.title
 
         tableView.dataSource = self
@@ -58,7 +65,10 @@ final class MemoViewController: UIViewController {
         tableView.beginUpdates()
         viewModel.addTask(title: title)
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-        tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        // TODO この方法だと最初の1行追加時にクラッシュするので全体をリロードする
+        // attempt to delete row 0 from section 0 which only contains 0 rows before the update
+        //tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        tableView.reloadData()
         tableView.endUpdates()
         completion()
     }
