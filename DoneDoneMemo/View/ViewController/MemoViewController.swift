@@ -17,7 +17,7 @@ final class MemoViewController: UIViewController {
         super.viewDidLoad()
 
         let defaults = UserDefaults.standard
-        if let id = defaults.value(forKey: "momoId") as? String {
+        if let id = defaults.value(forKey: "memoId") as? String {
             viewModel = MemoViewModel(from: id)
         } else {
             viewModel = MemoViewModel(from: "")
