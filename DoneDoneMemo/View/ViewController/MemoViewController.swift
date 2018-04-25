@@ -74,7 +74,9 @@ final class MemoViewController: UIViewController {
     }
 
     @IBAction func tapListButton(_ sender: Any) {
-        //TODO 一覧をモーダル表示
+        if let vc = UIStoryboard(name: "MemoListViewController", bundle: nil).instantiateViewController(withIdentifier: "MemoListViewController") as? MemoListViewController {
+            navigationController?.present(vc, animated: true, completion: nil)
+        }
     }
 }
 
