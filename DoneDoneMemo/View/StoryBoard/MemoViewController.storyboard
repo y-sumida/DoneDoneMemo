@@ -49,7 +49,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8KY-fY-ZkS"/>
                     </view>
-                    <navigationItem key="navigationItem" id="mPz-pf-vsk"/>
+                    <navigationItem key="navigationItem" id="mPz-pf-vsk">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="lyq-fl-reE">
+                            <connections>
+                                <action selector="tapListButton:" destination="qy9-3T-TtK" id="C1w-Vi-5UN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cK6-gS-gNg" id="To8-ne-cER"/>
                     </connections>
