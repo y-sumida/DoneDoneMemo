@@ -74,9 +74,8 @@ final class MemoViewController: UIViewController {
     }
 
     @IBAction func tapListButton(_ sender: Any) {
-        if let vc = UIStoryboard(name: "MemoListViewController", bundle: nil).instantiateViewController(withIdentifier: "MemoListViewController") as? MemoListViewController {
-            navigationController?.present(vc, animated: true, completion: nil)
-        }
+        let vc = MemoListViewController(with: ())
+        navigationController?.present(vc, animated: true, completion: nil)
     }
 }
 

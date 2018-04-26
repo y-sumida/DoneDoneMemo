@@ -1,8 +1,13 @@
 import UIKit
+import Instantiate
+import InstantiateStandard
 
 final class MemoListViewController: UIViewController {
     private var viewModel = MemoListViewModel()
     @IBOutlet private weak var tableView: UITableView!
+
+    // StoryboardInstantiatable
+    typealias Parameter = Void
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,4 +72,7 @@ extension MemoListViewController: UITableViewDelegate {
             tableView.endUpdates()
         }
     }
+}
+
+extension MemoListViewController: StoryboardInstantiatable {
 }
