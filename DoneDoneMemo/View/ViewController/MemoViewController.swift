@@ -4,6 +4,10 @@ final class MemoViewController: UIViewController {
     private var viewModel: MemoViewModel! {
         didSet {
             navigationItem.title = viewModel.title
+            let defaults = UserDefaults.standard
+            defaults.removeObject(forKey: "memoId")
+            defaults.setValue(viewModel.memoId, forKey: "memoId")
+
             tableView.reloadData()
         }
     }
