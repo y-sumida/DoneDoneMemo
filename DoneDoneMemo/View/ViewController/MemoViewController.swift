@@ -65,10 +65,12 @@ final class MemoViewController: UIViewController {
         tableView.beginUpdates()
         viewModel.addTask(title: title)
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-        // TODO この方法だと最初の1行追加時にクラッシュするので全体をリロードする
-        // attempt to delete row 0 from section 0 which only contains 0 rows before the update
-        //tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-        tableView.reloadData()
+        // 行ごとのリロードだと、最初の1行追加時にクラッシュするので全体をリロードする
+        if viewModel.numberOfTasks > 1 {
+            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        } else {
+            tableView.reloadData()
+        }
         tableView.endUpdates()
         completion()
     }
