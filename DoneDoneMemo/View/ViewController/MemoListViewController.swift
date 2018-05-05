@@ -4,10 +4,11 @@ import InstantiateStandard
 
 final class MemoListViewController: UIViewController {
     private var viewModel = MemoListViewModel()
+    private var closeAction: ((MemoViewModel) -> Void) = {_ in }
     @IBOutlet private weak var tableView: UITableView!
 
     // StoryboardInstantiatable
-    typealias Parameter = Void
+    typealias Dependency = ((MemoViewModel) -> Void)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,8 +56,7 @@ extension MemoListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let memo = viewModel.memo(at: indexPath.row) else { return }
         let vm = MemoViewModel(from: memo)
-        let vc = MemoViewController(with: vm)
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.dismiss(animated: true, completion: { self.closeAction(vm) })
     }
 
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
@@ -74,4 +74,7 @@ extension MemoListViewController: UITableViewDelegate {
 }
 
 extension MemoListViewController: StoryboardInstantiatable {
+    func inject(_ dependency: @escaping ((MemoViewModel) -> Void)) {
+        closeAction = dependency
+    }
 }
