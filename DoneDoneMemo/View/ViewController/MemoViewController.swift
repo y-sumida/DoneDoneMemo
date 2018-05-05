@@ -1,8 +1,4 @@
 import UIKit
-import Instantiate
-import InstantiateStandard
-import RxSwift
-import RxCocoa
 
 final class MemoViewController: UIViewController {
     private var viewModel: MemoViewModel! {
@@ -12,11 +8,8 @@ final class MemoViewController: UIViewController {
         }
     }
     private var accessoryView: KeyboardTextView!
-    private let bag = DisposeBag()
 
     @IBOutlet private weak var tableView: UITableView!
-
-    static var instantiateSource: InstantiateSource { return .identifier(.from(MemoViewController.self)) }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,16 +75,6 @@ final class MemoViewController: UIViewController {
         })
         let navi = UINavigationController(rootViewController: vc)
         navigationController?.present(navi, animated: true, completion: nil)
-    }
-}
-
-extension MemoViewController: StoryboardInstantiatable {
-    func inject(_ dependency: MemoViewModel) {
-        self.viewModel = dependency
-
-        let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "memoId")
-        defaults.setValue(viewModel.memoId, forKey: "memoId")
     }
 }
 
