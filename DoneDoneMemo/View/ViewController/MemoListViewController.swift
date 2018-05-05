@@ -56,7 +56,8 @@ extension MemoListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let memo = viewModel.memo(at: indexPath.row) else { return }
         let vm = MemoViewModel(from: memo)
-        self.dismiss(animated: true, completion: { self.closeAction(vm) })
+        closeAction(vm)
+        self.dismiss(animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {

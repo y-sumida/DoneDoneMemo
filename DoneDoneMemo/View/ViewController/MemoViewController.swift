@@ -5,7 +5,12 @@ import RxSwift
 import RxCocoa
 
 final class MemoViewController: UIViewController {
-    private var viewModel: MemoViewModel!
+    private var viewModel: MemoViewModel! {
+        didSet {
+            navigationItem.title = viewModel.title
+            tableView.reloadData()
+        }
+    }
     private var accessoryView: KeyboardTextView!
     private let bag = DisposeBag()
 
@@ -22,8 +27,6 @@ final class MemoViewController: UIViewController {
         } else {
             viewModel = MemoViewModel(from: "")
         }
-
-        navigationItem.title = viewModel.title
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -76,7 +79,6 @@ final class MemoViewController: UIViewController {
     @IBAction func tapListButton(_ sender: Any) {
         let vc = MemoListViewController(with: { memo in
             self.viewModel = memo
-            self.tableView.reloadData()
         })
         let navi = UINavigationController(rootViewController: vc)
         navigationController?.present(navi, animated: true, completion: nil)
