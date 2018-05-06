@@ -5,26 +5,6 @@ class MemoRipository {
     private let realm = try! Realm()
 
     init() {
-        let memos =  realm.objects(Memo.self)
-        try! realm.write {
-            realm.delete(memos)
-        }
-
-        // dummy data
-        for i in 0...10 {
-            let memo = Memo()
-            memo.title = "Memo \(i)"
-
-            for j in 0...100 {
-                let task = Task()
-                task.title = "Task \(j)"
-                memo.tasks.insert(task, at: 0)
-            }
-
-            try! realm.write {
-                realm.add(memo, update: true)
-            }
-        }
     }
 
     func fetch() -> [Memo] {
