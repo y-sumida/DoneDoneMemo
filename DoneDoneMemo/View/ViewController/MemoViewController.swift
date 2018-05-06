@@ -4,10 +4,7 @@ final class MemoViewController: UIViewController {
     private var viewModel: MemoViewModel! {
         didSet {
             navigationItem.title = viewModel.title
-            let defaults = UserDefaults.standard
-            defaults.removeObject(forKey: "memoId")
-            defaults.setValue(viewModel.memoId, forKey: "memoId")
-
+            saveMemoId()
             tableView.reloadData()
         }
     }
@@ -57,6 +54,12 @@ final class MemoViewController: UIViewController {
         accessoryView.tapAction = { [weak self] (text: String) in
             self?.addTask(title: text)
         }
+    }
+
+    private func saveMemoId() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "memoId")
+        defaults.setValue(viewModel.memoId, forKey: "memoId")
     }
 
     private func addTask(title: String, completion: (() -> Void) = {}) {
