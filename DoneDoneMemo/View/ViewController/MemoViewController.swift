@@ -79,7 +79,9 @@ final class MemoViewController: UIViewController {
     }
 
     @IBAction func tapListButton(_ sender: Any) {
-        let vc = MemoCollectionViewController(with: ())
+        let vc = MemoCollectionViewController(with: { memo in
+            self.viewModel = memo
+        })
         let navi = UINavigationController(rootViewController: vc)
         navigationController?.present(navi, animated: true, completion: nil)
     }

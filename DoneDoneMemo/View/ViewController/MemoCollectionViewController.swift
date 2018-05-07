@@ -3,8 +3,10 @@ import Instantiate
 import InstantiateStandard
 
 class MemoCollectionViewController: UIViewController {
+    private var viewModel = MemoListViewModel()
+    private var closeAction: ((MemoViewModel) -> Void) = {_ in }
     // StoryboardInstantiatable
-    typealias Parameter = Void
+    typealias Dependency = ((MemoViewModel) -> Void)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,4 +24,7 @@ class MemoCollectionViewController: UIViewController {
 }
 
 extension MemoCollectionViewController: StoryboardInstantiatable {
+    func inject(_ dependency: @escaping ((MemoViewModel) -> Void)) {
+        closeAction = dependency
+    }
 }
