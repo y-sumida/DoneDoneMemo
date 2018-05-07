@@ -189,9 +189,9 @@
 		A99B54DD2046FA67002DFA2B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A99B54F9205FEB04002DFA2B /* MemoViewController.swift */,
-				A90FF0382044526600124266 /* MemoListViewController.swift */,
 				A917D10220A0883C008DE98C /* MemoCollectionViewController.swift */,
+				A90FF0382044526600124266 /* MemoListViewController.swift */,
+				A99B54F9205FEB04002DFA2B /* MemoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

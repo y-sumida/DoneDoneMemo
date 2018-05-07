@@ -3,6 +3,7 @@ import Instantiate
 import InstantiateStandard
 
 class MemoCollectionViewController: UIViewController {
+    @IBOutlet private weak var collectionView: UICollectionView!
     private var viewModel = MemoListViewModel()
     private var closeAction: ((MemoViewModel) -> Void) = {_ in }
     // StoryboardInstantiatable
@@ -16,6 +17,8 @@ class MemoCollectionViewController: UIViewController {
             NSAttributedStringKey.foregroundColor: UIColor.black
         ]
         navigationItem.title = "メモ一覧"
+
+        collectionView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,5 +29,17 @@ class MemoCollectionViewController: UIViewController {
 extension MemoCollectionViewController: StoryboardInstantiatable {
     func inject(_ dependency: @escaping ((MemoViewModel) -> Void)) {
         closeAction = dependency
+    }
+}
+
+extension MemoCollectionViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.numberOfMemos
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = UIColor.red
+        return cell
     }
 }
