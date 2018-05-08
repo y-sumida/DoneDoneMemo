@@ -41,9 +41,20 @@ extension MemoCollectionViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let memo = viewModel.memo(at: indexPath.row) else { return UICollectionViewCell() }
+        guard let memo = viewModel.memo(at: indexPath.row) else {
+           return collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        }
         let cell = MemoCell.dequeue(from: collectionView, for: indexPath, with: memo)
         return cell
+    }
+}
+
+extension MemoCollectionViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let memo = viewModel.memo(at: indexPath.row) else { return }
+        let vm = MemoViewModel(from: memo)
+        closeAction(vm)
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
