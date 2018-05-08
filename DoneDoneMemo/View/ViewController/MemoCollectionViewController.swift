@@ -20,6 +20,8 @@ class MemoCollectionViewController: UIViewController {
 
         collectionView.dataSource = self
         collectionView.delegate = self
+
+        collectionView.registerNib(type: MemoCell.self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,8 +41,8 @@ extension MemoCollectionViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = UIColor.red
+        guard let memo = viewModel.memo(at: indexPath.row) else { return UICollectionViewCell() }
+        let cell = MemoCell.dequeue(from: collectionView, for: indexPath, with: memo)
         return cell
     }
 }
