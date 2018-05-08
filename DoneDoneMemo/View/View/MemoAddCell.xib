@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MemoAddCell" customModule="DoneDoneMemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S36-po-l3c">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_add" translatesAutoresizingMaskIntoConstraints="NO" id="oxA-Px-ob1">
+                                <rect key="frame" x="15" y="15" width="20" height="20"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oxA-Px-ob1" firstAttribute="centerX" secondItem="S36-po-l3c" secondAttribute="centerX" id="Yb2-fH-sPN"/>
+                            <constraint firstItem="oxA-Px-ob1" firstAttribute="height" secondItem="S36-po-l3c" secondAttribute="height" multiplier="0.4" id="idP-7i-Vpb"/>
+                            <constraint firstItem="oxA-Px-ob1" firstAttribute="centerY" secondItem="S36-po-l3c" secondAttribute="centerY" id="yDY-hY-cP5"/>
+                            <constraint firstItem="oxA-Px-ob1" firstAttribute="width" secondItem="S36-po-l3c" secondAttribute="width" multiplier="0.4" id="zp1-yP-pqw"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="S36-po-l3c" secondAttribute="bottom" id="6Yy-Uz-hBh"/>
+                <constraint firstAttribute="trailing" secondItem="S36-po-l3c" secondAttribute="trailing" id="AWc-wZ-tDa"/>
+                <constraint firstItem="S36-po-l3c" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="B9r-0c-0Yz"/>
+                <constraint firstItem="S36-po-l3c" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Y3d-Br-PzX"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic_add" width="48" height="48"/>
+    </resources>
+</document>

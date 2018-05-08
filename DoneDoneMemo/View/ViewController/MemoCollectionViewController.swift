@@ -22,6 +22,7 @@ class MemoCollectionViewController: UIViewController {
         collectionView.delegate = self
 
         collectionView.registerNib(type: MemoCell.self)
+        collectionView.registerNib(type: MemoAddCell.self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,12 +38,12 @@ extension MemoCollectionViewController: StoryboardInstantiatable {
 
 extension MemoCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfMemos
+        return viewModel.numberOfMemos + 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let memo = viewModel.memo(at: indexPath.row) else {
-           return collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+           return MemoAddCell.dequeue(from: collectionView, for: indexPath)
         }
         let cell = MemoCell.dequeue(from: collectionView, for: indexPath, with: memo)
         return cell

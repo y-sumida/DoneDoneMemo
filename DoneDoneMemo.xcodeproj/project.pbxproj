@@ -16,6 +16,8 @@
 		A917D10320A0883C008DE98C /* MemoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917D10220A0883C008DE98C /* MemoCollectionViewController.swift */; };
 		A958FC1620A1DCE800EC86DE /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958FC1420A1DCE800EC86DE /* MemoCell.swift */; };
 		A958FC1720A1DCE800EC86DE /* MemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A958FC1520A1DCE800EC86DE /* MemoCell.xib */; };
+		A958FC1A20A1E26200EC86DE /* MemoAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958FC1820A1E26200EC86DE /* MemoAddCell.swift */; };
+		A958FC1B20A1E26200EC86DE /* MemoAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A958FC1920A1E26200EC86DE /* MemoAddCell.xib */; };
 		A99B54D12045A5E9002DFA2B /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54CB2045A5E9002DFA2B /* RxBlocking.framework */; };
 		A99B54D22045A5E9002DFA2B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54CC2045A5E9002DFA2B /* RealmSwift.framework */; };
 		A99B54D32045A5E9002DFA2B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54CD2045A5E9002DFA2B /* Realm.framework */; };
@@ -60,6 +62,8 @@
 		A917D10220A0883C008DE98C /* MemoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCollectionViewController.swift; sourceTree = "<group>"; };
 		A958FC1420A1DCE800EC86DE /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		A958FC1520A1DCE800EC86DE /* MemoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoCell.xib; sourceTree = "<group>"; };
+		A958FC1820A1E26200EC86DE /* MemoAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoAddCell.swift; sourceTree = "<group>"; };
+		A958FC1920A1E26200EC86DE /* MemoAddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoAddCell.xib; sourceTree = "<group>"; };
 		A99B54CA2045A5E9002DFA2B /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		A99B54CB2045A5E9002DFA2B /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		A99B54CC2045A5E9002DFA2B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 				A99B54F52056BDD4002DFA2B /* AddButton.swift */,
 				A99B54FB206BC9C2002DFA2B /* KeyboardTextView.swift */,
 				A99B54FD206BC9F0002DFA2B /* KeyboardTextView.xib */,
+				A958FC1820A1E26200EC86DE /* MemoAddCell.swift */,
+				A958FC1920A1E26200EC86DE /* MemoAddCell.xib */,
 				A958FC1420A1DCE800EC86DE /* MemoCell.swift */,
 				A958FC1520A1DCE800EC86DE /* MemoCell.xib */,
 				A99B54F120516DB7002DFA2B /* TaskCell.swift */,
@@ -324,6 +330,7 @@
 				A90FF03C2044526600124266 /* MemoListViewController.storyboard in Resources */,
 				A958FC1720A1DCE800EC86DE /* MemoCell.xib in Resources */,
 				A917D10120A087EF008DE98C /* MemoCollectionViewController.storyboard in Resources */,
+				A958FC1B20A1E26200EC86DE /* MemoAddCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +390,7 @@
 				A90FF0392044526600124266 /* MemoListViewController.swift in Sources */,
 				A99B54E220483D99002DFA2B /* MemoRepository.swift in Sources */,
 				A99B54FC206BC9C2002DFA2B /* KeyboardTextView.swift in Sources */,
+				A958FC1A20A1E26200EC86DE /* MemoAddCell.swift in Sources */,
 				A99B54FA205FEB04002DFA2B /* MemoViewController.swift in Sources */,
 				A90FF0372044526600124266 /* AppDelegate.swift in Sources */,
 				A917D10320A0883C008DE98C /* MemoCollectionViewController.swift in Sources */,
