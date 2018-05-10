@@ -52,8 +52,13 @@ extension MemoCollectionViewController: UICollectionViewDataSource {
 
 extension MemoCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let memo = viewModel.memo(at: indexPath.row) else { return }
-        let vm = MemoViewModel(from: memo)
+        let vm: MemoViewModel!
+        if let memo = viewModel.memo(at: indexPath.row) {
+            vm = MemoViewModel(from: memo)
+        } else {
+            let memo = viewModel.addMemo()
+            vm = MemoViewModel(from: memo)
+        }
         closeAction(vm)
         self.dismiss(animated: true, completion: nil)
     }

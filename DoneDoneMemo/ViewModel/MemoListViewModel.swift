@@ -20,4 +20,9 @@ struct MemoListViewModel {
         // TODO ゴミ箱行きにしたい
         memos.remove(at: index)
     }
+
+    mutating func addMemo() -> Memo {
+        let memo = repository.createMemo()
+        return memo
+    }
 }
