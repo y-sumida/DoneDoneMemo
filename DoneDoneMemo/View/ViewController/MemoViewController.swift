@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class MemoViewController: UIViewController {
     private var viewModel: MemoViewModel! {
@@ -9,6 +11,7 @@ final class MemoViewController: UIViewController {
         }
     }
     private var accessoryView: KeyboardTextView!
+    private let disposeBag = DisposeBag()
 
     @IBOutlet private weak var tableView: UITableView!
 
@@ -36,6 +39,7 @@ final class MemoViewController: UIViewController {
         accessoryView.delegate = self
 
         bind()
+        setupNavigationItems()
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,12 +82,29 @@ final class MemoViewController: UIViewController {
         completion()
     }
 
-    @IBAction func tapListButton(_ sender: Any) {
+    private func setupNavigationItems() {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "ic_delete"), for: .normal)
+        button.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        button.rx.tap.subscribe(onNext: {
+            print("tap trash")
+        }).disposed(by: disposeBag)
+
+        let trashButton = UIBarButtonItem(customView: button)
+        navigationItem.rightBarButtonItem = trashButton
+    }
+
+    @objc private func showMemoList() {
         let vc = MemoCollectionViewController(with: { memo in
             self.viewModel = memo
         })
         let navi = UINavigationController(rootViewController: vc)
         navigationController?.present(navi, animated: true, completion: nil)
+    }
+
+    @IBAction func tapListButton(_ sender: Any) {
+        showMemoList()
     }
 }
 
