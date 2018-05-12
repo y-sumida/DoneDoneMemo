@@ -8,7 +8,7 @@ class MemoRipository {
     }
 
     func fetch() -> [Memo] {
-        let memos =  realm.objects(Memo.self)
+        let memos =  realm.objects(Memo.self).filter("active = true")
         return memos.map { Memo.init(value: $0) }
     }
 
@@ -29,6 +29,11 @@ class MemoRipository {
 class Memo: RealmSwift.Object {
     @objc dynamic var id: String = NSUUID().uuidString
     @objc dynamic var title: String = ""
+    @objc dynamic var active: Bool = true
+    @objc dynamic var createdAt: Date = Date()
+    @objc dynamic var updatedAt: Date = Date()
+    @objc dynamic var deletedAt: Date = Date()
+
     let tasks = List<Task>()
     let deletedTasks = List<Task>()
 
@@ -43,6 +48,8 @@ class Memo: RealmSwift.Object {
         try! realm.write {
             task.done = !task.done
             task.doneAt = Date()
+            task.updatedAt = Date()
+            self.updatedAt = Date()
             realm.add(task)
         }
     }
@@ -54,6 +61,7 @@ class Memo: RealmSwift.Object {
         let realm = try! Realm()
         try! realm.write {
             self.tasks.insert(task, at: 0)
+            self.updatedAt = Date()
             realm.add(self, update: true)
         }
     }
@@ -65,6 +73,7 @@ class Memo: RealmSwift.Object {
         try! realm.write {
             task.title = title
             task.updatedAt = Date()
+            self.updatedAt = Date()
             realm.add(task)
         }
     }
@@ -77,7 +86,17 @@ class Memo: RealmSwift.Object {
             tasks.remove(at: index)
             task.active = false
             task.deletedAt = Date()
+            self.updatedAt = Date()
             deletedTasks.append(task)
+            realm.add(self, update: true)
+        }
+    }
+
+    func delete() {
+        let realm = try! Realm()
+        try! realm.write {
+            self.deletedAt = Date()
+            self.active = false
             realm.add(self, update: true)
         }
     }

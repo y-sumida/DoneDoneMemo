@@ -46,4 +46,8 @@ struct MemoViewModel {
     func toggleDone(at index: Int) {
         memo.toggleDone(at: index)
     }
+
+    func delete() {
+        memo.delete()
+    }
 }
