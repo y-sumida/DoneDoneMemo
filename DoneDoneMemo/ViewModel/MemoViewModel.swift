@@ -35,6 +35,10 @@ struct MemoViewModel {
        memo.addTask(title: title)
     }
 
+    func editTask(at index: Int, title: String) {
+        memo.editTask(at: index, title: title)
+    }
+
     func deleteTask(at index: Int) {
         memo.deleteTask(at: index)
     }

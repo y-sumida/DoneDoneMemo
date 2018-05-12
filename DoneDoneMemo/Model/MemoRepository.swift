@@ -58,6 +58,17 @@ class Memo: RealmSwift.Object {
         }
     }
 
+    func editTask(at index: Int, title: String) {
+        guard index < tasks.count else { return }
+        let task = tasks[index]
+        let realm = try! Realm()
+        try! realm.write {
+            task.title = title
+            task.updatedAt = Date()
+            realm.add(task)
+        }
+    }
+
     func deleteTask(at index: Int) {
         guard index < tasks.count else { return }
         let task = tasks[index]
@@ -78,6 +89,7 @@ class Task: RealmSwift.Object {
     @objc dynamic var done: Bool = false
     @objc dynamic var active: Bool = true
     @objc dynamic var createdAt: Date = Date()
+    @objc dynamic var updatedAt: Date = Date()
     @objc dynamic var deletedAt: Date = Date()
     @objc dynamic var doneAt: Date = Date()
 

@@ -13,6 +13,8 @@ final class MemoViewController: UIViewController {
     private var accessoryView: KeyboardTextView!
     private let disposeBag = DisposeBag()
 
+    private var editingIndex: IndexPath?
+
     @IBOutlet private weak var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -82,6 +84,12 @@ final class MemoViewController: UIViewController {
         completion()
     }
 
+    private func editTask(at indexPath: IndexPath, title: String) {
+        guard title.isNotEmpty else { return }
+        viewModel.editTask(at: indexPath.row, title: title)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+
     private func setupNavigationItems() {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "ic_delete"), for: .normal)
@@ -115,6 +123,7 @@ extension MemoViewController: UITableViewDataSource {
         guard let task = viewModel.task(at: indexPath.row) else { return UITableViewCell() }
         let cell = TaskCell.dequeue(from: tableView, for: indexPath, with: task)
         cell.tapAction = {[weak self] (text: String) -> Void in
+            self?.editingIndex = indexPath
             self?.accessoryView.title = text
             self?.accessoryView.textField.returnKeyType = .done
             self?.accessoryView.showKeyboard()
@@ -157,13 +166,16 @@ extension MemoViewController: UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        addTask(title: textField.text ?? "")
-        textField.text = ""
-        // TODO もっといい判定方法
-        if textField.returnKeyType == .done {
+        guard let text = textField.text else { return true }
+        if let index = editingIndex {
+            editTask(at: index, title: text)
             textField.returnKeyType = .next
             textField.resignFirstResponder()
+        } else {
+            addTask(title: text)
         }
+
+        textField.text = ""
         return true
     }
 }
