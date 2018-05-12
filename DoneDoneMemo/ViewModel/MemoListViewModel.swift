@@ -8,6 +8,10 @@ struct MemoListViewModel {
 
     init() {
         memos = repository.fetch()
+        if memos.isEmpty {
+            let memo = repository.createMemo()
+            memos.append(memo)
+        }
     }
 
     func memo(at index: Int) -> Memo? {
