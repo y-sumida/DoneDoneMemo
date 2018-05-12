@@ -153,16 +153,16 @@ extension MemoViewController: UITableViewDelegate {
             tableView.endUpdates()
         }
     }
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        accessoryView.title = ""
-    }
 }
 
 extension MemoViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         guard viewModel.numberOfTasks > 0 else { return }
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        accessoryView.title = ""
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
