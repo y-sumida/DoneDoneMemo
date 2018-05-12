@@ -85,8 +85,6 @@ final class MemoViewController: UIViewController {
     private func setupNavigationItems() {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "ic_delete"), for: .normal)
-        button.widthAnchor.constraint(equalToConstant: 24).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 24).isActive = true
         button.rx.tap.subscribe(onNext: {
             print("tap trash")
         }).disposed(by: disposeBag)
