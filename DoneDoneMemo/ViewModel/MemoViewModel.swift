@@ -19,7 +19,9 @@ struct MemoViewModel {
 
     init(from id: String) {
         if let memo = MemoRipository().findMemoById(id) {
-           self.memo = memo
+            self.memo = memo
+        } else if let memo = MemoRipository().fetch().first {
+            self.memo = memo
         } else {
             memo = MemoRipository().createMemo()
         }

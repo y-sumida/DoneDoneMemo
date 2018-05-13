@@ -68,6 +68,11 @@ final class MemoViewController: UIViewController {
         defaults.setValue(viewModel.memoId, forKey: "memoId")
     }
 
+    private func clearMemoId() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "memoId")
+    }
+
     private func addTask(title: String, completion: (() -> Void) = {}) {
         guard title.isNotEmpty else { return }
 
@@ -96,6 +101,7 @@ final class MemoViewController: UIViewController {
         button.rx.tap.subscribe(onNext: {[unowned self] in
             print("tap trash")
             self.viewModel.delete()
+            self.clearMemoId()
             self.showMemoList()
         }).disposed(by: disposeBag)
 
