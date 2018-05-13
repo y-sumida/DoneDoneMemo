@@ -113,6 +113,7 @@ final class MemoViewController: UIViewController {
         let vc = MemoCollectionViewController(with: { memo in
             self.viewModel = memo
         })
+        accessoryView.hideKeyboard()
         let navi = UINavigationController(rootViewController: vc)
         navigationController?.present(navi, animated: true, completion: nil)
     }
