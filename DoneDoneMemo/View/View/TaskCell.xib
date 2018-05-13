@@ -20,12 +20,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jo-Jb-YPc">
-                        <rect key="frame" x="266" y="15" width="46" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jo-Jb-YPc">
+                        <rect key="frame" x="268" y="8" width="44" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="46" id="f2X-ln-9Hb"/>
+                            <constraint firstAttribute="width" constant="44" id="f2X-ln-9Hb"/>
+                            <constraint firstAttribute="height" constant="44" id="m1L-TH-yrS"/>
                         </constraints>
-                        <state key="normal" title="Edit"/>
+                        <state key="normal" image="ic_edit"/>
                         <connections>
                             <action selector="tapEditButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bRK-fY-QW9"/>
                         </connections>
@@ -38,7 +39,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYd-49-X7G">
-                        <rect key="frame" x="52" y="19" width="198" height="22"/>
+                        <rect key="frame" x="52" y="19" width="200" height="22"/>
                         <attributedString key="attributedText">
                             <fragment content="Label">
                                 <attributes>
@@ -71,5 +72,6 @@
     </objects>
     <resources>
         <image name="ic_checkbox" width="24" height="24"/>
+        <image name="ic_edit" width="24" height="24"/>
     </resources>
 </document>
