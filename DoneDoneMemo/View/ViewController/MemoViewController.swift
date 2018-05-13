@@ -44,6 +44,11 @@ final class MemoViewController: UIViewController {
         setupNavigationItems()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        editingIndex = nil
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
