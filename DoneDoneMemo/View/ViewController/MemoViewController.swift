@@ -41,7 +41,6 @@ final class MemoViewController: UIViewController {
         accessoryView.delegate = self
 
         bind()
-        setupNavigationItems()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -100,18 +99,7 @@ final class MemoViewController: UIViewController {
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
-    private func setupNavigationItems() {
-        let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "ic_delete"), for: .normal)
-        button.rx.tap.subscribe(onNext: {[unowned self] in
-            self.showDeleteAlert()
-        }).disposed(by: disposeBag)
-
-        let trashButton = UIBarButtonItem(customView: button)
-        navigationItem.rightBarButtonItem = trashButton
-    }
-
-    private func showDeleteAlert() {
+    @IBAction func tapTrashButton() {
         let alert = UIAlertController(title: "本当に削除してよいですか？", message: nil, preferredStyle: .alert)
         let action = UIAlertAction(title: "削除する", style: UIAlertActionStyle.default, handler: {[unowned self] _ in
             self.viewModel.delete()

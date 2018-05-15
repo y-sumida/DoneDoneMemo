@@ -56,6 +56,12 @@
                                 <action selector="tapListButton:" destination="qy9-3T-TtK" id="C1w-Vi-5UN"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="ic_delete" id="XBm-Dt-4JG">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="tapTrashButton" destination="qy9-3T-TtK" id="Lnx-we-ufT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cK6-gS-gNg" id="To8-ne-cER"/>
@@ -68,5 +74,6 @@
     </scenes>
     <resources>
         <image name="ic_collection" width="24" height="24"/>
+        <image name="ic_delete" width="24" height="24"/>
     </resources>
 </document>
