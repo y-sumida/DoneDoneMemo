@@ -104,14 +104,24 @@ final class MemoViewController: UIViewController {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "ic_delete"), for: .normal)
         button.rx.tap.subscribe(onNext: {[unowned self] in
-            print("tap trash")
-            self.viewModel.delete()
-            self.clearMemoId()
-            self.showMemoList()
+            self.showDeleteAlert()
         }).disposed(by: disposeBag)
 
         let trashButton = UIBarButtonItem(customView: button)
         navigationItem.rightBarButtonItem = trashButton
+    }
+
+    private func showDeleteAlert() {
+        let alert = UIAlertController(title: "本当に削除してよいですか？", message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "削除する", style: UIAlertActionStyle.default, handler: {[unowned self] _ in
+            self.viewModel.delete()
+            self.clearMemoId()
+            self.showMemoList()
+        })
+        let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: { _ in })
+        alert.addAction(action)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
     }
 
     @objc private func showMemoList() {
