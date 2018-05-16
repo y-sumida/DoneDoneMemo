@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,12 +57,17 @@
                                 <action selector="tapListButton:" destination="qy9-3T-TtK" id="C1w-Vi-5UN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="ic_delete" id="XBm-Dt-4JG">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="tapTrashButton" destination="qy9-3T-TtK" id="Lnx-we-ufT"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="ic_setting" id="YH3-Un-giK">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </barButtonItem>
+                            <barButtonItem image="ic_delete" id="XBm-Dt-4JG">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="tapTrashButton" destination="qy9-3T-TtK" id="Lnx-we-ufT"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cK6-gS-gNg" id="To8-ne-cER"/>
@@ -75,5 +81,6 @@
     <resources>
         <image name="ic_collection" width="24" height="24"/>
         <image name="ic_delete" width="24" height="24"/>
+        <image name="ic_setting" width="24" height="24"/>
     </resources>
 </document>
