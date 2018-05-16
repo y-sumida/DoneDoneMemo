@@ -99,6 +99,10 @@ final class MemoViewController: UIViewController {
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
+    @IBAction func tapSettingsButton(_ sender: Any) {
+        showSettings()
+    }
+
     @IBAction func tapTrashButton() {
         let alert = UIAlertController(title: "本当に削除してよいですか？", message: nil, preferredStyle: .alert)
         let action = UIAlertAction(title: "削除する", style: UIAlertActionStyle.default, handler: {[unowned self] _ in
@@ -117,6 +121,12 @@ final class MemoViewController: UIViewController {
             self.viewModel = memo
         })
         accessoryView.hideKeyboard()
+        let navi = UINavigationController(rootViewController: vc)
+        navigationController?.present(navi, animated: true, completion: nil)
+    }
+
+    private func showSettings() {
+        let vc = MemoSettingsViewController(with: viewModel)
         let navi = UINavigationController(rootViewController: vc)
         navigationController?.present(navi, animated: true, completion: nil)
     }

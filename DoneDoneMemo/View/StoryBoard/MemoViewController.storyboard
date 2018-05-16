@@ -60,6 +60,9 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="ic_setting" id="YH3-Un-giK">
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="tapSettingsButton:" destination="qy9-3T-TtK" id="BJC-pD-kOw"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem image="ic_delete" id="XBm-Dt-4JG">
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

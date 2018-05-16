@@ -36,6 +36,8 @@
 		A99B54FC206BC9C2002DFA2B /* KeyboardTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54FB206BC9C2002DFA2B /* KeyboardTextView.swift */; };
 		A99B54FE206BC9F0002DFA2B /* KeyboardTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99B54FD206BC9F0002DFA2B /* KeyboardTextView.xib */; };
 		A99FD650207110710052587F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99FD64F207110710052587F /* StringExtension.swift */; };
+		A9AD387320AC777F0014EBB9 /* MemoSettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9AD387220AC777F0014EBB9 /* MemoSettingsViewController.storyboard */; };
+		A9AD387520AC78D50014EBB9 /* MemoSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD387420AC78D50014EBB9 /* MemoSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		A99B54FB206BC9C2002DFA2B /* KeyboardTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTextView.swift; sourceTree = "<group>"; };
 		A99B54FD206BC9F0002DFA2B /* KeyboardTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyboardTextView.xib; sourceTree = "<group>"; };
 		A99FD64F207110710052587F /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		A9AD387220AC777F0014EBB9 /* MemoSettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoSettingsViewController.storyboard; sourceTree = "<group>"; };
+		A9AD387420AC78D50014EBB9 /* MemoSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,7 @@
 			children = (
 				A917D10020A087EF008DE98C /* MemoCollectionViewController.storyboard */,
 				A90FF03A2044526600124266 /* MemoListViewController.storyboard */,
+				A9AD387220AC777F0014EBB9 /* MemoSettingsViewController.storyboard */,
 				A99B54F7205805F0002DFA2B /* MemoViewController.storyboard */,
 			);
 			path = StoryBoard;
@@ -199,6 +204,7 @@
 			children = (
 				A917D10220A0883C008DE98C /* MemoCollectionViewController.swift */,
 				A90FF0382044526600124266 /* MemoListViewController.swift */,
+				A9AD387420AC78D50014EBB9 /* MemoSettingsViewController.swift */,
 				A99B54F9205FEB04002DFA2B /* MemoViewController.swift */,
 			);
 			path = ViewController;
@@ -325,6 +331,7 @@
 			files = (
 				A99B54FE206BC9F0002DFA2B /* KeyboardTextView.xib in Resources */,
 				A99B54F420516DB7002DFA2B /* TaskCell.xib in Resources */,
+				A9AD387320AC777F0014EBB9 /* MemoSettingsViewController.storyboard in Resources */,
 				A99B54F8205805F0002DFA2B /* MemoViewController.storyboard in Resources */,
 				A90FF03E2044526600124266 /* Assets.xcassets in Resources */,
 				A90FF03C2044526600124266 /* MemoListViewController.storyboard in Resources */,
@@ -392,6 +399,7 @@
 				A99B54FC206BC9C2002DFA2B /* KeyboardTextView.swift in Sources */,
 				A958FC1A20A1E26200EC86DE /* MemoAddCell.swift in Sources */,
 				A99B54FA205FEB04002DFA2B /* MemoViewController.swift in Sources */,
+				A9AD387520AC78D50014EBB9 /* MemoSettingsViewController.swift in Sources */,
 				A90FF0372044526600124266 /* AppDelegate.swift in Sources */,
 				A917D10320A0883C008DE98C /* MemoCollectionViewController.swift in Sources */,
 				A99B54E020483144002DFA2B /* MemoListViewModel.swift in Sources */,
