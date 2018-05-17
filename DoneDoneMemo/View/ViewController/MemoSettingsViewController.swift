@@ -16,10 +16,17 @@ final class MemoSettingsViewController: UIViewController {
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
+
+        let closeButton = UIBarButtonItem(title: "閉じる", style: .plain, target: self, action: #selector(self.close))
+        navigationItem.leftBarButtonItem = closeButton
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    @objc func close() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
