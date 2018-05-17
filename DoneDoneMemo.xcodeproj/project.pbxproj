@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A90CF30A20ADA904000C9ECE /* MemoSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90CF30920ADA904000C9ECE /* MemoSettingsViewModel.swift */; };
+		A90CF30D20ADB202000C9ECE /* MemoSettingsTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90CF30B20ADB202000C9ECE /* MemoSettingsTitleCell.swift */; };
+		A90CF30E20ADB202000C9ECE /* MemoSettingsTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90CF30C20ADB202000C9ECE /* MemoSettingsTitleCell.xib */; };
 		A90FF0372044526600124266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90FF0362044526600124266 /* AppDelegate.swift */; };
 		A90FF0392044526600124266 /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90FF0382044526600124266 /* MemoListViewController.swift */; };
 		A90FF03C2044526600124266 /* MemoListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90FF03A2044526600124266 /* MemoListViewController.storyboard */; };
@@ -53,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		A90CF30920ADA904000C9ECE /* MemoSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsViewModel.swift; sourceTree = "<group>"; };
+		A90CF30B20ADB202000C9ECE /* MemoSettingsTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsTitleCell.swift; sourceTree = "<group>"; };
+		A90CF30C20ADB202000C9ECE /* MemoSettingsTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoSettingsTitleCell.xib; sourceTree = "<group>"; };
 		A90FF0332044526600124266 /* DoneDoneMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoneDoneMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A90FF0362044526600124266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A90FF0382044526600124266 /* MemoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 				A958FC1920A1E26200EC86DE /* MemoAddCell.xib */,
 				A958FC1420A1DCE800EC86DE /* MemoCell.swift */,
 				A958FC1520A1DCE800EC86DE /* MemoCell.xib */,
+				A90CF30B20ADB202000C9ECE /* MemoSettingsTitleCell.swift */,
+				A90CF30C20ADB202000C9ECE /* MemoSettingsTitleCell.xib */,
 				A99B54F120516DB7002DFA2B /* TaskCell.swift */,
 				A99B54F220516DB7002DFA2B /* TaskCell.xib */,
 			);
@@ -335,6 +341,7 @@
 				A99B54FE206BC9F0002DFA2B /* KeyboardTextView.xib in Resources */,
 				A99B54F420516DB7002DFA2B /* TaskCell.xib in Resources */,
 				A9AD387320AC777F0014EBB9 /* MemoSettingsViewController.storyboard in Resources */,
+				A90CF30E20ADB202000C9ECE /* MemoSettingsTitleCell.xib in Resources */,
 				A99B54F8205805F0002DFA2B /* MemoViewController.storyboard in Resources */,
 				A90FF03E2044526600124266 /* Assets.xcassets in Resources */,
 				A90FF03C2044526600124266 /* MemoListViewController.storyboard in Resources */,
@@ -401,6 +408,7 @@
 				A90FF0392044526600124266 /* MemoListViewController.swift in Sources */,
 				A99B54E220483D99002DFA2B /* MemoRepository.swift in Sources */,
 				A99B54FC206BC9C2002DFA2B /* KeyboardTextView.swift in Sources */,
+				A90CF30D20ADB202000C9ECE /* MemoSettingsTitleCell.swift in Sources */,
 				A958FC1A20A1E26200EC86DE /* MemoAddCell.swift in Sources */,
 				A99B54FA205FEB04002DFA2B /* MemoViewController.swift in Sources */,
 				A9AD387520AC78D50014EBB9 /* MemoSettingsViewController.swift in Sources */,

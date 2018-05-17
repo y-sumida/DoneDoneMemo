@@ -14,7 +14,7 @@ final class MemoSettingsViewController: UIViewController {
 
         navigationItem.title = viewModel.title + "の設定"
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.registerNib(type: MemoSettingsTitleCell.self)
         tableView.dataSource = self
 
         let closeButton = UIBarButtonItem(title: "閉じる", style: .plain, target: self, action: #selector(self.close))
@@ -47,10 +47,7 @@ extension MemoSettingsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO 専用のセルつくる
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
-
-        cell.textLabel?.text = viewModel.title
+        let cell = MemoSettingsTitleCell.dequeue(from: tableView, for: indexPath, with: viewModel.title)
         return cell
     }
 
