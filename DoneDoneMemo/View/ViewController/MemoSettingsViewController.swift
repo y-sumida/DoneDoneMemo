@@ -4,8 +4,8 @@ import InstantiateStandard
 
 final class MemoSettingsViewController: UIViewController {
     // StoryboardInstantiatable
-    typealias Dependency = MemoViewModel
-    private var viewModel: MemoViewModel!
+    typealias Dependency = MemoSettingsViewModel
+    private var viewModel: MemoSettingsViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ final class MemoSettingsViewController: UIViewController {
 }
 
 extension MemoSettingsViewController: StoryboardInstantiatable {
-    func inject(_ dependency: MemoViewModel) {
+    func inject(_ dependency: MemoSettingsViewModel) {
         viewModel = dependency
     }
 }

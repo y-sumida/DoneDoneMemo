@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A90CF30A20ADA904000C9ECE /* MemoSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90CF30920ADA904000C9ECE /* MemoSettingsViewModel.swift */; };
 		A90FF0372044526600124266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90FF0362044526600124266 /* AppDelegate.swift */; };
 		A90FF0392044526600124266 /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90FF0382044526600124266 /* MemoListViewController.swift */; };
 		A90FF03C2044526600124266 /* MemoListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90FF03A2044526600124266 /* MemoListViewController.storyboard */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A90CF30920ADA904000C9ECE /* MemoSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsViewModel.swift; sourceTree = "<group>"; };
 		A90FF0332044526600124266 /* DoneDoneMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoneDoneMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A90FF0362044526600124266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A90FF0382044526600124266 /* MemoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				A99B54DF20483144002DFA2B /* MemoListViewModel.swift */,
+				A90CF30920ADA904000C9ECE /* MemoSettingsViewModel.swift */,
 				A99B54E5204AD12B002DFA2B /* MemoViewModel.swift */,
 			);
 			path = ViewModel;
@@ -393,6 +396,7 @@
 			files = (
 				A99B54E6204AD12B002DFA2B /* MemoViewModel.swift in Sources */,
 				A99B54F320516DB7002DFA2B /* TaskCell.swift in Sources */,
+				A90CF30A20ADA904000C9ECE /* MemoSettingsViewModel.swift in Sources */,
 				A99FD650207110710052587F /* StringExtension.swift in Sources */,
 				A90FF0392044526600124266 /* MemoListViewController.swift in Sources */,
 				A99B54E220483D99002DFA2B /* MemoRepository.swift in Sources */,

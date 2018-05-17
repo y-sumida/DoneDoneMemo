@@ -126,7 +126,8 @@ final class MemoViewController: UIViewController {
     }
 
     private func showSettings() {
-        let vc = MemoSettingsViewController(with: viewModel)
+        let vm = MemoSettingsViewModel(from: viewModel.memoId)
+        let vc = MemoSettingsViewController(with: vm)
         let navi = UINavigationController(rootViewController: vc)
         navigationController?.present(navi, animated: true, completion: nil)
     }
