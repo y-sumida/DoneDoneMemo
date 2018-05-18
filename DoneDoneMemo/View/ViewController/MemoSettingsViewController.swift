@@ -12,7 +12,7 @@ final class MemoSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = viewModel.title + "の設定"
+        navigationItem.title = "メモの設定"
 
         tableView.registerNib(type: MemoSettingsTitleCell.self)
         tableView.dataSource = self

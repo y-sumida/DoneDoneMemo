@@ -1,11 +1,33 @@
 import UIKit
 import Instantiate
 import InstantiateStandard
+import RxSwift
 
 class MemoSettingsTitleCell: UITableViewCell {
-    typealias Dependency = String
+    typealias Dependency = Variable<String>
 
     @IBOutlet weak var titleTextField: UITextField!
+
+    private var disposeBag: DisposeBag!
+    private var bindValue: Variable<String>! {
+        didSet {
+            disposeBag = DisposeBag()
+            bindValue.asObservable()
+                .distinctUntilChanged()
+                .subscribe(onNext: {[weak self] value in
+                    self?.titleTextField.text = value
+                })
+                .disposed(by: disposeBag)
+
+            titleTextField.rx.text
+                .bind { string in
+                    if let value: String = string {
+                        self.bindValue.value = value
+                    }
+                }
+                .disposed(by: disposeBag)
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,7 +39,8 @@ class MemoSettingsTitleCell: UITableViewCell {
 }
 
 extension MemoSettingsTitleCell: Reusable, NibType {
-    func inject(_ dependency: String) {
-       titleTextField.text = dependency
+    func inject(_ dependency: Variable<String>) {
+        bindValue = dependency
+        titleTextField.text = bindValue.value
     }
 }
