@@ -10,4 +10,8 @@ struct MemoSettingsViewModel {
             title.value = memo.title
         }
     }
+
+    func updateMemo() {
+        memo?.update(title: title.value)
+    }
 }

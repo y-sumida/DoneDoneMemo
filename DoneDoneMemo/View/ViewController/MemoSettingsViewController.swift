@@ -28,6 +28,10 @@ final class MemoSettingsViewController: UIViewController {
     @objc func close() {
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func save(_ sender: Any) {
+        viewModel.updateMemo()
+        close()
+    }
 }
 
 extension MemoSettingsViewController: StoryboardInstantiatable {

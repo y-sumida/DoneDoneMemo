@@ -100,6 +100,15 @@ class Memo: RealmSwift.Object {
             realm.add(self, update: true)
         }
     }
+
+    func update(title: String) {
+        let realm = try! Realm()
+        try! realm.write {
+            updatedAt = Date()
+            self.title = title
+            realm.add(self, update: true)
+        }
+    }
 }
 
 class Task: RealmSwift.Object {
