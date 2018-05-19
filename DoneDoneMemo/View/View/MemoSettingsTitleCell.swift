@@ -9,25 +9,7 @@ class MemoSettingsTitleCell: UITableViewCell {
     @IBOutlet weak var titleTextField: UITextField!
 
     private var disposeBag: DisposeBag!
-    private var bindValue: Variable<String>! {
-        didSet {
-            disposeBag = DisposeBag()
-            bindValue.asObservable()
-                .distinctUntilChanged()
-                .subscribe(onNext: {[weak self] value in
-                    self?.titleTextField.text = value
-                })
-                .disposed(by: disposeBag)
-
-            titleTextField.rx.text
-                .bind { string in
-                    if let value: String = string {
-                        self.bindValue.value = value
-                    }
-                }
-                .disposed(by: disposeBag)
-        }
-    }
+    private var bindValue: Variable<String>!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,5 +24,14 @@ extension MemoSettingsTitleCell: Reusable, NibType {
     func inject(_ dependency: Variable<String>) {
         bindValue = dependency
         titleTextField.text = bindValue.value
+
+        disposeBag = DisposeBag()
+        titleTextField.rx.text.asDriver()
+            .drive(onNext: { text in
+                if let value: String = text {
+                    self.bindValue.value = value
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
