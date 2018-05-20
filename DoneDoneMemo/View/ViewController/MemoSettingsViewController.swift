@@ -6,19 +6,24 @@ final class MemoSettingsViewController: UIViewController {
     // StoryboardInstantiatable
     typealias Dependency = MemoSettingsViewModel
     private var viewModel: MemoSettingsViewModel!
+    private var content: MemoSettingsContentViewController!
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var saveButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = "メモの設定"
 
-        tableView.registerNib(type: MemoSettingsTitleCell.self)
-        tableView.dataSource = self
-
         let closeButton = UIBarButtonItem(title: "閉じる", style: .plain, target: self, action: #selector(self.close))
         navigationItem.leftBarButtonItem = closeButton
+
+        content = MemoSettingsContentViewController(with: viewModel)
+        addChildViewController(content)
+        content.view.frame = self.view.bounds
+        view.addSubview(content.view)
+        view.bringSubview(toFront: saveButton)
+        content.didMove(toParentViewController: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,25 +42,5 @@ final class MemoSettingsViewController: UIViewController {
 extension MemoSettingsViewController: StoryboardInstantiatable {
     func inject(_ dependency: MemoSettingsViewModel) {
         viewModel = dependency
-    }
-}
-
-
-extension MemoSettingsViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = MemoSettingsTitleCell.dequeue(from: tableView, for: indexPath, with: viewModel.title)
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "メモのタイトル"
     }
 }
