@@ -21,26 +21,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ef2-KG-LfF">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="Xcr-Zv-8an">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEl-vZ-gyL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <state key="normal" title="Save"/>
-                                            <connections>
-                                                <action selector="save:" destination="2rB-Bp-ud8" eventType="touchUpInside" id="Rft-rC-OVo"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="sEl-vZ-gyL" secondAttribute="trailing" id="2LW-cV-hYX"/>
-                                        <constraint firstItem="sEl-vZ-gyL" firstAttribute="leading" secondItem="Xcr-Zv-8an" secondAttribute="leading" id="TGG-Me-BKa"/>
-                                        <constraint firstItem="sEl-vZ-gyL" firstAttribute="top" secondItem="Xcr-Zv-8an" secondAttribute="top" id="TI0-sL-Um8"/>
-                                        <constraint firstAttribute="bottom" secondItem="sEl-vZ-gyL" secondAttribute="bottom" id="nTp-6O-r9G"/>
-                                    </constraints>
-                                </view>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

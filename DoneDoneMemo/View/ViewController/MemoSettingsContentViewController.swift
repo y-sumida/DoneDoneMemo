@@ -12,25 +12,12 @@ final class MemoSettingsContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "メモの設定"
-
         tableView.registerNib(type: MemoSettingsTitleCell.self)
         tableView.dataSource = self
-
-        let closeButton = UIBarButtonItem(title: "閉じる", style: .plain, target: self, action: #selector(self.close))
-        navigationItem.leftBarButtonItem = closeButton
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-
-    @objc func close() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    @IBAction func save(_ sender: Any) {
-        viewModel.updateMemo()
-        close()
     }
 }
 
