@@ -48,6 +48,7 @@ final class MemoViewController: UIViewController {
         editingIndex = nil
         viewModel.reload()
         navigationItem.title = viewModel.title
+        accessoryView.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -119,6 +120,7 @@ final class MemoViewController: UIViewController {
     }
 
     @objc private func showMemoList() {
+        accessoryView.isHidden = true
         let vc = MemoCollectionViewController(with: { memo in
             self.viewModel = memo
         })
@@ -128,6 +130,7 @@ final class MemoViewController: UIViewController {
     }
 
     private func showSettings() {
+        accessoryView.isHidden = true
         let vm = MemoSettingsViewModel(from: viewModel.memoId)
         let vc = MemoSettingsViewController(with: vm)
         let navi = UINavigationController(rootViewController: vc)
