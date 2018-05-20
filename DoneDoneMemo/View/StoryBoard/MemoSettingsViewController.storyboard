@@ -24,6 +24,9 @@
                                     <constraint firstAttribute="height" constant="48" id="GbQ-W7-3Ms"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="save:" destination="qcG-go-iLt" eventType="touchUpInside" id="sCj-0B-jKw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
