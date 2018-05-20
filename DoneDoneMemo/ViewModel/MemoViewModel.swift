@@ -32,6 +32,11 @@ struct MemoViewModel {
         return memo.tasks[index]
     }
 
+    mutating func reload() {
+        let id = memo.id
+        memo = MemoRipository().findMemoById(id)
+    }
+
     // TODO: CRUD処理
     func addTask(title: String) {
        memo.addTask(title: title)

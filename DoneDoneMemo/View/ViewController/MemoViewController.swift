@@ -46,6 +46,7 @@ final class MemoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         editingIndex = nil
+        viewModel.reload()
         navigationItem.title = viewModel.title
     }
 
