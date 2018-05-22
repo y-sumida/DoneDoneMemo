@@ -15,6 +15,8 @@ final class MemoViewController: UIViewController {
 
     private var editingIndex: IndexPath?
 
+    let animator = CustomAnimatedTransitioning()
+
     @IBOutlet private weak var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -126,6 +128,7 @@ final class MemoViewController: UIViewController {
         })
         accessoryView.hideKeyboard()
         let navi = UINavigationController(rootViewController: vc)
+        navi.transitioningDelegate = self
         navigationController?.present(navi, animated: true, completion: nil)
     }
 
@@ -205,5 +208,15 @@ extension MemoViewController: UITextFieldDelegate {
 
         textField.text = ""
         return true
+    }
+}
+
+extension MemoViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return animator
+    }
+
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
     }
 }
