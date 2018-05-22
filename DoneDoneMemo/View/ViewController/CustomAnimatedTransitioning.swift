@@ -6,6 +6,18 @@ final class CustomAnimatedTransitioning: NSObject, UIViewControllerAnimatedTrans
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        // TODO あとで実装する
+        guard let to = transitionContext.view(forKey: .to) else { return }
+
+        let container = transitionContext.containerView
+
+        to.alpha = 0.0
+
+        container.addSubview(to)
+
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: { () -> Void in
+            to.alpha = 1.0
+            }, completion: { _ in
+                transitionContext.completeTransition(true)
+        })
     }
 }
