@@ -15,7 +15,7 @@ final class MemoViewController: UIViewController {
 
     private var editingIndex: IndexPath?
 
-    let animator = CustomAnimatedTransitioning()
+    let animator = ZoomInAnimator()
 
     @IBOutlet private weak var tableView: UITableView!
 

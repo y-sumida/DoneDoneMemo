@@ -1,6 +1,6 @@
 import UIKit
 
-final class CustomAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
+final class ZoomInAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3
     }
