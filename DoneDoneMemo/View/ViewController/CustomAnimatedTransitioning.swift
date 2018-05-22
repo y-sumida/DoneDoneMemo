@@ -8,16 +8,15 @@ final class CustomAnimatedTransitioning: NSObject, UIViewControllerAnimatedTrans
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let to = transitionContext.view(forKey: .to) else { return }
 
+        to.transform = CGAffineTransform(scaleX: 2, y: 2)
+
         let container = transitionContext.containerView
-
-        to.alpha = 0.0
-
         container.addSubview(to)
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: { () -> Void in
-            to.alpha = 1.0
-            }, completion: { _ in
-                transitionContext.completeTransition(true)
+            to.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }, completion: { _ in
+            transitionContext.completeTransition(true)
         })
     }
 }
