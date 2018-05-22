@@ -50,6 +50,10 @@ final class MemoViewController: UIViewController {
         editingIndex = nil
         viewModel.reload()
         navigationItem.title = viewModel.title
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         accessoryView.isHidden = false
     }
 
