@@ -15,6 +15,7 @@
 		A90FF04C2044526600124266 /* DoneDoneMemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90FF04B2044526600124266 /* DoneDoneMemoTests.swift */; };
 		A917D10120A087EF008DE98C /* MemoCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A917D10020A087EF008DE98C /* MemoCollectionViewController.storyboard */; };
 		A917D10320A0883C008DE98C /* MemoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917D10220A0883C008DE98C /* MemoCollectionViewController.swift */; };
+		A9289F0520B43F6800CF46EF /* ZoomOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9289F0420B43F6800CF46EF /* ZoomOutAnimator.swift */; };
 		A9345F4320B1A0FE0015B34F /* MemoSettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9345F4220B1A0FE0015B34F /* MemoSettingsViewController.storyboard */; };
 		A9345F4520B1A1490015B34F /* MemoSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9345F4420B1A1490015B34F /* MemoSettingsViewController.swift */; };
 		A9345F4B20B307420015B34F /* ZoomInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9345F4A20B307420015B34F /* ZoomInAnimator.swift */; };
@@ -67,6 +68,7 @@
 		A90FF04D2044526600124266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A917D10020A087EF008DE98C /* MemoCollectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoCollectionViewController.storyboard; sourceTree = "<group>"; };
 		A917D10220A0883C008DE98C /* MemoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCollectionViewController.swift; sourceTree = "<group>"; };
+		A9289F0420B43F6800CF46EF /* ZoomOutAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomOutAnimator.swift; sourceTree = "<group>"; };
 		A9345F4220B1A0FE0015B34F /* MemoSettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoSettingsViewController.storyboard; sourceTree = "<group>"; };
 		A9345F4420B1A1490015B34F /* MemoSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsViewController.swift; sourceTree = "<group>"; };
 		A9345F4A20B307420015B34F /* ZoomInAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInAnimator.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				A9345F4420B1A1490015B34F /* MemoSettingsViewController.swift */,
 				A99B54F9205FEB04002DFA2B /* MemoViewController.swift */,
 				A9345F4A20B307420015B34F /* ZoomInAnimator.swift */,
+				A9289F0420B43F6800CF46EF /* ZoomOutAnimator.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				A958FC1A20A1E26200EC86DE /* MemoAddCell.swift in Sources */,
 				A99B54FA205FEB04002DFA2B /* MemoViewController.swift in Sources */,
 				A9AD387520AC78D50014EBB9 /* MemoSettingsContentViewController.swift in Sources */,
+				A9289F0520B43F6800CF46EF /* ZoomOutAnimator.swift in Sources */,
 				A90FF0372044526600124266 /* AppDelegate.swift in Sources */,
 				A917D10320A0883C008DE98C /* MemoCollectionViewController.swift in Sources */,
 				A99B54E020483144002DFA2B /* MemoListViewModel.swift in Sources */,

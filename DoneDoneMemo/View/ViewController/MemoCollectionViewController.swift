@@ -9,6 +9,8 @@ class MemoCollectionViewController: UIViewController {
     // StoryboardInstantiatable
     typealias Dependency = ((MemoViewModel) -> Void)
 
+    let animator = ZoomOutAnimator()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -23,6 +25,8 @@ class MemoCollectionViewController: UIViewController {
 
         collectionView.registerNib(type: MemoCell.self)
         collectionView.registerNib(type: MemoAddCell.self)
+
+        navigationController?.transitioningDelegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,7 +64,7 @@ extension MemoCollectionViewController: UICollectionViewDelegate {
             vm = MemoViewModel(from: memo)
         }
         closeAction(vm)
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -76,5 +80,11 @@ extension MemoCollectionViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+extension MemoCollectionViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return animator
     }
 }
