@@ -37,6 +37,11 @@ class Memo: RealmSwift.Object {
     let tasks = List<Task>()
     let deletedTasks = List<Task>()
 
+    var remainCount: Int {
+        let remain = tasks.filter { task in !task.done }
+        return remain.count
+    }
+
     override static func primaryKey() -> String? {
         return "id"
     }
