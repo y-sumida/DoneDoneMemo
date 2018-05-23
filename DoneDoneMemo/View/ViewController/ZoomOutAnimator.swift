@@ -16,8 +16,8 @@ final class ZoomOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: { () -> Void in
             from.transform = CGAffineTransform(scaleX: 2, y: 2)
-        }, completion: { _ in
             to.alpha = 1
+        }, completion: { _ in
             transitionContext.completeTransition(true)
         })
     }
