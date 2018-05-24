@@ -13,10 +13,15 @@ class MemoSettingsTitleCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        commonInit()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+
+    func commonInit() {
+        titleTextField.returnKeyType = .done
     }
 }
 
