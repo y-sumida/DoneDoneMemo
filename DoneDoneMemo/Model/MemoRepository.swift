@@ -106,6 +106,15 @@ class Memo: RealmSwift.Object {
         }
     }
 
+    func deleteDone() {
+        let done = tasks.filter("done == true")
+        done.forEach { task in
+            if let index = tasks.index(of: task) {
+                deleteTask(at: index)
+            }
+        }
+    }
+
     func update(title: String) {
         let realm = try! Realm()
         try! realm.write {

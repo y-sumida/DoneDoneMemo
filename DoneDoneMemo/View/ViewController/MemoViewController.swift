@@ -121,7 +121,8 @@ final class MemoViewController: UIViewController {
             self.showMemoList()
         })
         let deleteDone = UIAlertAction(title: "チェック済タスクを削除する", style: .default, handler: {[unowned self] _ in
-            // TODO 削除処理
+            self.viewModel.deleteDone()
+            self.tableView.reloadData()
             self.accessoryView.isHidden = false
         })
         let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: {[unowned self] _ in

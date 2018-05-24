@@ -57,4 +57,8 @@ struct MemoViewModel {
     func delete() {
         memo.delete()
     }
+
+    func deleteDone() {
+        memo.deleteDone()
+    }
 }
