@@ -113,14 +113,22 @@ final class MemoViewController: UIViewController {
     }
 
     @IBAction func tapTrashButton() {
-        let alert = UIAlertController(title: "本当に削除してよいですか？", message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "削除する", style: UIAlertActionStyle.default, handler: {[unowned self] _ in
+        accessoryView.isHidden = true
+        let alert = UIAlertController(title: "削除しますか？", message: nil, preferredStyle: .actionSheet)
+        let deleteAll = UIAlertAction(title: "メモごと削除する", style: .default, handler: {[unowned self] _ in
             self.viewModel.delete()
             self.clearMemoId()
             self.showMemoList()
         })
-        let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: { _ in })
-        alert.addAction(action)
+        let deleteDone = UIAlertAction(title: "チェック済タスクを削除する", style: .default, handler: {[unowned self] _ in
+            // TODO 削除処理
+            self.accessoryView.isHidden = false
+        })
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: {[unowned self] _ in
+           self.accessoryView.isHidden = false
+        })
+        alert.addAction(deleteAll)
+        alert.addAction(deleteDone)
         alert.addAction(cancel)
         self.present(alert, animated: true, completion: nil)
     }
