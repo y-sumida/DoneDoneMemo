@@ -17,29 +17,9 @@
                     <view key="view" contentMode="scaleToFill" id="Eej-rg-Ueg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvu-30-W3i">
-                                <rect key="frame" x="0.0" y="619" width="375" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="GbQ-W7-3Ms"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="save:" destination="qcG-go-iLt" eventType="touchUpInside" id="sCj-0B-jKw"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="fvu-30-W3i" firstAttribute="leading" secondItem="vmp-6a-9KW" secondAttribute="leading" id="9t5-Xq-pTb"/>
-                            <constraint firstItem="vmp-6a-9KW" firstAttribute="trailing" secondItem="fvu-30-W3i" secondAttribute="trailing" id="sfw-1L-dVo"/>
-                            <constraint firstItem="fvu-30-W3i" firstAttribute="bottom" secondItem="vmp-6a-9KW" secondAttribute="bottom" id="xON-DG-DVT"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vmp-6a-9KW"/>
                     </view>
-                    <connections>
-                        <outlet property="saveButton" destination="fvu-30-W3i" id="JJd-cH-NyM"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88F-O8-yaf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

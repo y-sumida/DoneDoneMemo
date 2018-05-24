@@ -8,21 +8,15 @@ final class MemoSettingsViewController: UIViewController {
     private var viewModel: MemoSettingsViewModel!
     private var content: MemoSettingsContentViewController!
 
-    @IBOutlet private weak var saveButton: UIButton!
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "メモの設定"
-
-        let closeButton = UIBarButtonItem(title: "閉じる", style: .plain, target: self, action: #selector(self.close))
-        navigationItem.leftBarButtonItem = closeButton
+        setupNavigationItem()
 
         content = MemoSettingsContentViewController(with: viewModel)
         addChildViewController(content)
         content.view.frame = self.view.bounds
         view.addSubview(content.view)
-        view.bringSubview(toFront: saveButton)
         content.didMove(toParentViewController: self)
     }
 
@@ -33,9 +27,19 @@ final class MemoSettingsViewController: UIViewController {
     @objc func close() {
         self.dismiss(animated: true, completion: nil)
     }
-    @IBAction func save(_ sender: Any) {
+    @objc func save() {
         viewModel.updateMemo()
         close()
+    }
+
+    private func setupNavigationItem() {
+        navigationItem.title = "メモの設定"
+
+        let closeButton = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(self.close))
+        navigationItem.leftBarButtonItem = closeButton
+        // TODO 変化があるまでisEnabled = false
+        let saveButton = UIBarButtonItem(title: "完了", style: .plain, target: self, action: #selector(self.save))
+        navigationItem.rightBarButtonItem = saveButton
     }
 }
 
