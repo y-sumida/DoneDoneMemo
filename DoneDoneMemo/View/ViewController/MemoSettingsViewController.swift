@@ -1,12 +1,15 @@
 import UIKit
 import Instantiate
 import InstantiateStandard
+import RxSwift
 
 final class MemoSettingsViewController: UIViewController {
     // StoryboardInstantiatable
     typealias Dependency = MemoSettingsViewModel
     private var viewModel: MemoSettingsViewModel!
     private var content: MemoSettingsContentViewController!
+
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +40,15 @@ final class MemoSettingsViewController: UIViewController {
 
         let closeButton = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(self.close))
         navigationItem.leftBarButtonItem = closeButton
-        // TODO 変化があるまでisEnabled = false
         let saveButton = UIBarButtonItem(title: "完了", style: .plain, target: self, action: #selector(self.save))
+
+        let original = viewModel.title.value
+        viewModel.title.asObservable()
+            .subscribe(onNext: {
+               saveButton.isEnabled = ($0 !=  original)
+            })
+            .disposed(by: disposeBag)
+
         navigationItem.rightBarButtonItem = saveButton
     }
 }
