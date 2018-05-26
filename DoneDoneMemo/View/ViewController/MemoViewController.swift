@@ -167,6 +167,7 @@ extension MemoViewController: UITableViewDataSource {
         guard let task = viewModel.task(at: indexPath.row) else { return UITableViewCell() }
         let cell = TaskCell.dequeue(from: tableView, for: indexPath, with: task)
         cell.tapAction = {[weak self] (text: String) -> Void in
+            cell.setSelected(true, animated: true)
             self?.editingIndex = indexPath
             self?.accessoryView.title = text
             self?.accessoryView.textField.returnKeyType = .done
@@ -207,6 +208,9 @@ extension MemoViewController: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         accessoryView.title = ""
+        tableView.indexPathsForSelectedRows?.forEach {
+            tableView.deselectRow(at: $0, animated: true)
+        }
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -219,6 +223,9 @@ extension MemoViewController: UITextFieldDelegate {
             addTask(title: text)
         }
 
+        tableView.indexPathsForSelectedRows?.forEach {
+            tableView.deselectRow(at: $0, animated: true)
+        }
         textField.text = ""
         return true
     }
