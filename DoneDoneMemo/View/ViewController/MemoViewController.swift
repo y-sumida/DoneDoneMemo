@@ -43,6 +43,12 @@ final class MemoViewController: UIViewController {
         accessoryView.delegate = self
 
         bind()
+
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30, weight: .black),
+            NSAttributedStringKey.foregroundColor: UIColor.black
+        ]
         setupNavigationItems()
     }
 
