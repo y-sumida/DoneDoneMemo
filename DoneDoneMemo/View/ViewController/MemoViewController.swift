@@ -167,7 +167,7 @@ extension MemoViewController: UITableViewDataSource {
         guard let task = viewModel.task(at: indexPath.row) else { return UITableViewCell() }
         let cell = TaskCell.dequeue(from: tableView, for: indexPath, with: task)
         cell.tapAction = {[weak self] (text: String) -> Void in
-            cell.setSelected(true, animated: true)
+            self?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
             self?.editingIndex = indexPath
             self?.accessoryView.title = text
             self?.accessoryView.textField.returnKeyType = .done
