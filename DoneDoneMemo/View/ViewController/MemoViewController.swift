@@ -43,6 +43,7 @@ final class MemoViewController: UIViewController {
         accessoryView.delegate = self
 
         bind()
+        setupNavigationItems()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -108,11 +109,7 @@ final class MemoViewController: UIViewController {
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
-    @IBAction func tapSettingsButton(_ sender: Any) {
-        showSettings()
-    }
-
-    @IBAction func tapTrashButton() {
+    @objc private func tapTrashButton() {
         accessoryView.isHidden = true
         let alert = UIAlertController(title: "削除しますか？", message: nil, preferredStyle: .actionSheet)
         let deleteAll = UIAlertAction(title: "メモごと削除する", style: .default, handler: {[unowned self] _ in
@@ -145,12 +142,35 @@ final class MemoViewController: UIViewController {
         navigationController?.present(navi, animated: true, completion: nil)
     }
 
-    private func showSettings() {
+    @objc private func showSettings() {
         accessoryView.isHidden = true
         let vm = MemoSettingsViewModel(from: viewModel.memoId)
         let vc = MemoSettingsViewController(with: vm)
         let navi = UINavigationController(rootViewController: vc)
         navigationController?.present(navi, animated: true, completion: nil)
+    }
+
+    private func setupNavigationItems() {
+        var barItems: [UIBarButtonItem] = []
+
+        let trashButton = UIButton()
+        trashButton.addTarget(self, action: #selector(self.tapTrashButton), for: .touchUpInside)
+        trashButton.setImage(UIImage(named: "ic_delete")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        trashButton.tintColor = UIColor.black
+        let trash = UIBarButtonItem(customView: trashButton)
+        barItems.append(trash)
+
+        let space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        space.width = 11
+        barItems.append(space)
+
+        let settingButton = UIButton()
+        settingButton.addTarget(self, action: #selector(self.showSettings), for: .touchUpInside)
+        settingButton.setImage(UIImage(named: "ic_setting")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        settingButton.tintColor = UIColor.black
+        let setting = UIBarButtonItem(customView: settingButton)
+        barItems.append(setting)
+        navigationItem.rightBarButtonItems = barItems
     }
 
     @IBAction func tapListButton(_ sender: Any) {
