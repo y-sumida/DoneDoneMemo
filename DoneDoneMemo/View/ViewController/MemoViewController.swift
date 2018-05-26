@@ -208,6 +208,7 @@ extension MemoViewController: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         accessoryView.title = ""
+        editingIndex = nil
         tableView.indexPathsForSelectedRows?.forEach {
             tableView.deselectRow(at: $0, animated: true)
         }
@@ -219,6 +220,7 @@ extension MemoViewController: UITextFieldDelegate {
             editTask(at: index, title: text)
             textField.returnKeyType = .next
             textField.resignFirstResponder()
+            editingIndex = nil
         } else {
             addTask(title: text)
         }
