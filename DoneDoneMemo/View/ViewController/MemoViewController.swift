@@ -233,11 +233,7 @@ extension MemoViewController: UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        accessoryView.title = ""
-        editingIndex = nil
-        tableView.indexPathsForSelectedRows?.forEach {
-            tableView.deselectRow(at: $0, animated: true)
-        }
+        resetEditing()
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -246,16 +242,21 @@ extension MemoViewController: UITextFieldDelegate {
             editTask(at: index, title: text)
             textField.returnKeyType = .next
             textField.resignFirstResponder()
-            editingIndex = nil
+            resetEditing()
         } else {
             addTask(title: text)
+            textField.text = ""
         }
 
+        return true
+    }
+
+    private func resetEditing() {
+        editingIndex = nil
         tableView.indexPathsForSelectedRows?.forEach {
             tableView.deselectRow(at: $0, animated: true)
         }
-        textField.text = ""
-        return true
+        accessoryView.hideKeyboard()
     }
 }
 
