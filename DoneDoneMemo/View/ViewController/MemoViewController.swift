@@ -193,7 +193,9 @@ extension MemoViewController: UITableViewDataSource {
         guard let task = viewModel.task(at: indexPath.row) else { return UITableViewCell() }
         let cell = TaskCell.dequeue(from: tableView, for: indexPath, with: task)
         cell.tapAction = {[weak self] (text: String) -> Void in
-            self?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+            // 引数のindexPathをキャプチャすると、削除時にずれるので再度取得する
+            let index = self?.tableView.indexPath(for: cell)
+            self?.tableView.selectRow(at: index, animated: true, scrollPosition: .bottom)
             self?.editingIndex = indexPath
             self?.accessoryView.title = text
             self?.accessoryView.textField.returnKeyType = .done
