@@ -50,6 +50,19 @@ final class MemoViewController: UIViewController {
             NSAttributedStringKey.foregroundColor: UIColor.black
         ]
         setupNavigationItems()
+
+        // キーボードイベント検知
+        NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillShow, object: nil)
+            .bind { [unowned self] notification in
+                self.keyboardWillShow(notification)
+            }
+            .disposed(by: disposeBag)
+
+        NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillHide, object: nil)
+            .bind { [unowned self] notification in
+                self.keyboardWillHide(notification)
+            }
+            .disposed(by: disposeBag)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -181,6 +194,37 @@ final class MemoViewController: UIViewController {
 
     @IBAction func tapListButton(_ sender: Any) {
         showMemoList()
+    }
+
+    func keyboardWillShow(_ notification: Notification) {
+        guard let indexPath = editingIndex,
+            let cell = tableView.cellForRow(at: indexPath) else { return }
+        if let userInfo = notification.userInfo,
+            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue, let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue {
+
+            tableView.contentInset = UIEdgeInsets.zero
+            tableView.scrollIndicatorInsets = UIEdgeInsets.zero
+
+            let convertedKeyboardFrame = tableView.convert(keyboardFrame, from: nil)
+
+            let offsetY: CGFloat = cell.frame.maxY - convertedKeyboardFrame.minY - accessoryView.frame.height
+            if offsetY > 0 {
+                UIView.beginAnimations("ResizeForKeyboard", context: nil)
+                UIView.setAnimationDuration(animationDuration)
+
+                let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: offsetY, right: 0)
+                tableView.contentInset = contentInsets
+                tableView.scrollIndicatorInsets = contentInsets
+                tableView.contentOffset = CGPoint(x: 0, y: tableView.contentOffset.y + offsetY)
+
+                UIView.commitAnimations()
+            }
+        }
+    }
+
+    func keyboardWillHide(_ notification: Notification) {
+        tableView.contentInset = UIEdgeInsets.zero
+        tableView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
 }
 
