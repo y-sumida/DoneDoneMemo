@@ -38,11 +38,17 @@ class MemoCollectionViewController: UIViewController {
         navigationItem.title = "メモ一覧"
 
         let settingButton = UIButton()
-        // TODO addTarget
+        settingButton.addTarget(self, action: #selector(self.showSettings), for: .touchUpInside)
         settingButton.setImage(UIImage(named: "ic_setting")?.withRenderingMode(.alwaysTemplate), for: .normal)
         settingButton.tintColor = UIColor.black
         let setting = UIBarButtonItem(customView: settingButton)
         navigationItem.rightBarButtonItem = setting
+    }
+
+    @objc private func showSettings() {
+        let vc = AppSettingsViewController(with: Void())
+        let navi = UINavigationController(rootViewController: vc)
+        navigationController?.present(navi, animated: true, completion: nil)
     }
 }
 
