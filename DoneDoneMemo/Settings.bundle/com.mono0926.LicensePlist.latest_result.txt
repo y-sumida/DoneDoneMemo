@@ -1,0 +1,9 @@
+name: Instantiate, nameSpecified: , owner: tarunon, version: 3.0.0
+
+name: realm-cocoa, nameSpecified: , owner: realm, version: v3.1.1
+
+name: RxSwift, nameSpecified: , owner: ReactiveX, version: 4.1.2
+
+add-version-numbers: true
+
+LicensePlist Version: 1.8.3
