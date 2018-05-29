@@ -17,10 +17,18 @@ final class AppSettingsViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
+        let closeButton = UIBarButtonItem(title: "閉じる", style: .plain, target: self, action: #selector(self.close))
+        navigationItem.leftBarButtonItem = closeButton
+        navigationItem.title = "アプリの設定"
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    @objc func close() {
+        self.dismiss(animated: true, completion: nil)
     }
 
     // TODO Modelに移動する
