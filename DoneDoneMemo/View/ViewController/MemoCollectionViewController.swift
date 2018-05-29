@@ -18,7 +18,6 @@ class MemoCollectionViewController: UIViewController {
             NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30, weight: .black),
             NSAttributedStringKey.foregroundColor: UIColor.black
         ]
-        navigationItem.title = "メモ一覧"
 
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -27,10 +26,23 @@ class MemoCollectionViewController: UIViewController {
         collectionView.registerNib(type: MemoAddCell.self)
 
         navigationController?.transitioningDelegate = self
+
+        setupNavigationItems()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    private func setupNavigationItems() {
+        navigationItem.title = "メモ一覧"
+
+        let settingButton = UIButton()
+        // TODO addTarget
+        settingButton.setImage(UIImage(named: "ic_setting")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        settingButton.tintColor = UIColor.black
+        let setting = UIBarButtonItem(customView: settingButton)
+        navigationItem.rightBarButtonItem = setting
     }
 }
 
