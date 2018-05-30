@@ -9,12 +9,9 @@ final class AppSettingsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     private var viewModel = AppSettingsViewModel()
-    private var licenses: [License] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        licenses = readLicenses()
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -31,25 +28,6 @@ final class AppSettingsViewController: UIViewController {
 
     @objc func close() {
         self.dismiss(animated: true, completion: nil)
-    }
-
-    // TODO Modelに移動する
-    private func readLicenses() -> [License] {
-        guard let path: URL = Bundle.main.url(forResource: "Settings.bundle/com.mono0926.LicensePlist", withExtension: "plist") else {
-            return []
-        }
-
-        var licenses: Licenses?
-
-        if let data = try? Data(contentsOf: path) {
-            let decoder = PropertyListDecoder()
-            licenses = try? decoder.decode(Licenses.self, from: data)
-
-            if let items = licenses?.items {
-                return items
-            }
-        }
-        return []
     }
 }
 
