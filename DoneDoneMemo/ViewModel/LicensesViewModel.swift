@@ -1,7 +1,7 @@
 import Foundation
 
 struct LicensesViewModel {
-    var licenses: [License] = []
+    private var licenses: [License] = []
 
     init() {
         guard let path: URL = Bundle.main.url(forResource: "Settings.bundle/com.mono0926.LicensePlist", withExtension: "plist") else {
@@ -16,5 +16,14 @@ struct LicensesViewModel {
                 self.licenses = items
             }
         }
+    }
+
+    var numberOfRows: Int {
+        return 2
+    }
+
+    func title(for row: Int) -> String {
+        guard row < licenses.count else { return "" }
+        return licenses[row].title
     }
 }

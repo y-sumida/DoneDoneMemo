@@ -29,13 +29,13 @@ extension LicensesViewController: StoryboardInstantiatable {
 
 extension LicensesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.licenses.count
+        return viewModel.numberOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard indexPath.row < viewModel.licenses.count else { return UITableViewCell() }
+        guard indexPath.row < viewModel.numberOfRows else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = viewModel.licenses[indexPath.row].title
+        cell.textLabel?.text = viewModel.title(for: indexPath.row)
         return cell
     }
 }
