@@ -8,7 +8,7 @@ final class AppSettingsViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    private var licenses: [(title: String, path: String)] = []
+    private var licenses: [License] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,29 +32,22 @@ final class AppSettingsViewController: UIViewController {
     }
 
     // TODO Modelに移動する
-    private func readLicenses() -> [(title: String, path: String)] {
+    private func readLicenses() -> [License] {
         guard let path: URL = Bundle.main.url(forResource: "Settings.bundle/com.mono0926.LicensePlist", withExtension: "plist") else {
             return []
         }
 
-        do {
-            let data: Data = try Data(contentsOf: path)
-            let properties = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any]
+        var licenses: Licenses?
 
-            var licenses: [(title: String, path: String)] = []
-            if let preference = properties?["PreferenceSpecifiers"] as? [[String: Any]] {
-                preference.forEach {
-                    if let title = $0["Title"] as? String,
-                        let path = $0["File"] as? String {
-                        licenses.append((title: title, path: path))
-                    }
-                }
+        if let data = try? Data(contentsOf: path) {
+            let decoder = PropertyListDecoder()
+            licenses = try? decoder.decode(Licenses.self, from: data)
+
+            if let items = licenses?.items {
+                return items
             }
-            dump(licenses)
-            return licenses
-        } catch {
-            return []
         }
+        return []
     }
 }
 
