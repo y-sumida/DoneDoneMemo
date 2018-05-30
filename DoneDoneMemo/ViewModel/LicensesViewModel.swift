@@ -19,7 +19,7 @@ struct LicensesViewModel {
     }
 
     var numberOfRows: Int {
-        return 2
+        return licenses.count
     }
 
     func title(for row: Int) -> String {
