@@ -8,6 +8,7 @@ final class AppSettingsViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
+    private var viewModel = AppSettingsViewModel()
     private var licenses: [License] = []
 
     override func viewDidLoad() {
@@ -57,14 +58,17 @@ extension AppSettingsViewController: StoryboardInstantiatable {
 }
 
 extension AppSettingsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSections()
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return licenses.count
+        return viewModel.numberOfRowsInSection(section: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard indexPath.row < licenses.count else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = licenses[indexPath.row].title
+        cell.textLabel?.text = viewModel.title(for: indexPath)
         return cell
     }
 }
