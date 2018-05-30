@@ -17,6 +17,7 @@ final class AppSettingsViewController: UIViewController {
         licenses = readLicenses()
 
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
         let closeButton = UIBarButtonItem(title: "閉じる", style: .plain, target: self, action: #selector(self.close))
@@ -70,5 +71,15 @@ extension AppSettingsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = viewModel.title(for: indexPath)
         return cell
+    }
+}
+
+extension AppSettingsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO ライセンス以外
+        if indexPath.row == 1 {
+            let vc = LicensesViewController(with: Void())
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

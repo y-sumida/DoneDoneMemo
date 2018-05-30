@@ -21,6 +21,9 @@
 		A9289F1220BD883400CF46EF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A9289F1120BD883400CF46EF /* Settings.bundle */; };
 		A9289F1420BECD4600CF46EF /* LicenseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9289F1320BECD4500CF46EF /* LicenseModel.swift */; };
 		A9289F1620BED4E200CF46EF /* AppSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9289F1520BED4E200CF46EF /* AppSettingsViewModel.swift */; };
+		A9289F1820BEDA0500CF46EF /* LicensesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9289F1720BEDA0500CF46EF /* LicensesViewController.storyboard */; };
+		A9289F1A20BEDA4000CF46EF /* LicensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9289F1920BEDA4000CF46EF /* LicensesViewController.swift */; };
+		A9289F1C20BEDA8400CF46EF /* LicensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9289F1B20BEDA8400CF46EF /* LicensesViewModel.swift */; };
 		A9345F4320B1A0FE0015B34F /* MemoSettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9345F4220B1A0FE0015B34F /* MemoSettingsViewController.storyboard */; };
 		A9345F4520B1A1490015B34F /* MemoSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9345F4420B1A1490015B34F /* MemoSettingsViewController.swift */; };
 		A9345F4B20B307420015B34F /* ZoomInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9345F4A20B307420015B34F /* ZoomInAnimator.swift */; };
@@ -79,6 +82,9 @@
 		A9289F1120BD883400CF46EF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		A9289F1320BECD4500CF46EF /* LicenseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseModel.swift; sourceTree = "<group>"; };
 		A9289F1520BED4E200CF46EF /* AppSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewModel.swift; sourceTree = "<group>"; };
+		A9289F1720BEDA0500CF46EF /* LicensesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LicensesViewController.storyboard; sourceTree = "<group>"; };
+		A9289F1920BEDA4000CF46EF /* LicensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesViewController.swift; sourceTree = "<group>"; };
+		A9289F1B20BEDA8400CF46EF /* LicensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesViewModel.swift; sourceTree = "<group>"; };
 		A9345F4220B1A0FE0015B34F /* MemoSettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoSettingsViewController.storyboard; sourceTree = "<group>"; };
 		A9345F4420B1A1490015B34F /* MemoSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsViewController.swift; sourceTree = "<group>"; };
 		A9345F4A20B307420015B34F /* ZoomInAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInAnimator.swift; sourceTree = "<group>"; };
@@ -205,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				A9289F1520BED4E200CF46EF /* AppSettingsViewModel.swift */,
+				A9289F1B20BEDA8400CF46EF /* LicensesViewModel.swift */,
 				A99B54DF20483144002DFA2B /* MemoListViewModel.swift */,
 				A90CF30920ADA904000C9ECE /* MemoSettingsViewModel.swift */,
 				A99B54E5204AD12B002DFA2B /* MemoViewModel.swift */,
@@ -216,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				A9289F0B20BD83C300CF46EF /* AppSettingsViewController.storyboard */,
+				A9289F1720BEDA0500CF46EF /* LicensesViewController.storyboard */,
 				A917D10020A087EF008DE98C /* MemoCollectionViewController.storyboard */,
 				A9AD387220AC777F0014EBB9 /* MemoSettingsContentViewController.storyboard */,
 				A9345F4220B1A0FE0015B34F /* MemoSettingsViewController.storyboard */,
@@ -228,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				A9289F0D20BD840900CF46EF /* AppSettingsViewController.swift */,
+				A9289F1920BEDA4000CF46EF /* LicensesViewController.swift */,
 				A917D10220A0883C008DE98C /* MemoCollectionViewController.swift */,
 				A9AD387420AC78D50014EBB9 /* MemoSettingsContentViewController.swift */,
 				A9345F4420B1A1490015B34F /* MemoSettingsViewController.swift */,
@@ -360,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A99B54FE206BC9F0002DFA2B /* KeyboardTextView.xib in Resources */,
+				A9289F1820BEDA0500CF46EF /* LicensesViewController.storyboard in Resources */,
 				A99B54F420516DB7002DFA2B /* TaskCell.xib in Resources */,
 				A9AD387320AC777F0014EBB9 /* MemoSettingsContentViewController.storyboard in Resources */,
 				A90CF30E20ADB202000C9ECE /* MemoSettingsTitleCell.xib in Resources */,
@@ -428,6 +438,8 @@
 				A9289F1420BECD4600CF46EF /* LicenseModel.swift in Sources */,
 				A99B54F320516DB7002DFA2B /* TaskCell.swift in Sources */,
 				A9345F4520B1A1490015B34F /* MemoSettingsViewController.swift in Sources */,
+				A9289F1C20BEDA8400CF46EF /* LicensesViewModel.swift in Sources */,
+				A9289F1A20BEDA4000CF46EF /* LicensesViewController.swift in Sources */,
 				A90CF30A20ADA904000C9ECE /* MemoSettingsViewModel.swift in Sources */,
 				A99FD650207110710052587F /* StringExtension.swift in Sources */,
 				A99B54E220483D99002DFA2B /* MemoRepository.swift in Sources */,
