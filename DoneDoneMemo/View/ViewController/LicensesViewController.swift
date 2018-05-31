@@ -14,7 +14,7 @@ final class LicensesViewController: UIViewController {
         super.viewDidLoad()
 
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.registerNib(type: LicenseCell.self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,8 +34,9 @@ extension LicensesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard indexPath.row < viewModel.numberOfRows else { return UITableViewCell() }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = viewModel.title(for: indexPath.row)
+        let name = viewModel.title(for: indexPath.row)
+        let license = viewModel.license(for: indexPath.row)
+        let cell = LicenseCell.dequeue(from: tableView, for: indexPath, with: (name: name, license: license))
         return cell
     }
 }

@@ -51,6 +51,8 @@
 		A99FD650207110710052587F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99FD64F207110710052587F /* StringExtension.swift */; };
 		A9AD387320AC777F0014EBB9 /* MemoSettingsContentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9AD387220AC777F0014EBB9 /* MemoSettingsContentViewController.storyboard */; };
 		A9AD387520AC78D50014EBB9 /* MemoSettingsContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD387420AC78D50014EBB9 /* MemoSettingsContentViewController.swift */; };
+		A9E1AFC520C016CD0001170B /* LicenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1AFC320C016CD0001170B /* LicenseCell.swift */; };
+		A9E1AFC620C016CD0001170B /* LicenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E1AFC420C016CD0001170B /* LicenseCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		A99FD64F207110710052587F /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A9AD387220AC777F0014EBB9 /* MemoSettingsContentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoSettingsContentViewController.storyboard; sourceTree = "<group>"; };
 		A9AD387420AC78D50014EBB9 /* MemoSettingsContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsContentViewController.swift; sourceTree = "<group>"; };
+		A9E1AFC320C016CD0001170B /* LicenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseCell.swift; sourceTree = "<group>"; };
+		A9E1AFC420C016CD0001170B /* LicenseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LicenseCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +267,8 @@
 				A99B54F52056BDD4002DFA2B /* AddButton.swift */,
 				A99B54FB206BC9C2002DFA2B /* KeyboardTextView.swift */,
 				A99B54FD206BC9F0002DFA2B /* KeyboardTextView.xib */,
+				A9E1AFC320C016CD0001170B /* LicenseCell.swift */,
+				A9E1AFC420C016CD0001170B /* LicenseCell.xib */,
 				A958FC1820A1E26200EC86DE /* MemoAddCell.swift */,
 				A958FC1920A1E26200EC86DE /* MemoAddCell.xib */,
 				A958FC1420A1DCE800EC86DE /* MemoCell.swift */,
@@ -379,6 +385,7 @@
 				A9345F4320B1A0FE0015B34F /* MemoSettingsViewController.storyboard in Resources */,
 				A958FC1720A1DCE800EC86DE /* MemoCell.xib in Resources */,
 				A9289F0C20BD83C300CF46EF /* AppSettingsViewController.storyboard in Resources */,
+				A9E1AFC620C016CD0001170B /* LicenseCell.xib in Resources */,
 				A917D10120A087EF008DE98C /* MemoCollectionViewController.storyboard in Resources */,
 				A958FC1B20A1E26200EC86DE /* MemoAddCell.xib in Resources */,
 			);
@@ -449,6 +456,7 @@
 				A90CF30D20ADB202000C9ECE /* MemoSettingsTitleCell.swift in Sources */,
 				A958FC1A20A1E26200EC86DE /* MemoAddCell.swift in Sources */,
 				A99B54FA205FEB04002DFA2B /* MemoViewController.swift in Sources */,
+				A9E1AFC520C016CD0001170B /* LicenseCell.swift in Sources */,
 				A9289F1620BED4E200CF46EF /* AppSettingsViewModel.swift in Sources */,
 				A9AD387520AC78D50014EBB9 /* MemoSettingsContentViewController.swift in Sources */,
 				A9289F0520B43F6800CF46EF /* ZoomOutAnimator.swift in Sources */,
