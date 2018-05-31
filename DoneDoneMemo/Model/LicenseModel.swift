@@ -4,7 +4,6 @@ struct Licenses: Codable {
     private enum CodingKeys: String, CodingKey {
         case items = "PreferenceSpecifiers"
     }
-
 }
 
 struct License: Codable {
@@ -14,5 +13,21 @@ struct License: Codable {
     private enum CodingKeys: String, CodingKey {
         case title = "Title"
         case file = "File"
+    }
+}
+
+struct LicenseDetails: Codable {
+    var items: [LicenseDetail]
+
+    private enum CodingKeys: String, CodingKey {
+        case items = "PreferenceSpecifiers"
+    }
+}
+
+struct LicenseDetail: Codable {
+    var body: String
+
+    private enum CodingKeys: String, CodingKey {
+        case body = "FooterText"
     }
 }
