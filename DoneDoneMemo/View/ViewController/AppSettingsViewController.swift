@@ -57,6 +57,9 @@ extension AppSettingsViewController: UITableViewDelegate {
         // TODO ライセンス以外
         if indexPath.row == 1 {
             let vc = LicensesViewController(with: Void())
+            let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: nil)
+            backButton.tintColor = UIColor.black
+            navigationItem.backBarButtonItem = backButton
             navigationController?.pushViewController(vc, animated: true)
         }
     }

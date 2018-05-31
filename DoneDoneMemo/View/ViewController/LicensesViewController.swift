@@ -15,6 +15,8 @@ final class LicensesViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.registerNib(type: LicenseCell.self)
+
+        navigationItem.title = "License"
     }
 
     override func didReceiveMemoryWarning() {
