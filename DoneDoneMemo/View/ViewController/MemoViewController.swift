@@ -18,9 +18,13 @@ final class MemoViewController: UIViewController {
     let animator = ZoomInAnimator()
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var shadowView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // TODO gestureをセットする
+        shadowView.isHidden = true
 
         let defaults = UserDefaults.standard
         if let id = defaults.value(forKey: "memoId") as? String {
@@ -275,10 +279,12 @@ extension MemoViewController: UITableViewDelegate {
 extension MemoViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         guard viewModel.numberOfTasks > 0 else { return }
+        shadowView.isHidden = false
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
+        shadowView.isHidden = true
         resetEditing()
     }
 

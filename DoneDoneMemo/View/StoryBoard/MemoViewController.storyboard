@@ -39,12 +39,20 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMo-3U-TjJ">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.19673052226027396" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8KY-fY-ZkS" firstAttribute="bottom" secondItem="cK6-gS-gNg" secondAttribute="bottom" id="6H9-FS-RbM"/>
                             <constraint firstItem="cK6-gS-gNg" firstAttribute="leading" secondItem="8KY-fY-ZkS" secondAttribute="leading" id="IBk-QG-G0N"/>
+                            <constraint firstItem="oMo-3U-TjJ" firstAttribute="leading" secondItem="8KY-fY-ZkS" secondAttribute="leading" id="NCw-Md-AOK"/>
+                            <constraint firstItem="8KY-fY-ZkS" firstAttribute="trailing" secondItem="oMo-3U-TjJ" secondAttribute="trailing" id="SUW-js-cUh"/>
+                            <constraint firstItem="8KY-fY-ZkS" firstAttribute="bottom" secondItem="oMo-3U-TjJ" secondAttribute="bottom" id="di3-V1-nCQ"/>
                             <constraint firstItem="cK6-gS-gNg" firstAttribute="trailing" secondItem="8KY-fY-ZkS" secondAttribute="trailing" id="nY6-lF-JZN"/>
+                            <constraint firstItem="oMo-3U-TjJ" firstAttribute="top" secondItem="8KY-fY-ZkS" secondAttribute="top" id="qB1-DO-2WY"/>
                             <constraint firstItem="cK6-gS-gNg" firstAttribute="top" secondItem="kPx-WE-g0y" secondAttribute="top" id="xOv-ym-KAA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8KY-fY-ZkS"/>
@@ -58,6 +66,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="shadowView" destination="oMo-3U-TjJ" id="EfT-Od-931"/>
                         <outlet property="tableView" destination="cK6-gS-gNg" id="To8-ne-cER"/>
                     </connections>
                 </viewController>
