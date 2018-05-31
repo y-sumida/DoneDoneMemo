@@ -27,7 +27,7 @@
                                 <rect key="frame" x="15" y="15" width="20" height="20"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oxA-Px-ob1" firstAttribute="centerX" secondItem="S36-po-l3c" secondAttribute="centerX" id="Yb2-fH-sPN"/>
                             <constraint firstItem="oxA-Px-ob1" firstAttribute="height" secondItem="S36-po-l3c" secondAttribute="height" multiplier="0.4" id="idP-7i-Vpb"/>
