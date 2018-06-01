@@ -272,8 +272,9 @@ extension MemoViewController: UITableViewDelegate {
 
 extension MemoViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        guard viewModel.numberOfTasks > 0 else { return }
         shadowView.isHidden = false
+
+        guard viewModel.numberOfTasks > 0 else { return }
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
     }
 
