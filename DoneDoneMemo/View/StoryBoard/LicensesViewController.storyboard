@@ -25,9 +25,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="mVT-wT-G7s" secondAttribute="bottom" id="32K-CH-khn"/>
                             <constraint firstItem="mVT-wT-G7s" firstAttribute="top" secondItem="eoc-n8-NOm" secondAttribute="top" id="XxH-DJ-fPU"/>
                             <constraint firstItem="mVT-wT-G7s" firstAttribute="leading" secondItem="eoc-n8-NOm" secondAttribute="leading" id="ZML-O8-OIe"/>
+                            <constraint firstItem="mVT-wT-G7s" firstAttribute="bottom" secondItem="eoc-n8-NOm" secondAttribute="bottom" id="j6a-kf-Zhq"/>
                             <constraint firstItem="eoc-n8-NOm" firstAttribute="trailing" secondItem="mVT-wT-G7s" secondAttribute="trailing" id="oyV-tJ-Ojz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eoc-n8-NOm"/>
