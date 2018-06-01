@@ -89,7 +89,7 @@ extension MemoCollectionViewController: UICollectionViewDelegate {
 extension MemoCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = view.frame.size.width/2 - 1
-        return CGSize(width: size, height: size)
+        return CGSize(width: size, height: size * 0.6)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

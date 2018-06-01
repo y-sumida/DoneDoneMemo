@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,15 +25,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_add" translatesAutoresizingMaskIntoConstraints="NO" id="oxA-Px-ob1">
-                                <rect key="frame" x="15" y="15" width="20" height="20"/>
+                                <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oxA-Px-ob1" secondAttribute="height" multiplier="1:1" id="lX2-Q8-AIl"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oxA-Px-ob1" firstAttribute="centerX" secondItem="S36-po-l3c" secondAttribute="centerX" id="Yb2-fH-sPN"/>
-                            <constraint firstItem="oxA-Px-ob1" firstAttribute="height" secondItem="S36-po-l3c" secondAttribute="height" multiplier="0.4" id="idP-7i-Vpb"/>
+                            <constraint firstItem="oxA-Px-ob1" firstAttribute="height" secondItem="S36-po-l3c" secondAttribute="height" multiplier="0.6" id="idP-7i-Vpb"/>
                             <constraint firstItem="oxA-Px-ob1" firstAttribute="centerY" secondItem="S36-po-l3c" secondAttribute="centerY" id="yDY-hY-cP5"/>
-                            <constraint firstItem="oxA-Px-ob1" firstAttribute="width" secondItem="S36-po-l3c" secondAttribute="width" multiplier="0.4" id="zp1-yP-pqw"/>
                         </constraints>
                     </view>
                 </subviews>
