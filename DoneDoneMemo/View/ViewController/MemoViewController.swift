@@ -95,7 +95,11 @@ final class MemoViewController: UIViewController {
 
     private func bind() {
         accessoryView.tapAction = { [weak self] (text: String) in
-            self?.addTask(title: text)
+            if let index = self?.editingIndex {
+                self?.editTask(at: index, title: text)
+            } else {
+                self?.addTask(title: text)
+            }
         }
     }
 
