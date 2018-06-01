@@ -116,12 +116,7 @@ final class MemoViewController: UIViewController {
         tableView.beginUpdates()
         viewModel.addTask(title: title)
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-        // 行ごとのリロードだと、最初の1行追加時にクラッシュするので全体をリロードする
-        if viewModel.numberOfTasks > 1 {
-            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-        } else {
-            tableView.reloadData()
-        }
+        tableView.reloadSections([0], with: .automatic)
         tableView.endUpdates()
         completion()
     }
@@ -241,7 +236,6 @@ extension MemoViewController: UITableViewDataSource {
         guard let task = viewModel.task(at: indexPath.row) else { return UITableViewCell() }
         let cell = TaskCell.dequeue(from: tableView, for: indexPath, with: task)
         cell.tapAction = {[weak self] (text: String) -> Void in
-            // 引数のindexPathをキャプチャすると、削除時にずれるので再度取得する
             let index = self?.tableView.indexPath(for: cell)
             self?.tableView.selectRow(at: index, animated: true, scrollPosition: .bottom)
             self?.editingIndex = indexPath
@@ -270,7 +264,7 @@ extension MemoViewController: UITableViewDelegate {
         if editingStyle == .delete, viewModel.numberOfTasks > indexPath.row {
             tableView.beginUpdates()
             viewModel.deleteTask(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.reloadSections([0], with: .automatic)
             tableView.endUpdates()
         }
     }
