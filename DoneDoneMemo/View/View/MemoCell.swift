@@ -18,6 +18,17 @@ class MemoCell: UICollectionViewCell {
         }
     }
 
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                let white = UIColor.white
+                backgroundColor = white.withAlphaComponent(0.4)
+            } else {
+                backgroundColor = .white
+            }
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
