@@ -133,6 +133,10 @@ final class MemoViewController: UIViewController {
 
     @objc private func tapTrashButton() {
         accessoryView.isHidden = true
+        accessoryView.hideKeyboard()
+        editingIndex = nil
+        shadowView.isHidden = true
+
         let alert = UIAlertController(title: "削除しますか？", message: nil, preferredStyle: .actionSheet)
         let deleteAll = UIAlertAction(title: "メモごと削除する", style: .default, handler: {[unowned self] _ in
             self.viewModel.delete()
@@ -166,6 +170,10 @@ final class MemoViewController: UIViewController {
 
     @objc private func showSettings() {
         accessoryView.isHidden = true
+        accessoryView.hideKeyboard()
+        editingIndex = nil
+        shadowView.isHidden = true
+
         let vm = MemoSettingsViewModel(from: viewModel.memoId)
         let vc = MemoSettingsViewController(with: vm)
         let navi = UINavigationController(rootViewController: vc)
