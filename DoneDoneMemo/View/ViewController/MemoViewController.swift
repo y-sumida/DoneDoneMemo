@@ -46,6 +46,7 @@ final class MemoViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.contentInset.bottom = 60
 
         tableView.registerNib(type: TaskCell.self)
 
@@ -220,15 +221,15 @@ final class MemoViewController: UIViewController {
 
             let convertedKeyboardFrame = tableView.convert(keyboardFrame, from: nil)
 
-            let offsetY: CGFloat = cell.frame.maxY - convertedKeyboardFrame.minY - accessoryView.frame.height
+            let offsetY: CGFloat = cell.frame.maxY - convertedKeyboardFrame.minY
             if offsetY > 0 {
                 UIView.beginAnimations("ResizeForKeyboard", context: nil)
                 UIView.setAnimationDuration(animationDuration)
 
                 let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: offsetY, right: 0)
-                tableView.contentInset = contentInsets
+                tableView.contentInset.bottom = offsetY + 60
                 tableView.scrollIndicatorInsets = contentInsets
-                tableView.contentOffset = CGPoint(x: 0, y: tableView.contentOffset.y + offsetY)
+                tableView.contentOffset = CGPoint(x: 0, y: tableView.contentOffset.y + offsetY + 60)
 
                 UIView.commitAnimations()
             }
@@ -236,7 +237,7 @@ final class MemoViewController: UIViewController {
     }
 
     func keyboardWillHide(_ notification: Notification) {
-        tableView.contentInset = UIEdgeInsets.zero
+        tableView.contentInset.bottom = 60
         tableView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
 }
