@@ -17,7 +17,9 @@ final class AppSettingsViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
-        let closeButton = UIBarButtonItem(title: "閉じる", style: .plain, target: self, action: #selector(self.close))
+        let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(self.close))
+        closeButton.tintColor = UIColor.black
+        closeButton.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 17, weight: .light)], for: .normal)
         navigationItem.leftBarButtonItem = closeButton
         navigationItem.title = "アプリの設定"
     }
