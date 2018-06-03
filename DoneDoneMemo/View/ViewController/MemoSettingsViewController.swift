@@ -49,7 +49,7 @@ final class MemoSettingsViewController: UIViewController {
         let original = viewModel.title.value
         viewModel.title.asObservable()
             .subscribe(onNext: {
-               saveButton.isEnabled = ($0 !=  original)
+               saveButton.isEnabled = ($0.isNotEmpty && $0 !=  original)
             })
             .disposed(by: disposeBag)
 
