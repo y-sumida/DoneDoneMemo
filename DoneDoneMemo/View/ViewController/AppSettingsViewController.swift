@@ -60,6 +60,7 @@ extension AppSettingsViewController: UITableViewDelegate {
         if indexPath.row == 1 {
             let vc = LicensesViewController(with: Void())
             let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: nil)
+            backButton.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 17, weight: .light)], for: .normal)
             backButton.tintColor = UIColor.black
             navigationItem.backBarButtonItem = backButton
             navigationController?.pushViewController(vc, animated: true)
