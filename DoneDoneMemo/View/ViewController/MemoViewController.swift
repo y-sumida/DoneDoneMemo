@@ -279,7 +279,7 @@ extension MemoViewController: UITableViewDelegate {
         if editingStyle == .delete, viewModel.numberOfTasks > indexPath.row {
             tableView.beginUpdates()
             viewModel.deleteTask(at: indexPath.row)
-            tableView.reloadSections([0], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
         }
     }
