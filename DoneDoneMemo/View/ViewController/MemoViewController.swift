@@ -188,14 +188,12 @@ final class MemoViewController: UIViewController {
 
     @objc private func showEditMenu(sender: UILongPressGestureRecognizer) {
         if case .began = sender.state {
-            print("long tap begin")
             let point = sender.location(in: tableView)
             if let indexPath = tableView.indexPathForRow(at: point),
                 let task = viewModel.task(at: indexPath.row) {
                 tableView.selectRow(at: indexPath, animated: false, scrollPosition: .bottom)
                 editingIndex = indexPath
                 accessoryView.title = task.title
-                accessoryView.textField.returnKeyType = .done
                 accessoryView.showKeyboard()
             }
         }
@@ -312,13 +310,12 @@ extension MemoViewController: UITextFieldDelegate {
         guard let text = textField.text else { return true }
         if let index = editingIndex {
             editTask(at: index, title: text)
-            textField.returnKeyType = .next
-            textField.resignFirstResponder()
-            resetEditing()
         } else {
             addTask(title: text)
-            textField.text = ""
         }
+        textField.text = ""
+        textField.resignFirstResponder()
+        resetEditing()
 
         return true
     }
