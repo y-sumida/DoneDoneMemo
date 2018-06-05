@@ -189,6 +189,13 @@ final class MemoViewController: UIViewController {
     @objc private func showEditMenu(sender: UILongPressGestureRecognizer) {
         if case .began = sender.state {
             print("long tap begin")
+            let point = sender.location(in: tableView)
+            if let indexPath = tableView.indexPathForRow(at: point) {
+                editingIndex = indexPath
+                // TODO 編集用のテキストを取得する
+                accessoryView.textField.returnKeyType = .done
+                accessoryView.showKeyboard()
+            }
         }
     }
 
