@@ -2,8 +2,6 @@ import UIKit
 
 final class KeyboardTextView: UIView {
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet private weak var sendButton: UIButton!
-    var tapAction: ((String) -> Void)?
     weak var delegate: UITextFieldDelegate? {
         didSet {
             textField.delegate = delegate
@@ -55,16 +53,7 @@ final class KeyboardTextView: UIView {
     }
 
     private func commonInit() {
-        sendButton.layer.borderColor = UIColor.lightGray.cgColor
-        sendButton.layer.borderWidth = 0.5
-        sendButton.layer.cornerRadius = 8
-        sendButton.setTitle("追加", for: .normal)
         textField.placeholder = "タスク"
-    }
-
-    @IBAction private func tapButton(_ sender: Any) {
-        tapAction?(textField.text ?? "")
-        hideKeyboard()
     }
 
     func showKeyboard() {

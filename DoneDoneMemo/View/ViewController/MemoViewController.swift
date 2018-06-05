@@ -53,8 +53,6 @@ final class MemoViewController: UIViewController {
         accessoryView = KeyboardTextView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
         accessoryView.delegate = self
 
-        bind()
-
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30, weight: .black),
@@ -101,16 +99,6 @@ final class MemoViewController: UIViewController {
 
     override var canBecomeFirstResponder: Bool {
         return true
-    }
-
-    private func bind() {
-        accessoryView.tapAction = { [weak self] (text: String) in
-            if let index = self?.editingIndex {
-                self?.editTask(at: index, title: text)
-            } else {
-                self?.addTask(title: text)
-            }
-        }
     }
 
     private func saveMemoId() {
