@@ -74,6 +74,9 @@ final class MemoViewController: UIViewController {
                 self.keyboardWillHide(notification)
             }
             .disposed(by: disposeBag)
+
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.showEditMenu))
+        tableView.addGestureRecognizer(longPressRecognizer)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -181,6 +184,12 @@ final class MemoViewController: UIViewController {
         let vc = MemoSettingsViewController(with: vm)
         let navi = UINavigationController(rootViewController: vc)
         navigationController?.present(navi, animated: true, completion: nil)
+    }
+
+    @objc private func showEditMenu(sender: UILongPressGestureRecognizer) {
+        if case .began = sender.state {
+            print("long tap begin")
+        }
     }
 
     private func setupNavigationItems() {
