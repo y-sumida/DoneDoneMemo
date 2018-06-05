@@ -6,7 +6,6 @@ final class TaskCell: UITableViewCell {
     typealias Dependency = Task
 
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var editButton: UIButton!
     @IBOutlet weak var iconView: UIImageView!
 
     private let doneImage = UIImage(named: "ic_done")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
@@ -14,7 +13,6 @@ final class TaskCell: UITableViewCell {
 
     private var done: Bool = false {
         didSet {
-            editButton.isEnabled = !done
             if done {
                 check()
             } else {
@@ -27,13 +25,6 @@ final class TaskCell: UITableViewCell {
         didSet {
             titleLabel.text = title
         }
-    }
-
-    var tapAction: ((String) -> Void)?
-
-    @IBAction private func tapEditButton(_ sender: Any) {
-        // TODO VC側で監視する
-        tapAction?(title)
     }
 
     func toggleTask() {

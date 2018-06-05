@@ -268,14 +268,6 @@ extension MemoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let task = viewModel.task(at: indexPath.row) else { return UITableViewCell() }
         let cell = TaskCell.dequeue(from: tableView, for: indexPath, with: task)
-        cell.tapAction = {[weak self] (text: String) -> Void in
-            let index = self?.tableView.indexPath(for: cell)
-            self?.tableView.selectRow(at: index, animated: true, scrollPosition: .bottom)
-            self?.editingIndex = indexPath
-            self?.accessoryView.title = text
-            self?.accessoryView.textField.returnKeyType = .done
-            self?.accessoryView.showKeyboard()
-        }
         return cell
     }
 }
