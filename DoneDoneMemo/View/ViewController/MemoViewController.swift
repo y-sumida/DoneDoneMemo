@@ -60,18 +60,7 @@ final class MemoViewController: UIViewController {
         ]
         setupNavigationItems()
 
-        // キーボードイベント検知
-        NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillShow, object: nil)
-            .bind { [unowned self] notification in
-                self.keyboardWillShow(notification)
-            }
-            .disposed(by: disposeBag)
-
-        NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillHide, object: nil)
-            .bind { [unowned self] notification in
-                self.keyboardWillHide(notification)
-            }
-            .disposed(by: disposeBag)
+        bindKeyboardEvent()
 
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.showEditMenu))
         tableView.addGestureRecognizer(longPressRecognizer)
@@ -212,6 +201,22 @@ final class MemoViewController: UIViewController {
 
     @IBAction func tapListButton(_ sender: Any) {
         showMemoList()
+    }
+}
+
+extension MemoViewController {
+    func bindKeyboardEvent() {
+        NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillShow, object: nil)
+            .bind { [unowned self] notification in
+                self.keyboardWillShow(notification)
+            }
+            .disposed(by: disposeBag)
+
+        NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillHide, object: nil)
+            .bind { [unowned self] notification in
+                self.keyboardWillHide(notification)
+            }
+            .disposed(by: disposeBag)
     }
 
     func keyboardWillShow(_ notification: Notification) {
