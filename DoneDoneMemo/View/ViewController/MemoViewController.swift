@@ -190,9 +190,11 @@ final class MemoViewController: UIViewController {
         if case .began = sender.state {
             print("long tap begin")
             let point = sender.location(in: tableView)
-            if let indexPath = tableView.indexPathForRow(at: point) {
+            if let indexPath = tableView.indexPathForRow(at: point),
+                let task = viewModel.task(at: indexPath.row) {
+                tableView.selectRow(at: indexPath, animated: false, scrollPosition: .bottom)
                 editingIndex = indexPath
-                // TODO 編集用のテキストを取得する
+                accessoryView.title = task.title
                 accessoryView.textField.returnKeyType = .done
                 accessoryView.showKeyboard()
             }
