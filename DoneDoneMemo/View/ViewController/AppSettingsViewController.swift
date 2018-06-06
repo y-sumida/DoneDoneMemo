@@ -16,6 +16,7 @@ final class AppSettingsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.registerNib(type: AppSettingsVersionCell.self)
 
         let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(self.close))
         closeButton.tintColor = UIColor.black
@@ -55,16 +56,19 @@ extension AppSettingsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = viewModel.title(for: indexPath)
-        if indexPath.section == 1 {
+        switch indexPath.section {
+        case 0:
+            let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+            let cell = AppSettingsVersionCell.dequeue(from: tableView, for: indexPath, with: version)
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.textLabel?.text = viewModel.title(for: indexPath)
             cell.accessoryType = .disclosureIndicator
-            cell.selectionStyle = .default
-        } else {
-            cell.accessoryType = .none
-            cell.selectionStyle = .none
+            return cell
+        default:
+            return UITableViewCell()
         }
-        return cell
     }
 }
 
