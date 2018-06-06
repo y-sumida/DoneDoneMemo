@@ -24,6 +24,13 @@ final class AppSettingsViewController: UIViewController {
         navigationItem.title = "アプリの設定"
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.indexPathsForSelectedRows?.forEach {
+            tableView.deselectRow(at: $0, animated: true)
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -52,8 +59,10 @@ extension AppSettingsViewController: UITableViewDataSource {
         cell.textLabel?.text = viewModel.title(for: indexPath)
         if indexPath.section == 1 {
             cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .default
         } else {
             cell.accessoryType = .none
+            cell.selectionStyle = .none
         }
         return cell
     }
