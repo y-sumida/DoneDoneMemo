@@ -50,14 +50,18 @@ extension AppSettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = viewModel.title(for: indexPath)
+        if indexPath.section == 1 {
+            cell.accessoryType = .disclosureIndicator
+        } else {
+            cell.accessoryType = .none
+        }
         return cell
     }
 }
 
 extension AppSettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO ライセンス以外
-        if indexPath.row == 1 {
+        if indexPath.section == 1 {
             let vc = LicensesViewController(with: Void())
             let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: nil)
             backButton.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 17, weight: .light)], for: .normal)
