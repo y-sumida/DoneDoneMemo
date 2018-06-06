@@ -25,12 +25,19 @@ final class MemoViewController: UIViewController {
 
         shadowView.isHidden = true
         // キーボード外をタップしたときにキーボードを閉じる
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+        let tapGesture = UITapGestureRecognizer()
         tapGesture.cancelsTouchesInView = false
         tapGesture.rx.event.subscribe { [unowned self] _ in
             self.accessoryView.hideKeyboard()
             }.disposed(by: disposeBag)
         shadowView.addGestureRecognizer(tapGesture)
+        // 下スワイプでキーボードを閉じる
+        let swipeGesture = UISwipeGestureRecognizer()
+        swipeGesture.direction = .down
+        swipeGesture.rx.event.subscribe { [unowned self] _ in
+            self.accessoryView.hideKeyboard()
+            }.disposed(by: disposeBag)
+        shadowView.addGestureRecognizer(swipeGesture)
 
         let defaults = UserDefaults.standard
         if let id = defaults.value(forKey: "memoId") as? String {
