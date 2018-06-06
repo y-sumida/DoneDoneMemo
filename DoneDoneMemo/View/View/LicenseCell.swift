@@ -5,11 +5,8 @@ import InstantiateStandard
 class LicenseCell: UITableViewCell {
     typealias Dependency = (name: String, license: String)
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var licenseLabel: UILabel!
-
-    var name = ""
-    var license = ""
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var licenseLabel: UILabel!
 }
 
 extension LicenseCell: Reusable, NibType {
