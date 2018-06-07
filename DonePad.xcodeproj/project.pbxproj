@@ -71,11 +71,11 @@
 		A90CF30920ADA904000C9ECE /* MemoSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsViewModel.swift; sourceTree = "<group>"; };
 		A90CF30B20ADB202000C9ECE /* MemoSettingsTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsTitleCell.swift; sourceTree = "<group>"; };
 		A90CF30C20ADB202000C9ECE /* MemoSettingsTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoSettingsTitleCell.xib; sourceTree = "<group>"; };
-		A90FF0332044526600124266 /* DoneDoneMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoneDoneMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A90FF0332044526600124266 /* DonePad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DonePad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A90FF0362044526600124266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A90FF03D2044526600124266 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A90FF0422044526600124266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A90FF0472044526600124266 /* DoneDoneMemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoneDoneMemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A90FF0472044526600124266 /* DonePadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DonePadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A90FF04B2044526600124266 /* DoneDoneMemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneDoneMemoTests.swift; sourceTree = "<group>"; };
 		A90FF04D2044526600124266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A917D10020A087EF008DE98C /* MemoCollectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoCollectionViewController.storyboard; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 		A90FF02A2044526600124266 = {
 			isa = PBXGroup;
 			children = (
-				A90FF0352044526600124266 /* DoneDoneMemo */,
-				A90FF04A2044526600124266 /* DoneDoneMemoTests */,
+				A90FF0352044526600124266 /* DonePad */,
+				A90FF04A2044526600124266 /* DonePadTests */,
 				A90FF0342044526600124266 /* Products */,
 				A99B54C92045A5E9002DFA2B /* Frameworks */,
 			);
@@ -161,13 +161,13 @@
 		A90FF0342044526600124266 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A90FF0332044526600124266 /* DoneDoneMemo.app */,
-				A90FF0472044526600124266 /* DoneDoneMemoTests.xctest */,
+				A90FF0332044526600124266 /* DonePad.app */,
+				A90FF0472044526600124266 /* DonePadTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A90FF0352044526600124266 /* DoneDoneMemo */ = {
+		A90FF0352044526600124266 /* DonePad */ = {
 			isa = PBXGroup;
 			children = (
 				A90FF0362044526600124266 /* AppDelegate.swift */,
@@ -179,16 +179,16 @@
 				A99B54DB2046FA53002DFA2B /* ViewModel */,
 				A9289F1120BD883400CF46EF /* Settings.bundle */,
 			);
-			path = DoneDoneMemo;
+			path = DonePad;
 			sourceTree = "<group>";
 		};
-		A90FF04A2044526600124266 /* DoneDoneMemoTests */ = {
+		A90FF04A2044526600124266 /* DonePadTests */ = {
 			isa = PBXGroup;
 			children = (
 				A90FF04B2044526600124266 /* DoneDoneMemoTests.swift */,
 				A90FF04D2044526600124266 /* Info.plist */,
 			);
-			path = DoneDoneMemoTests;
+			path = DonePadTests;
 			sourceTree = "<group>";
 		};
 		A99B54C92045A5E9002DFA2B /* Frameworks */ = {
@@ -298,9 +298,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A90FF0322044526600124266 /* DoneDoneMemo */ = {
+		A90FF0322044526600124266 /* DonePad */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A90FF0502044526600124266 /* Build configuration list for PBXNativeTarget "DoneDoneMemo" */;
+			buildConfigurationList = A90FF0502044526600124266 /* Build configuration list for PBXNativeTarget "DonePad" */;
 			buildPhases = (
 				A90FF02F2044526600124266 /* Sources */,
 				A90FF0302044526600124266 /* Frameworks */,
@@ -312,14 +312,14 @@
 			);
 			dependencies = (
 			);
-			name = DoneDoneMemo;
+			name = DonePad;
 			productName = DoneDoneMemo;
-			productReference = A90FF0332044526600124266 /* DoneDoneMemo.app */;
+			productReference = A90FF0332044526600124266 /* DonePad.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A90FF0462044526600124266 /* DoneDoneMemoTests */ = {
+		A90FF0462044526600124266 /* DonePadTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A90FF0532044526600124266 /* Build configuration list for PBXNativeTarget "DoneDoneMemoTests" */;
+			buildConfigurationList = A90FF0532044526600124266 /* Build configuration list for PBXNativeTarget "DonePadTests" */;
 			buildPhases = (
 				A90FF0432044526600124266 /* Sources */,
 				A90FF0442044526600124266 /* Frameworks */,
@@ -330,9 +330,9 @@
 			dependencies = (
 				A90FF0492044526600124266 /* PBXTargetDependency */,
 			);
-			name = DoneDoneMemoTests;
+			name = DonePadTests;
 			productName = DoneDoneMemoTests;
-			productReference = A90FF0472044526600124266 /* DoneDoneMemoTests.xctest */;
+			productReference = A90FF0472044526600124266 /* DonePadTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -356,7 +356,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A90FF02E2044526600124266 /* Build configuration list for PBXProject "DoneDoneMemo" */;
+			buildConfigurationList = A90FF02E2044526600124266 /* Build configuration list for PBXProject "DonePad" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -369,8 +369,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A90FF0322044526600124266 /* DoneDoneMemo */,
-				A90FF0462044526600124266 /* DoneDoneMemoTests */,
+				A90FF0322044526600124266 /* DonePad */,
+				A90FF0462044526600124266 /* DonePadTests */,
 			);
 		};
 /* End PBXProject section */
@@ -489,7 +489,7 @@
 /* Begin PBXTargetDependency section */
 		A90FF0492044526600124266 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A90FF0322044526600124266 /* DoneDoneMemo */;
+			target = A90FF0322044526600124266 /* DonePad */;
 			targetProxy = A90FF0482044526600124266 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -612,9 +612,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = DoneDoneMemo/Info.plist;
+				INFOPLIST_FILE = DonePad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "y-sumida.DoneDoneMemo.DoneDoneMemo";
+				PRODUCT_BUNDLE_IDENTIFIER = "y-sumida.DonePad";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -631,9 +631,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = DoneDoneMemo/Info.plist;
+				INFOPLIST_FILE = DonePad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "y-sumida.DoneDoneMemo.DoneDoneMemo";
+				PRODUCT_BUNDLE_IDENTIFIER = "y-sumida.DonePad";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -646,13 +646,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DoneDoneMemoTests/Info.plist;
+				INFOPLIST_FILE = DonePadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "y-sumida.DoneDoneMemo.DoneDoneMemoTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "y-sumida.DonePadTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DoneDoneMemo.app/DoneDoneMemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DonePad.app/DonePad";
 			};
 			name = Debug;
 		};
@@ -662,20 +662,20 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DoneDoneMemoTests/Info.plist;
+				INFOPLIST_FILE = DonePadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "y-sumida.DoneDoneMemo.DoneDoneMemoTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "y-sumida.DonePadTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DoneDoneMemo.app/DoneDoneMemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DonePad.app/DonePad";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A90FF02E2044526600124266 /* Build configuration list for PBXProject "DoneDoneMemo" */ = {
+		A90FF02E2044526600124266 /* Build configuration list for PBXProject "DonePad" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A90FF04E2044526600124266 /* Debug */,
@@ -684,7 +684,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A90FF0502044526600124266 /* Build configuration list for PBXNativeTarget "DoneDoneMemo" */ = {
+		A90FF0502044526600124266 /* Build configuration list for PBXNativeTarget "DonePad" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A90FF0512044526600124266 /* Debug */,
@@ -693,7 +693,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A90FF0532044526600124266 /* Build configuration list for PBXNativeTarget "DoneDoneMemoTests" */ = {
+		A90FF0532044526600124266 /* Build configuration list for PBXNativeTarget "DonePadTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A90FF0542044526600124266 /* Debug */,
