@@ -33,6 +33,7 @@
 		A958FC1B20A1E26200EC86DE /* MemoAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A958FC1920A1E26200EC86DE /* MemoAddCell.xib */; };
 		A977D83120C80F6D0025A097 /* AppSettingsVersionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A977D82F20C80F6D0025A097 /* AppSettingsVersionCell.swift */; };
 		A977D83220C80F6D0025A097 /* AppSettingsVersionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A977D83020C80F6D0025A097 /* AppSettingsVersionCell.xib */; };
+		A977D83820C972C40025A097 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A977D83720C972C40025A097 /* GoogleService-Info.plist */; };
 		A99B54D12045A5E9002DFA2B /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54CB2045A5E9002DFA2B /* RxBlocking.framework */; };
 		A99B54D22045A5E9002DFA2B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54CC2045A5E9002DFA2B /* RealmSwift.framework */; };
 		A99B54D32045A5E9002DFA2B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54CD2045A5E9002DFA2B /* Realm.framework */; };
@@ -98,6 +99,7 @@
 		A958FC1920A1E26200EC86DE /* MemoAddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoAddCell.xib; sourceTree = "<group>"; };
 		A977D82F20C80F6D0025A097 /* AppSettingsVersionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsVersionCell.swift; sourceTree = "<group>"; };
 		A977D83020C80F6D0025A097 /* AppSettingsVersionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppSettingsVersionCell.xib; sourceTree = "<group>"; };
+		A977D83720C972C40025A097 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A99B54CA2045A5E9002DFA2B /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		A99B54CB2045A5E9002DFA2B /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		A99B54CC2045A5E9002DFA2B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -172,12 +174,13 @@
 			children = (
 				A90FF0362044526600124266 /* AppDelegate.swift */,
 				A90FF03D2044526600124266 /* Assets.xcassets */,
+				A977D83720C972C40025A097 /* GoogleService-Info.plist */,
 				A90FF0422044526600124266 /* Info.plist */,
 				A99B54DA2046FA4A002DFA2B /* Model */,
+				A9289F1120BD883400CF46EF /* Settings.bundle */,
 				A99FD64E2071104E0052587F /* Util */,
 				A99B54DE2046FA7A002DFA2B /* View */,
 				A99B54DB2046FA53002DFA2B /* ViewModel */,
-				A9289F1120BD883400CF46EF /* Settings.bundle */,
 			);
 			path = DonePad;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				A99B54F8205805F0002DFA2B /* MemoViewController.storyboard in Resources */,
 				A90FF03E2044526600124266 /* Assets.xcassets in Resources */,
 				A9345F4320B1A0FE0015B34F /* MemoSettingsViewController.storyboard in Resources */,
+				A977D83820C972C40025A097 /* GoogleService-Info.plist in Resources */,
 				A977D83220C80F6D0025A097 /* AppSettingsVersionCell.xib in Resources */,
 				A958FC1720A1DCE800EC86DE /* MemoCell.xib in Resources */,
 				A9289F0C20BD83C300CF46EF /* AppSettingsViewController.storyboard in Resources */,
