@@ -78,6 +78,9 @@ final class MemoViewController: UIViewController {
         editingIndex = nil
         viewModel.reload()
         navigationItem.title = viewModel.title
+        if viewModel.numberOfTasks == 0 {
+            accessoryView.showKeyboard()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

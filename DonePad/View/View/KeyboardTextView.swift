@@ -53,7 +53,7 @@ final class KeyboardTextView: UIView {
     }
 
     private func commonInit() {
-        textField.placeholder = "タスク"
+        textField.placeholder = "タスクを追加してください"
     }
 
     func showKeyboard() {
