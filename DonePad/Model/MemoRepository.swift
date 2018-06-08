@@ -97,9 +97,7 @@ class Memo: RealmSwift.Object {
     func delete() {
         let realm = try! Realm()
         try! realm.write {
-            self.deletedAt = Date()
-            self.active = false
-            realm.add(self, update: true)
+            realm.delete(self)
         }
     }
 
