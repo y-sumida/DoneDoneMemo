@@ -265,6 +265,16 @@ extension MemoViewController: UITableViewDataSource {
         let cell = TaskCell.dequeue(from: tableView, for: indexPath, with: task)
         return cell
     }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard viewModel.numberOfTasks == 0 else { return nil }
+        return EmptyView(with: "まだタスクがありません。")
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard viewModel.numberOfTasks == 0 else { return .leastNonzeroMagnitude }
+        return 100
+    }
 }
 
 extension MemoViewController: UITableViewDelegate {
