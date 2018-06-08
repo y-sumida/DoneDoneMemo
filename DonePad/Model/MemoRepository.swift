@@ -35,7 +35,6 @@ class Memo: RealmSwift.Object {
     @objc dynamic var deletedAt: Date = Date()
 
     let tasks = List<Task>()
-    let deletedTasks = List<Task>()
 
     var remainCount: Int {
         let remain = tasks.filter { task in !task.done }
@@ -89,10 +88,8 @@ class Memo: RealmSwift.Object {
         let realm = try! Realm()
         try! realm.write {
             tasks.remove(at: index)
-            task.active = false
-            task.deletedAt = Date()
+            realm.delete(task)
             self.updatedAt = Date()
-            deletedTasks.append(task)
             realm.add(self, update: true)
         }
     }
