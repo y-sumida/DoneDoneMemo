@@ -129,24 +129,18 @@ final class MemoViewController: UIViewController {
         accessoryView.isHidden = true
         accessoryView.hideKeyboard()
 
-        let alert = UIAlertController(title: "削除しますか？", message: nil, preferredStyle: .actionSheet)
-        let deleteAll = UIAlertAction(title: "メモごと削除する", style: .default, handler: {[unowned self] _ in
+        let alert = UIAlertController(title: "このメモを削除しますか？", message: "この操作は取り消せません", preferredStyle: .alert)
+        let deleteAll = UIAlertAction(title: "削除する", style: .destructive, handler: {[unowned self] _ in
             self.viewModel.delete()
             self.clearMemoId()
             self.showMemoList()
-        })
-        let deleteDone = UIAlertAction(title: "チェック済タスクを削除する", style: .default, handler: {[unowned self] _ in
-            self.viewModel.deleteDone()
-            self.tableView.reloadData()
-            self.accessoryView.isHidden = false
         })
         let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: {[unowned self] _ in
            self.accessoryView.isHidden = false
         })
         alert.addAction(deleteAll)
-        alert.addAction(deleteDone)
         alert.addAction(cancel)
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 
     @objc private func showMemoList() {
