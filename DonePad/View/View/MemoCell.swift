@@ -14,7 +14,7 @@ class MemoCell: UICollectionViewCell {
     }
     private var remainCount: Int = 0 {
         didSet {
-            remainLabel.text = "残り \(remainCount) 項目"
+            remainLabel.text = "残 \(remainCount)"
         }
     }
 
@@ -32,7 +32,6 @@ class MemoCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
 }
 
 extension MemoCell: Reusable, NibType {
