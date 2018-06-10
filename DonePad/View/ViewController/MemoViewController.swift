@@ -60,11 +60,6 @@ final class MemoViewController: UIViewController {
         accessoryView = KeyboardTextView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
         accessoryView.delegate = self
 
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30, weight: .black),
-            NSAttributedStringKey.foregroundColor: UIColor.black
-        ]
         setupNavigationItems()
 
         bindKeyboardEvent()
