@@ -211,6 +211,7 @@ final class MemoViewController: UIViewController {
 extension MemoViewController {
     func bindKeyboardEvent() {
         NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillShow, object: nil)
+            .throttle(0.5, latest: false, scheduler: MainScheduler.instance)
             .bind { [unowned self] notification in
                 self.keyboardWillShow(notification)
             }
@@ -234,7 +235,7 @@ extension MemoViewController {
 
             let convertedKeyboardFrame = tableView.convert(keyboardFrame, from: nil)
 
-            let offsetY: CGFloat = cell.frame.maxY - convertedKeyboardFrame.minY
+            let offsetY: CGFloat = cell.frame.maxY - convertedKeyboardFrame.minY + accessoryView.frame.size.height
             if offsetY > 0 {
                 UIView.beginAnimations("ResizeForKeyboard", context: nil)
                 UIView.setAnimationDuration(animationDuration)
