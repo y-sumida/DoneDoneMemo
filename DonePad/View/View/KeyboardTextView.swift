@@ -44,5 +44,7 @@ final class KeyboardTextView: UIView {
 }
 
 extension KeyboardTextView: NibInstantiatable {
-    func inject(_ dependency: Void) {}
+    func inject(_ dependency: Void) {
+        textView.layer.cornerRadius = 4
+    }
 }
