@@ -53,11 +53,11 @@ final class MemoViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.contentInset.bottom = 60
+        //tableView.contentInset.bottom = 60
 
         tableView.registerNib(type: TaskCell.self)
 
-        accessoryView = KeyboardTextView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+        accessoryView = KeyboardTextView(with: Void())
         accessoryView.delegate = self
 
         setupNavigationItems()
@@ -206,7 +206,6 @@ final class MemoViewController: UIViewController {
 extension MemoViewController {
     func bindKeyboardEvent() {
         NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillShow, object: nil)
-            //.throttle(0.5, latest: false, scheduler: MainScheduler.instance)
             .bind { [unowned self] notification in
                 self.keyboardWillShow(notification)
             }
@@ -287,31 +286,34 @@ extension MemoViewController: UITableViewDelegate {
     }
 }
 
-extension MemoViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        shadowView.isHidden = false
+extension MemoViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        accessoryView.invalidateIntrinsicContentSize()
+    }
 
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        shadowView.isHidden = false
         guard viewModel.numberOfTasks > 0 else { return }
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
     }
 
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         shadowView.isHidden = true
         resetEditing()
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let text = textField.text else { return true }
-        if let index = editingIndex {
-            editTask(at: index, title: text)
-        } else {
-            addTask(title: text)
-        }
-        textField.text = ""
-        textField.resignFirstResponder()
-        resetEditing()
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard let title = textView.text, text == "\n" else { return true }
 
-        return true
+        if let index = editingIndex {
+            editTask(at: index, title: title)
+        } else {
+            addTask(title: title)
+        }
+
+        textView.resignFirstResponder()
+        textView.text = ""
+        return false
     }
 
     private func resetEditing() {
@@ -319,6 +321,7 @@ extension MemoViewController: UITextFieldDelegate {
         tableView.indexPathsForSelectedRows?.forEach {
             tableView.deselectRow(at: $0, animated: true)
         }
+        accessoryView.title = ""
     }
 }
 
