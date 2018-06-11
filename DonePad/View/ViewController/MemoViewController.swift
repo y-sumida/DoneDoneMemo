@@ -293,7 +293,7 @@ extension MemoViewController: UITextViewDelegate {
 
     func textViewDidBeginEditing(_ textView: UITextView) {
         shadowView.isHidden = false
-        guard viewModel.numberOfTasks > 0 else { return }
+        guard viewModel.numberOfTasks > 0, editingIndex == nil else { return }
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
     }
 
