@@ -206,7 +206,7 @@ final class MemoViewController: UIViewController {
 extension MemoViewController {
     func bindKeyboardEvent() {
         NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillShow, object: nil)
-            .throttle(0.5, latest: false, scheduler: MainScheduler.instance)
+            //.throttle(0.5, latest: false, scheduler: MainScheduler.instance)
             .bind { [unowned self] notification in
                 self.keyboardWillShow(notification)
             }
@@ -220,34 +220,25 @@ extension MemoViewController {
     }
 
     func keyboardWillShow(_ notification: Notification) {
-        guard let indexPath = editingIndex,
-            let cell = tableView.cellForRow(at: indexPath) else { return }
-        if let userInfo = notification.userInfo,
-            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue, let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue {
+        if let indexPath = editingIndex,
+            let userInfo = notification.userInfo,
+            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue,
+            let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue {
 
-            tableView.contentInset = UIEdgeInsets.zero
-            tableView.scrollIndicatorInsets = UIEdgeInsets.zero
+            UIView.beginAnimations("ResizeForKeyboard", context: nil)
+            UIView.setAnimationDuration(animationDuration)
 
-            let convertedKeyboardFrame = tableView.convert(keyboardFrame, from: nil)
+            tableView.contentInset.bottom = keyboardFrame.height
+            tableView.scrollIndicatorInsets.bottom = keyboardFrame.height
+            tableView.scrollToRow(at: indexPath, at: .none, animated: true)
 
-            let offsetY: CGFloat = cell.frame.maxY - convertedKeyboardFrame.minY + accessoryView.frame.size.height
-            if offsetY > 0 {
-                UIView.beginAnimations("ResizeForKeyboard", context: nil)
-                UIView.setAnimationDuration(animationDuration)
-
-                let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: offsetY, right: 0)
-                tableView.contentInset.bottom = offsetY + 60
-                tableView.scrollIndicatorInsets = contentInsets
-                tableView.contentOffset = CGPoint(x: 0, y: tableView.contentOffset.y + offsetY + 60)
-
-                UIView.commitAnimations()
-            }
+            UIView.commitAnimations()
         }
     }
 
     func keyboardWillHide(_ notification: Notification) {
         tableView.contentInset.bottom = 60
-        tableView.scrollIndicatorInsets = UIEdgeInsets.zero
+        tableView.scrollIndicatorInsets.bottom = 60
     }
 }
 
