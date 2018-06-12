@@ -49,11 +49,10 @@ final class MemoViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.keyboardDismissMode = .onDrag
-        tableView.contentInset.bottom = 50
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableViewAutomaticDimension
-        //tableView.contentInset.bottom = 60
+        tableView.contentInset.bottom = 60
 
         tableView.registerNib(type: TaskCell.self)
 
