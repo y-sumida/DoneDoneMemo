@@ -5,6 +5,7 @@ import InstantiateStandard
 final class KeyboardTextView: UIView {
     typealias Dependency = Void
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var timerButton: UIButton!
     weak var delegate: UITextViewDelegate? {
         didSet {
             textView.delegate = delegate
@@ -16,6 +17,20 @@ final class KeyboardTextView: UIView {
             textView.text = title
             invalidateIntrinsicContentSize()
         }
+    }
+
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let view = super.hitTest(point, with: event)
+        if view == textView {
+            textView.inputView = nil
+            textView.reloadInputViews()
+            textView.tintColor = UIColor.black
+            return view
+        } else if view == timerButton {
+            textView.tintColor = UIColor.clear
+            return view
+        }
+        return nil
     }
 
     override func didMoveToWindow() {
@@ -40,6 +55,13 @@ final class KeyboardTextView: UIView {
         textView.text = ""
         invalidateIntrinsicContentSize()
         textView.resignFirstResponder()
+    }
+
+    @IBAction func tapTimerButton(_ sender: Any) {
+        let datePickerView = UIDatePicker()
+        datePickerView.datePickerMode = .date
+        textView.inputView = datePickerView
+        textView.reloadInputViews()
     }
 }
 
