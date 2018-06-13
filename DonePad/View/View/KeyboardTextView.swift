@@ -48,7 +48,8 @@ final class KeyboardTextView: UIView {
     }
 
     func showKeyboard() {
-       textView.becomeFirstResponder()
+        timerButton.isEnabled = true
+        textView.becomeFirstResponder()
     }
 
     func hideKeyboard() {
