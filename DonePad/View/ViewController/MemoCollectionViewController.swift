@@ -37,7 +37,7 @@ class MemoCollectionViewController: UIViewController {
     private func setupNavigationItems() {
         navigationItem.title = "メモ一覧"
 
-        let settingButton = UIButton()
+        let settingButton = UIButton(type: .system)
         settingButton.addTarget(self, action: #selector(self.showSettings), for: .touchUpInside)
         settingButton.setImage(UIImage(named: "ic_setting")?.withRenderingMode(.alwaysTemplate), for: .normal)
         settingButton.tintColor = UIColor.black

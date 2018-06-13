@@ -177,7 +177,7 @@ final class MemoViewController: UIViewController {
     private func setupNavigationItems() {
         var barItems: [UIBarButtonItem] = []
 
-        let trashButton = UIButton()
+        let trashButton = UIButton(type: .system)
         trashButton.addTarget(self, action: #selector(self.tapTrashButton), for: .touchUpInside)
         trashButton.setImage(UIImage(named: "ic_delete")?.withRenderingMode(.alwaysTemplate), for: .normal)
         trashButton.tintColor = UIColor.black
@@ -188,7 +188,7 @@ final class MemoViewController: UIViewController {
         space.width = 11
         barItems.append(space)
 
-        let settingButton = UIButton()
+        let settingButton = UIButton(type: .system)
         settingButton.addTarget(self, action: #selector(self.showSettings), for: .touchUpInside)
         settingButton.setImage(UIImage(named: "ic_setting")?.withRenderingMode(.alwaysTemplate), for: .normal)
         settingButton.tintColor = UIColor.black
