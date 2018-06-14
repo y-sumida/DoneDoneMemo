@@ -10,6 +10,7 @@ final class MemoViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    var _inputAccessoryView: UIView!
     private var accessoryView: KeyboardTextView!
     private let disposeBag = DisposeBag()
 
@@ -86,8 +87,37 @@ final class MemoViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+    // https://stackoverflow.com/questions/46282987/iphone-x-how-to-handle-view-controller-inputaccessoryview
     override var inputAccessoryView: UIView? {
-        return accessoryView
+        if _inputAccessoryView == nil {
+            _inputAccessoryView = WrapperView()
+            _inputAccessoryView.backgroundColor = UIColor(red: 0.902, green: 0.902, blue: 0.902, alpha: 1)
+
+            _inputAccessoryView.addSubview(accessoryView)
+            _inputAccessoryView.autoresizingMask = .flexibleHeight
+            accessoryView.translatesAutoresizingMaskIntoConstraints = false
+
+            accessoryView.leadingAnchor.constraint(
+                equalTo: _inputAccessoryView.leadingAnchor,
+                constant: 0
+                ).isActive = true
+
+            accessoryView.trailingAnchor.constraint(
+                equalTo: _inputAccessoryView.trailingAnchor,
+                constant: 0
+                ).isActive = true
+
+            accessoryView.topAnchor.constraint(
+                equalTo: _inputAccessoryView.topAnchor,
+                constant: 0
+                ).isActive = true
+
+            accessoryView.bottomAnchor.constraint(
+                equalTo: _inputAccessoryView.layoutMarginsGuide.bottomAnchor,
+                constant: 0
+                ).isActive = true
+        }
+        return _inputAccessoryView
     }
 
     override var canBecomeFirstResponder: Bool {
@@ -331,5 +361,11 @@ extension MemoViewController: UIViewControllerTransitioningDelegate {
 
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return nil
+    }
+}
+
+class WrapperView: UIView {
+    override var intrinsicContentSize: CGSize {
+        return CGSize.zero
     }
 }
