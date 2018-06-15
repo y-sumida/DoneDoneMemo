@@ -29,7 +29,7 @@
         <!--Memo View Controller-->
         <scene sceneID="Z5l-bW-irs">
             <objects>
-                <viewController storyboardIdentifier="MemoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qy9-3T-TtK" customClass="MemoViewController" customModule="DoneDoneMemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qy9-3T-TtK" customClass="MemoViewController" customModule="DonePad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kPx-WE-g0y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +58,7 @@
                         <viewLayoutGuide key="safeArea" id="8KY-fY-ZkS"/>
                     </view>
                     <navigationItem key="navigationItem" id="mPz-pf-vsk">
-                        <barButtonItem key="leftBarButtonItem" image="ic_collection" style="plain" id="lyq-fl-reE">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="ic_collection" style="plain" id="lyq-fl-reE">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="tapListButton:" destination="qy9-3T-TtK" id="C1w-Vi-5UN"/>

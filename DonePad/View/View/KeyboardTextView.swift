@@ -6,6 +6,7 @@ final class KeyboardTextView: UIView {
     typealias Dependency = Void
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var timerButton: UIButton!
+    @IBOutlet weak var sendButton: UIButton!
     weak var delegate: UITextViewDelegate? {
         didSet {
             textView.delegate = delegate
@@ -30,7 +31,7 @@ final class KeyboardTextView: UIView {
             textView.tintColor = UIColor.clear
             return view
         }
-        return nil
+        return view
     }
 
     override var intrinsicContentSize: CGSize {
@@ -59,5 +60,6 @@ final class KeyboardTextView: UIView {
 extension KeyboardTextView: NibInstantiatable {
     func inject(_ dependency: Void) {
         textView.layer.cornerRadius = 4
+        sendButton.layer.cornerRadius = 18
     }
 }
