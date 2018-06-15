@@ -50,8 +50,7 @@ final class KeyboardTextView: UIView {
     }
 
     @IBAction func tapTimerButton(_ sender: Any) {
-        let datePickerView = UIDatePicker()
-        datePickerView.datePickerMode = .dateAndTime
+        let datePickerView = AlarmPickerView(with: Void())
         textView.inputView = datePickerView
         textView.reloadInputViews()
     }

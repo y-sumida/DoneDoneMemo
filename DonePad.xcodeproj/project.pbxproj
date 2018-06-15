@@ -36,6 +36,8 @@
 		A977D83820C972C40025A097 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A977D83720C972C40025A097 /* GoogleService-Info.plist */; };
 		A977D83A20CAB6260025A097 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A977D83920CAB6260025A097 /* EmptyView.swift */; };
 		A977D83C20CAB6670025A097 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A977D83B20CAB6670025A097 /* EmptyView.xib */; };
+		A98A277F20D15A9C002C0D69 /* AlarmPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98A277E20D15A9C002C0D69 /* AlarmPickerView.xib */; };
+		A98A278120D15BFB002C0D69 /* AlarmPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98A278020D15BFB002C0D69 /* AlarmPickerView.swift */; };
 		A99B54D12045A5E9002DFA2B /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54CB2045A5E9002DFA2B /* RxBlocking.framework */; };
 		A99B54D22045A5E9002DFA2B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54CC2045A5E9002DFA2B /* RealmSwift.framework */; };
 		A99B54D32045A5E9002DFA2B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54CD2045A5E9002DFA2B /* Realm.framework */; };
@@ -104,6 +106,8 @@
 		A977D83720C972C40025A097 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A977D83920CAB6260025A097 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		A977D83B20CAB6670025A097 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		A98A277E20D15A9C002C0D69 /* AlarmPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmPickerView.xib; sourceTree = "<group>"; };
+		A98A278020D15BFB002C0D69 /* AlarmPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPickerView.swift; sourceTree = "<group>"; };
 		A99B54CA2045A5E9002DFA2B /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		A99B54CB2045A5E9002DFA2B /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		A99B54CC2045A5E9002DFA2B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 			isa = PBXGroup;
 			children = (
 				A99B54F52056BDD4002DFA2B /* AddButton.swift */,
+				A98A278020D15BFB002C0D69 /* AlarmPickerView.swift */,
+				A98A277E20D15A9C002C0D69 /* AlarmPickerView.xib */,
 				A977D82F20C80F6D0025A097 /* AppSettingsVersionCell.swift */,
 				A977D83020C80F6D0025A097 /* AppSettingsVersionCell.xib */,
 				A977D83920CAB6260025A097 /* EmptyView.swift */,
@@ -403,6 +409,7 @@
 				A977D83220C80F6D0025A097 /* AppSettingsVersionCell.xib in Resources */,
 				A958FC1720A1DCE800EC86DE /* MemoCell.xib in Resources */,
 				A9289F0C20BD83C300CF46EF /* AppSettingsViewController.storyboard in Resources */,
+				A98A277F20D15A9C002C0D69 /* AlarmPickerView.xib in Resources */,
 				A9E1AFC620C016CD0001170B /* LicenseCell.xib in Resources */,
 				A917D10120A087EF008DE98C /* MemoCollectionViewController.storyboard in Resources */,
 				A958FC1B20A1E26200EC86DE /* MemoAddCell.xib in Resources */,
@@ -480,6 +487,7 @@
 				A9AD387520AC78D50014EBB9 /* MemoSettingsContentViewController.swift in Sources */,
 				A9289F0520B43F6800CF46EF /* ZoomOutAnimator.swift in Sources */,
 				A90FF0372044526600124266 /* AppDelegate.swift in Sources */,
+				A98A278120D15BFB002C0D69 /* AlarmPickerView.swift in Sources */,
 				A917D10320A0883C008DE98C /* MemoCollectionViewController.swift in Sources */,
 				A977D83120C80F6D0025A097 /* AppSettingsVersionCell.swift in Sources */,
 				A99B54E020483144002DFA2B /* MemoListViewModel.swift in Sources */,
