@@ -4,9 +4,9 @@ import InstantiateStandard
 
 final class KeyboardTextView: UIView {
     typealias Dependency = Void
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var timerButton: UIButton!
-    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet private weak var textView: UITextView!
+    @IBOutlet private weak var timerButton: UIButton!
+    @IBOutlet private weak var sendButton: UIButton!
     weak var delegate: UITextViewDelegate? {
         didSet {
             textView.delegate = delegate
