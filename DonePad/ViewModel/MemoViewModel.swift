@@ -1,3 +1,5 @@
+import Foundation
+
 struct MemoViewModel {
     private var memo: Memo!
 
@@ -38,8 +40,8 @@ struct MemoViewModel {
     }
 
     // TODO: CRUD処理
-    func addTask(title: String) {
-       memo.addTask(title: title)
+    func addTask(title: String, deadline: Date?) {
+       memo.addTask(title: title, deadline: deadline)
     }
 
     func editTask(at index: Int, title: String) {

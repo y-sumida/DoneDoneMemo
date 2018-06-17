@@ -58,9 +58,10 @@ class Memo: RealmSwift.Object {
         }
     }
 
-    func addTask(title: String) {
+    func addTask(title: String, deadline: Date?) {
         let task = Task()
         task.title = title
+        task.deadline = deadline
 
         let realm = try! Realm()
         try! realm.write {
