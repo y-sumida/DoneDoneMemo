@@ -23,7 +23,7 @@
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="tby-k0-aIH"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-X5-7fv">
                     <rect key="frame" x="8" y="0.0" width="44" height="44"/>

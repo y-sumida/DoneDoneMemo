@@ -59,6 +59,10 @@ final class MemoViewController: UIViewController {
 
         accessoryView = KeyboardTextView(with: Void())
         accessoryView.delegate = self
+        accessoryView.addAction = {[unowned self] title in
+            self.addTask(title: title)
+            self.accessoryView.hideKeyboard()
+        }
 
         setupNavigationItems()
 
@@ -270,6 +274,10 @@ extension MemoViewController {
     func keyboardWillHide(_ notification: Notification) {
         tableView.contentInset.bottom = 60
         tableView.scrollIndicatorInsets.bottom = 60
+        accessoryView.addAction = {[unowned self] title in
+            self.addTask(title: title)
+            self.accessoryView.hideKeyboard()
+        }
     }
 }
 
@@ -333,20 +341,6 @@ extension MemoViewController: UITextViewDelegate {
         shadowView.isHidden = true
         textView.text = ""
         resetEditing()
-    }
-
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        guard let title = textView.text, text == "\n" else { return true }
-
-        if let index = editingIndex {
-            editTask(at: index, title: title)
-        } else {
-            addTask(title: title)
-        }
-
-        textView.resignFirstResponder()
-        textView.text = ""
-        return false
     }
 
     private func resetEditing() {
