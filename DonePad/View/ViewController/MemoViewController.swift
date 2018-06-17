@@ -198,6 +198,10 @@ final class MemoViewController: UIViewController {
                 let task = viewModel.task(at: indexPath.row) {
                 tableView.selectRow(at: indexPath, animated: false, scrollPosition: .bottom)
                 editingIndex = indexPath
+                accessoryView.addAction = {[unowned self] title in
+                    self.editTask(at: indexPath, title: title)
+                    self.accessoryView.hideKeyboard()
+                }
                 accessoryView.showKeyboard(title: task.title)
             }
         }
