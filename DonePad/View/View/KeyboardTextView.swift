@@ -75,6 +75,12 @@ final class KeyboardTextView: UIView {
         textView.inputView = datePickerView
         textView.reloadInputViews()
     }
+
+    @IBAction func tapDeadlineClearButton(_ sender: Any) {
+        deadline = nil
+        deadlineLabel.text = "期限なし"
+        deadlineClearButton.isHidden = true
+    }
 }
 
 extension KeyboardTextView: NibInstantiatable {
