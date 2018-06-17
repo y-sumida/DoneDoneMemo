@@ -7,6 +7,8 @@ final class TaskCell: UITableViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet weak var iconView: UIImageView!
+    @IBOutlet weak var deadlineLabel: UILabel!
+    @IBOutlet weak var deadlineLabelHeight: NSLayoutConstraint!
 
     private let doneImage = UIImage(named: "ic_done")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
     private let boxImage = UIImage(named: "ic_checkbox")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
@@ -69,7 +71,15 @@ final class TaskCell: UITableViewCell {
 
 extension TaskCell: Reusable, NibType {
     func inject(_ dependency: Task) {
-        title = dependency.title
+        titleLabel.text = dependency.title
+        if let deadline = dependency.deadline {
+            deadlineLabel.isHidden = false
+            deadlineLabelHeight.constant = 18
+            deadlineLabel.text = deadline.description
+        } else {
+            deadlineLabel.isHidden = true
+            deadlineLabelHeight.constant = 0
+        }
         done = dependency.done
     }
 }
