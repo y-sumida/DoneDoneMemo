@@ -65,6 +65,10 @@ final class KeyboardTextView: UIView {
     }
     @IBAction func tapTimerButton(_ sender: Any) {
         let datePickerView = AlarmPickerView(with: Void())
+        datePickerView.checkAction = { [unowned self] date in
+            self.deadlineLabel.text = date.description // TODO 書式
+            self.deadlineClearButton.isHidden = false
+        }
         textView.inputView = datePickerView
         textView.reloadInputViews()
     }

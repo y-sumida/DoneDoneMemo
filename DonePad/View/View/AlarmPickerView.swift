@@ -5,8 +5,11 @@ import InstantiateStandard
 final class AlarmPickerView: UIView {
     typealias Dependency = Void
     @IBOutlet weak var datePickerView: UIDatePicker!
+
+    var checkAction: ((Date) -> Void) = { _ in }
+
     @IBAction func check(_ sender: Any) {
-        // TODO あとで実装
+        checkAction(datePickerView.date)
     }
     @IBAction func cancel(_ sender: Any) {
         // TODO あとで実装
