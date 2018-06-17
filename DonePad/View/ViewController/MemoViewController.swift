@@ -198,8 +198,7 @@ final class MemoViewController: UIViewController {
                 let task = viewModel.task(at: indexPath.row) {
                 tableView.selectRow(at: indexPath, animated: false, scrollPosition: .bottom)
                 editingIndex = indexPath
-                accessoryView.title = task.title
-                accessoryView.showKeyboard()
+                accessoryView.showKeyboard(title: task.title)
             }
         }
     }
@@ -328,6 +327,7 @@ extension MemoViewController: UITextViewDelegate {
 
     func textViewDidEndEditing(_ textView: UITextView) {
         shadowView.isHidden = true
+        textView.text = ""
         resetEditing()
     }
 
@@ -350,7 +350,6 @@ extension MemoViewController: UITextViewDelegate {
         tableView.indexPathsForSelectedRows?.forEach {
             tableView.deselectRow(at: $0, animated: true)
         }
-        accessoryView.title = ""
     }
 }
 

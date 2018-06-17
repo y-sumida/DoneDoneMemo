@@ -13,13 +13,6 @@ final class KeyboardTextView: UIView {
         }
     }
 
-    var title: String = "" {
-        didSet {
-            textView.text = title
-            invalidateIntrinsicContentSize()
-        }
-    }
-
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let view = super.hitTest(point, with: event)
         if view == textView {
@@ -39,7 +32,9 @@ final class KeyboardTextView: UIView {
         return CGSize(width: self.bounds.width, height: textSize.height + 16)
     }
 
-    func showKeyboard() {
+    func showKeyboard(title: String = "") {
+        textView.text = title
+        invalidateIntrinsicContentSize()
         timerButton.isEnabled = true
         textView.becomeFirstResponder()
     }
