@@ -34,7 +34,7 @@ final class KeyboardTextView: UIView {
 
     override var intrinsicContentSize: CGSize {
         let textSize = self.textView.sizeThatFits(CGSize(width: self.textView.bounds.width, height: CGFloat.greatestFiniteMagnitude))
-        return CGSize(width: self.bounds.width, height: textSize.height + 16)
+        return CGSize(width: self.bounds.width, height: 8 + textSize.height + 4 + 20 + 8)
     }
 
     func showKeyboard(title: String = "", deadline: Date? = nil) {

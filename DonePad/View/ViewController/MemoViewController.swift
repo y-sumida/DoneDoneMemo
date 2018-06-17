@@ -120,6 +120,7 @@ final class MemoViewController: UIViewController {
                 equalTo: _inputAccessoryView.layoutMarginsGuide.bottomAnchor,
                 constant: 0
                 ).isActive = true
+            accessoryView.invalidateIntrinsicContentSize()
         }
         return _inputAccessoryView
     }
