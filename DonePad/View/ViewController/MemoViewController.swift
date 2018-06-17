@@ -205,7 +205,7 @@ final class MemoViewController: UIViewController {
                     self.editTask(at: indexPath, title: title)
                     self.accessoryView.hideKeyboard()
                 }
-                accessoryView.showKeyboard(title: task.title)
+                accessoryView.showKeyboard(title: task.title, deadline: task.deadline)
             }
         }
     }
