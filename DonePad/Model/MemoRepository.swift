@@ -123,6 +123,7 @@ class Memo: RealmSwift.Object {
 class Task: RealmSwift.Object {
     @objc dynamic var id: String = NSUUID().uuidString
     @objc dynamic var title: String = ""
+    @objc dynamic var deadline: Date?
     @objc dynamic var done: Bool = false
     @objc dynamic var active: Bool = true
     @objc dynamic var createdAt: Date = Date()
