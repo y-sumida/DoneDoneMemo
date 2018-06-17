@@ -151,7 +151,7 @@ final class MemoViewController: UIViewController {
 
     private func editTask(at indexPath: IndexPath, title: String, deadline: Date?) {
         guard title.isNotEmpty else { return }
-        viewModel.editTask(at: indexPath.row, title: title)
+        viewModel.editTask(at: indexPath.row, title: title, deadline: deadline)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 

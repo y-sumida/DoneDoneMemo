@@ -71,12 +71,13 @@ class Memo: RealmSwift.Object {
         }
     }
 
-    func editTask(at index: Int, title: String) {
+    func editTask(at index: Int, title: String, deadline: Date?) {
         guard index < tasks.count else { return }
         let task = tasks[index]
         let realm = try! Realm()
         try! realm.write {
             task.title = title
+            task.deadline = deadline
             task.updatedAt = Date()
             self.updatedAt = Date()
             realm.add(task)
