@@ -14,7 +14,9 @@ final class KeyboardTextView: UIView {
             textView.delegate = delegate
         }
     }
-    var addAction: ((String) -> Void) = { _ in }
+    var addAction: ((String, Date?) -> Void) = { _, _ in }
+
+    private var deadline: Date?
 
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let view = super.hitTest(point, with: event)
@@ -60,13 +62,14 @@ final class KeyboardTextView: UIView {
 
     @IBAction func tapAddButton(_ sender: Any) {
         if let title = textView.text {
-            addAction(title)
+            addAction(title, deadline)
         }
     }
     @IBAction func tapTimerButton(_ sender: Any) {
         let datePickerView = AlarmPickerView(with: Void())
         datePickerView.checkAction = { [unowned self] date in
             self.deadlineLabel.text = date.description // TODO 書式
+            self.deadline = date
             self.deadlineClearButton.isHidden = false
         }
         textView.inputView = datePickerView
