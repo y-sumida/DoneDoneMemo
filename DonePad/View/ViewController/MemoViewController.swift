@@ -149,7 +149,7 @@ final class MemoViewController: UIViewController {
         tableView.endUpdates()
     }
 
-    private func editTask(at indexPath: IndexPath, title: String) {
+    private func editTask(at indexPath: IndexPath, title: String, deadline: Date?) {
         guard title.isNotEmpty else { return }
         viewModel.editTask(at: indexPath.row, title: title)
         tableView.reloadRows(at: [indexPath], with: .automatic)
@@ -201,8 +201,8 @@ final class MemoViewController: UIViewController {
                 let task = viewModel.task(at: indexPath.row) {
                 tableView.selectRow(at: indexPath, animated: false, scrollPosition: .bottom)
                 editingIndex = indexPath
-                accessoryView.addAction = {[unowned self] title, _ in
-                    self.editTask(at: indexPath, title: title)
+                accessoryView.addAction = {[unowned self] title, deadline in
+                    self.editTask(at: indexPath, title: title, deadline: deadline)
                     self.accessoryView.hideKeyboard()
                 }
                 accessoryView.showKeyboard(title: task.title, deadline: task.deadline)
