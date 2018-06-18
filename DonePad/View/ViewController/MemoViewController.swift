@@ -278,6 +278,7 @@ extension MemoViewController {
             self.addTask(title: title, deadline: deadline)
             self.accessoryView.hideKeyboard()
         }
+        accessoryView.hideKeyboard()
     }
 }
 

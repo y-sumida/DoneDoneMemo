@@ -44,6 +44,7 @@ final class KeyboardTextView: UIView {
 
     func showKeyboard(title: String = "", deadline: Date? = nil) {
         textView.text = title
+        self.deadline = deadline
         invalidateIntrinsicContentSize()
         timerButton.isEnabled = true
 
@@ -60,6 +61,7 @@ final class KeyboardTextView: UIView {
     func hideKeyboard() {
         textView.text = ""
         deadlineLabel.text = "期限なし"
+        deadline = nil
         deadlineClearButton.isHidden = true
         invalidateIntrinsicContentSize()
         textView.resignFirstResponder()
