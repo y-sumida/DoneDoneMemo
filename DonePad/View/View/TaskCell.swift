@@ -23,6 +23,8 @@ final class TaskCell: UITableViewCell {
         }
     }
 
+    private let formatter = DateFormatter()
+
     func toggleTask() {
         setSelected(true, animated: true)
         done = !done
@@ -60,11 +62,13 @@ final class TaskCell: UITableViewCell {
 
 extension TaskCell: Reusable, NibType {
     func inject(_ dependency: Task) {
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy/M/d(EEE) HH:mm"
         titleLabel.text = dependency.title
         if let deadline = dependency.deadline {
             deadlineLabel.isHidden = false
             deadlineLabelHeight.constant = 18
-            deadlineLabel.text = deadline.description
+            deadlineLabel.text = formatter.string(from: deadline)
         } else {
             deadlineLabel.isHidden = true
             deadlineLabelHeight.constant = 0
