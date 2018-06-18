@@ -17,6 +17,7 @@ final class KeyboardTextView: UIView {
     var addAction: ((String, Date?) -> Void) = { _, _ in }
 
     private var deadline: Date?
+    private let formatter = DateFormatter()
 
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let view = super.hitTest(point, with: event)
@@ -68,7 +69,7 @@ final class KeyboardTextView: UIView {
     @IBAction func tapTimerButton(_ sender: Any) {
         let datePickerView = AlarmPickerView(with: Void())
         datePickerView.checkAction = { [unowned self] date in
-            self.deadlineLabel.text = date.description // TODO 書式
+            self.deadlineLabel.text = self.formatter.string(from: date)
             self.deadline = date
             self.deadlineClearButton.isHidden = false
         }
@@ -90,5 +91,7 @@ extension KeyboardTextView: NibInstantiatable {
         deadlineClearButton.layer.cornerRadius = 10
         deadlineLabel.text = "期限なし"
         deadlineClearButton.isHidden = true
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy/M/d(EEE) HH:mm"
     }
 }
