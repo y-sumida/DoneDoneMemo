@@ -23,21 +23,10 @@ final class TaskCell: UITableViewCell {
         }
     }
 
-    private var title: String = "task" {
-        didSet {
-            titleLabel.text = title
-        }
-    }
-
     func toggleTask() {
         setSelected(true, animated: true)
         done = !done
         setSelected(false, animated: true)
-    }
-
-    func configure(task: Task) {
-        title = task.title
-        done = task.done
     }
 
     private func check() {
