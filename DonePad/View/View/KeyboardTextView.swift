@@ -1,6 +1,8 @@
 import UIKit
 import Instantiate
 import InstantiateStandard
+import RxSwift
+import RxCocoa
 
 final class KeyboardTextView: UIView {
     typealias Dependency = Void
@@ -18,6 +20,8 @@ final class KeyboardTextView: UIView {
 
     private var deadline: Date?
     private let formatter = DateFormatter()
+
+    private let disposeBag = DisposeBag()
 
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let view = super.hitTest(point, with: event)
@@ -82,6 +86,17 @@ final class KeyboardTextView: UIView {
         deadlineLabel.text = "期限なし"
         deadlineClearButton.isHidden = true
     }
+
+    private func bind() {
+        // タスクが空っぽの場合は登録不可
+        textView.rx.text
+            .map {
+                guard let text = $0 else { return false }
+                return text.isNotEmpty
+            }
+            .bind(to: sendButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+    }
 }
 
 extension KeyboardTextView: NibInstantiatable {
@@ -93,5 +108,6 @@ extension KeyboardTextView: NibInstantiatable {
         deadlineClearButton.isHidden = true
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy/M/d(EEE) HH:mm"
+        bind()
     }
 }
