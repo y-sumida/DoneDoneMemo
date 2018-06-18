@@ -49,7 +49,7 @@ final class KeyboardTextView: UIView {
         timerButton.isEnabled = true
 
         if let date = deadline {
-            deadlineLabel.text = date.description
+            deadlineLabel.text = formatter.string(from: date)
             deadlineClearButton.isHidden = false
         } else {
             deadlineLabel.text = "期限なし"
