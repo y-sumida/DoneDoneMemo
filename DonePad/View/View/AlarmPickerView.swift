@@ -11,9 +11,6 @@ final class AlarmPickerView: UIView {
     @IBAction func check(_ sender: Any) {
         checkAction(datePickerView.date)
     }
-    @IBAction func cancel(_ sender: Any) {
-        // TODO あとで実装
-    }
 }
 
 extension AlarmPickerView: NibInstantiatable {

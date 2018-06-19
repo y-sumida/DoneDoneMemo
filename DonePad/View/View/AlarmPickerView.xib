@@ -17,26 +17,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dj0-K8-dB1">
-                    <rect key="frame" x="0.0" y="40" width="375" height="257"/>
+                    <rect key="frame" x="0.0" y="135" width="375" height="162"/>
                     <date key="date" timeIntervalSinceReferenceDate="550591153.78056002">
                         <!--2018-06-13 13:59:13 +0000-->
                     </date>
                 </datePicker>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fic-TW-h5I">
-                    <rect key="frame" x="323" y="8" width="44" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="24" id="8OK-Rp-3vf"/>
-                        <constraint firstAttribute="width" constant="44" id="mIA-Kr-PcW"/>
-                    </constraints>
-                    <state key="normal" image="ic_clear"/>
-                    <connections>
-                        <action selector="cancel:" destination="iN0-l3-epB" eventType="touchUpInside" id="DSR-6z-ff6"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cET-cd-Ffj">
-                    <rect key="frame" x="263" y="8" width="44" height="24"/>
+                    <rect key="frame" x="315" y="8" width="44" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="24" id="PJB-2g-8dv"/>
+                        <constraint firstAttribute="height" constant="44" id="PJB-2g-8dv"/>
                         <constraint firstAttribute="width" constant="44" id="uVe-7a-paw"/>
                     </constraints>
                     <state key="normal" image="ic_check"/>
@@ -47,13 +36,10 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Dj0-K8-dB1" firstAttribute="top" secondItem="fic-TW-h5I" secondAttribute="bottom" constant="8" id="359-Fd-GrO"/>
-                <constraint firstItem="fic-TW-h5I" firstAttribute="centerY" secondItem="cET-cd-Ffj" secondAttribute="centerY" id="6FY-qM-Wov"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Dj0-K8-dB1" secondAttribute="bottom" id="WzT-TW-gmT"/>
-                <constraint firstItem="fic-TW-h5I" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="aL3-sq-EWZ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fic-TW-h5I" secondAttribute="trailing" constant="8" id="c96-iU-sEh"/>
-                <constraint firstItem="fic-TW-h5I" firstAttribute="leading" secondItem="cET-cd-Ffj" secondAttribute="trailing" constant="16" id="l3M-g8-D70"/>
                 <constraint firstItem="Dj0-K8-dB1" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="pLC-mj-wpe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cET-cd-Ffj" secondAttribute="trailing" constant="16" id="uFC-Ts-jzk"/>
+                <constraint firstItem="cET-cd-Ffj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="vPX-UW-Mks"/>
                 <constraint firstItem="Dj0-K8-dB1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="zcW-Xo-cAp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -66,6 +52,5 @@
     </objects>
     <resources>
         <image name="ic_check" width="24" height="24"/>
-        <image name="ic_clear" width="24" height="24"/>
     </resources>
 </document>
