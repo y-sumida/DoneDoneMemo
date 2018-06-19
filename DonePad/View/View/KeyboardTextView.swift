@@ -3,6 +3,7 @@ import Instantiate
 import InstantiateStandard
 import RxSwift
 import RxCocoa
+import UserNotifications
 
 final class KeyboardTextView: UIView {
     typealias Dependency = Void
@@ -81,6 +82,7 @@ final class KeyboardTextView: UIView {
         }
         textView.inputView = datePickerView
         textView.reloadInputViews()
+        showNotificationAlert()
     }
 
     @IBAction func tapDeadlineClearButton(_ sender: Any) {
@@ -98,6 +100,17 @@ final class KeyboardTextView: UIView {
             }
             .bind(to: sendButton.rx.isEnabled)
             .disposed(by: disposeBag)
+    }
+
+    private func showNotificationAlert() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert]) { (granted, _) in
+            if granted {
+                print("OK")
+            } else {
+                print("NG")
+            }
+        }
     }
 }
 
