@@ -17,7 +17,7 @@ extension AlarmPickerView: NibInstantiatable {
     func inject(_ dependency: Void) {
         datePickerView.minimumDate = Date()
         datePickerView.calendar = Calendar(identifier: .gregorian)
-        datePickerView.locale = Locale.current
-        datePickerView.timeZone = TimeZone.current
+        datePickerView.locale = Locale.autoupdatingCurrent
+        datePickerView.timeZone = TimeZone.autoupdatingCurrent
     }
 }
