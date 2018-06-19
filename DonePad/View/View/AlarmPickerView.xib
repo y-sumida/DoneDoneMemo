@@ -17,13 +17,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dj0-K8-dB1">
-                    <rect key="frame" x="0.0" y="135" width="375" height="162"/>
+                    <rect key="frame" x="0.0" y="44" width="375" height="253"/>
                     <date key="date" timeIntervalSinceReferenceDate="550591153.78056002">
                         <!--2018-06-13 13:59:13 +0000-->
                     </date>
                 </datePicker>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cET-cd-Ffj">
-                    <rect key="frame" x="315" y="8" width="44" height="44"/>
+                    <rect key="frame" x="315" y="0.0" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="PJB-2g-8dv"/>
                         <constraint firstAttribute="width" constant="44" id="uVe-7a-paw"/>
@@ -34,12 +34,13 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.80000000000000004" green="0.81176470588235294" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Dj0-K8-dB1" secondAttribute="bottom" id="WzT-TW-gmT"/>
+                <constraint firstItem="Dj0-K8-dB1" firstAttribute="top" secondItem="cET-cd-Ffj" secondAttribute="bottom" id="cOu-ip-4dH"/>
                 <constraint firstItem="Dj0-K8-dB1" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="pLC-mj-wpe"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cET-cd-Ffj" secondAttribute="trailing" constant="16" id="uFC-Ts-jzk"/>
-                <constraint firstItem="cET-cd-Ffj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="vPX-UW-Mks"/>
+                <constraint firstItem="cET-cd-Ffj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="vPX-UW-Mks"/>
                 <constraint firstItem="Dj0-K8-dB1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="zcW-Xo-cAp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
