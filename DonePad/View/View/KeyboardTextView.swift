@@ -80,6 +80,14 @@ final class KeyboardTextView: UIView {
             self.deadline = date
             self.deadlineClearButton.isHidden = false
         }
+        datePickerView.selectedDate
+            .skip(1)
+            .subscribe(onNext: { [weak self] date in
+                self?.deadlineLabel.text = self?.formatter.string(from: date)
+                self?.deadline = date
+                self?.deadlineClearButton.isHidden = false
+            }).disposed(by: disposeBag)
+
         textView.inputView = datePickerView
         textView.reloadInputViews()
         showNotificationAlert()
