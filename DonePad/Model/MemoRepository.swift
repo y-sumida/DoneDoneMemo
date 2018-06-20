@@ -91,6 +91,8 @@ class Memo: RealmSwift.Object {
     func deleteTask(at index: Int) {
         guard index < tasks.count else { return }
         let task = tasks[index]
+        task.removeAlermNotification()
+
         let realm = try! Realm()
         try! realm.write {
             tasks.remove(at: index)
@@ -162,5 +164,9 @@ class Task: RealmSwift.Object {
 
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+
+    func removeAlermNotification() {
+        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [id])
     }
 }
