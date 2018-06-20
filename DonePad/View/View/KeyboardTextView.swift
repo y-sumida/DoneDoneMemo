@@ -49,21 +49,13 @@ final class KeyboardTextView: UIView {
         invalidateIntrinsicContentSize()
         timerButton.isEnabled = true
 
-        if let date = deadline {
-            deadlineLabel.text = formatter.string(from: date)
-            deadlineClearButton.isHidden = false
-        } else {
-            deadlineLabel.text = "期限なし"
-            deadlineClearButton.isHidden = true
-        }
+        setDeadline(at: deadline)
         textView.becomeFirstResponder()
     }
 
     func hideKeyboard() {
         textView.text = ""
-        deadlineLabel.text = "期限なし"
-        deadline = nil
-        deadlineClearButton.isHidden = true
+        setDeadline(at: nil)
         invalidateIntrinsicContentSize()
         textView.resignFirstResponder()
     }
@@ -92,9 +84,7 @@ final class KeyboardTextView: UIView {
     }
 
     @IBAction func tapDeadlineClearButton(_ sender: Any) {
-        deadline = nil
-        deadlineLabel.text = "期限なし"
-        deadlineClearButton.isHidden = true
+        setDeadline(at: nil)
     }
 
     private func bind() {
@@ -137,8 +127,7 @@ extension KeyboardTextView: NibInstantiatable {
         textView.layer.cornerRadius = 4
         sendButton.layer.cornerRadius = 18
         deadlineClearButton.layer.cornerRadius = 10
-        deadlineLabel.text = "期限なし"
-        deadlineClearButton.isHidden = true
+        setDeadline(at: nil)
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy/M/d(EEE) HH:mm"
         bind()
