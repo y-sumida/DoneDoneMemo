@@ -69,7 +69,6 @@ final class KeyboardTextView: UIView {
     }
 
     @IBAction func tapAddButton(_ sender: Any) {
-        setAlermNotification()
         if let title = textView.text {
             addAction(title, deadline)
         }

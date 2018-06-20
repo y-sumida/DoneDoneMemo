@@ -1,5 +1,6 @@
 import Foundation
 import RealmSwift
+import UserNotifications
 
 class MemoRipository {
     private let realm = try! Realm()
@@ -69,11 +70,13 @@ class Memo: RealmSwift.Object {
             self.updatedAt = Date()
             realm.add(self, update: true)
         }
+        task.setAlermNotification()
     }
 
     func editTask(at index: Int, title: String, deadline: Date?) {
         guard index < tasks.count else { return }
         let task = tasks[index]
+
         let realm = try! Realm()
         try! realm.write {
             task.title = title
@@ -82,6 +85,7 @@ class Memo: RealmSwift.Object {
             self.updatedAt = Date()
             realm.add(task)
         }
+        task.setAlermNotification()
     }
 
     func deleteTask(at index: Int) {
@@ -135,5 +139,28 @@ class Task: RealmSwift.Object {
 
     override static func primaryKey() -> String? {
         return "id"
+    }
+
+    func setAlermNotification() {
+        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [id])
+        guard let date = deadline else { return }
+
+        let calendar = Calendar(identifier: .gregorian)
+        var alerm = DateComponents()
+
+        alerm.year = calendar.component(.year, from: date)
+        alerm.month = calendar.component(.month, from: date)
+        alerm.day = calendar.component(.day, from: date)
+        alerm.hour = calendar.component(.hour, from: date)
+        alerm.minute = calendar.component(.minute, from: date)
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: alerm, repeats: false)
+
+        let content = UNMutableNotificationContent()
+        content.title = ""
+        content.body = title
+
+        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 }
