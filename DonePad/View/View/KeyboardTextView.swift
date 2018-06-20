@@ -112,30 +112,6 @@ final class KeyboardTextView: UIView {
             }
         }
     }
-
-    // TODO modelに移動する
-    private func setAlermNotification() {
-        guard let date = deadline else { return }
-
-        let calendar = Calendar(identifier: .gregorian)
-        var alerm = DateComponents()
-
-        alerm.year = calendar.component(.year, from: date)
-        alerm.month = calendar.component(.month, from: date)
-        alerm.day = calendar.component(.day, from: date)
-        alerm.hour = calendar.component(.hour, from: date)
-        alerm.minute = calendar.component(.minute, from: date)
-
-        let trigger = UNCalendarNotificationTrigger(dateMatching: alerm, repeats: false)
-
-        let content = UNMutableNotificationContent()
-        content.title = ""
-        content.body = textView.text
-
-        // TODO identifierはTask.idにする
-        let request = UNNotificationRequest(identifier: "hogehoge", content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-    }
 }
 
 extension KeyboardTextView: NibInstantiatable {
