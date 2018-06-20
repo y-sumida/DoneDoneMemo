@@ -69,6 +69,7 @@ final class KeyboardTextView: UIView {
         let datePickerView = AlarmPickerView(with: Void())
         datePickerView.cancelAction = { [unowned self] in
             self.setDeadline(at: nil)
+            self.textView.tintColor = UIColor.black
             self.textView.inputView = nil
             self.textView.reloadInputViews()
         }
