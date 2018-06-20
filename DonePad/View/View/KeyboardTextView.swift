@@ -75,17 +75,15 @@ final class KeyboardTextView: UIView {
     }
     @IBAction func tapTimerButton(_ sender: Any) {
         let datePickerView = AlarmPickerView(with: Void())
-        datePickerView.checkAction = { [unowned self] date in
-            self.deadlineLabel.text = self.formatter.string(from: date)
-            self.deadline = date
-            self.deadlineClearButton.isHidden = false
+        datePickerView.cancelAction = { [unowned self] in
+            self.setDeadline(at: nil)
+            self.textView.inputView = nil
+            self.textView.reloadInputViews()
         }
         datePickerView.selectedDate
             .skip(1)
             .subscribe(onNext: { [weak self] date in
-                self?.deadlineLabel.text = self?.formatter.string(from: date)
-                self?.deadline = date
-                self?.deadlineClearButton.isHidden = false
+                self?.setDeadline(at: date)
             }).disposed(by: disposeBag)
 
         textView.inputView = datePickerView
@@ -118,6 +116,18 @@ final class KeyboardTextView: UIView {
             } else {
                 print("NG")
             }
+        }
+    }
+
+    private func setDeadline(at deadline: Date?) {
+        self.deadline = deadline
+
+        if let date = deadline {
+            deadlineLabel.text = formatter.string(from: date)
+            deadlineClearButton.isHidden = false
+        } else {
+            deadlineLabel.text = "期限なし"
+            deadlineClearButton.isHidden = true
         }
     }
 }

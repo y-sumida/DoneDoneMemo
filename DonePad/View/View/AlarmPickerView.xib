@@ -28,9 +28,9 @@
                         <constraint firstAttribute="height" constant="44" id="PJB-2g-8dv"/>
                         <constraint firstAttribute="width" constant="44" id="uVe-7a-paw"/>
                     </constraints>
-                    <state key="normal" image="ic_check"/>
+                    <state key="normal" image="ic_clear"/>
                     <connections>
-                        <action selector="check:" destination="iN0-l3-epB" eventType="touchUpInside" id="sDC-gG-VPN"/>
+                        <action selector="cancel:" destination="iN0-l3-epB" eventType="touchUpInside" id="nT6-WH-jYX"/>
                     </connections>
                 </button>
             </subviews>
@@ -52,6 +52,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_check" width="24" height="24"/>
+        <image name="ic_clear" width="24" height="24"/>
     </resources>
 </document>

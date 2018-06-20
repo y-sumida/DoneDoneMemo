@@ -8,7 +8,7 @@ final class AlarmPickerView: UIView {
     typealias Dependency = Void
     @IBOutlet weak var datePickerView: UIDatePicker!
 
-    var checkAction: ((Date) -> Void) = { _ in }
+    var cancelAction: (() -> Void) = {}
 
     var selectedDate: Observable<Date> {
         return _selectedDate.asObservable()
@@ -16,8 +16,8 @@ final class AlarmPickerView: UIView {
     private let _selectedDate = Variable<Date>(Date())
     private let disposeBag = DisposeBag()
 
-    @IBAction func check(_ sender: Any) {
-        checkAction(datePickerView.date)
+    @IBAction func cancel(_ sender: Any) {
+       cancelAction()
     }
 }
 
