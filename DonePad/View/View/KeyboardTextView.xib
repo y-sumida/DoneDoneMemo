@@ -34,7 +34,7 @@
                     <state key="normal" image="ic_alarm"/>
                     <state key="highlighted" image="ic_alarm"/>
                     <connections>
-                        <action selector="tapTimerButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZHE-pc-4i5"/>
+                        <action selector="tapAlermButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="MuZ-ND-yIY"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHj-zW-NLt">
@@ -45,7 +45,7 @@
                     </constraints>
                     <state key="normal" image="ic_add_circle"/>
                     <connections>
-                        <action selector="tapAddButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="izS-1B-mro"/>
+                        <action selector="tapSendButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="5Cg-9K-iSQ"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="vh1-a3-ct8" customClass="DeadlineView" customModule="DonePad" customModuleProvider="target">
@@ -102,11 +102,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="alermButton" destination="GBf-X5-7fv" id="9HF-1h-BUX"/>
                 <outlet property="deadlineClearButton" destination="Ux4-V5-HPY" id="ryL-hP-c6e"/>
                 <outlet property="deadlineLabel" destination="QAe-jH-oNN" id="dZe-Kp-ME3"/>
                 <outlet property="sendButton" destination="eHj-zW-NLt" id="zJa-DS-OBq"/>
                 <outlet property="textView" destination="j7g-w9-BIA" id="ai0-Nh-wwp"/>
-                <outlet property="timerButton" destination="GBf-X5-7fv" id="Q3M-ao-GKU"/>
             </connections>
             <point key="canvasLocation" x="26" y="385"/>
         </view>

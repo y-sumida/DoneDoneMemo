@@ -59,7 +59,7 @@ final class MemoViewController: UIViewController {
 
         accessoryView = KeyboardTextView(with: Void())
         accessoryView.delegate = self
-        accessoryView.addAction = {[unowned self] title, deadline in
+        accessoryView.sendAction = {[unowned self] title, deadline in
             self.addTask(title: title, deadline: deadline)
             self.accessoryView.hideKeyboard()
         }
@@ -202,7 +202,7 @@ final class MemoViewController: UIViewController {
                 let task = viewModel.task(at: indexPath.row) {
                 tableView.selectRow(at: indexPath, animated: false, scrollPosition: .bottom)
                 editingIndex = indexPath
-                accessoryView.addAction = {[unowned self] title, deadline in
+                accessoryView.sendAction = {[unowned self] title, deadline in
                     self.editTask(at: indexPath, title: title, deadline: deadline)
                     self.accessoryView.hideKeyboard()
                 }
@@ -274,7 +274,7 @@ extension MemoViewController {
     func keyboardWillHide(_ notification: Notification) {
         tableView.contentInset.bottom = 60
         tableView.scrollIndicatorInsets.bottom = 60
-        accessoryView.addAction = {[unowned self] title, deadline in
+        accessoryView.sendAction = {[unowned self] title, deadline in
             self.addTask(title: title, deadline: deadline)
             self.accessoryView.hideKeyboard()
         }

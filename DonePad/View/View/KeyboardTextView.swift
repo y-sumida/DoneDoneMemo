@@ -8,7 +8,7 @@ import UserNotifications
 final class KeyboardTextView: UIView {
     typealias Dependency = Void
     @IBOutlet private weak var textView: UITextView!
-    @IBOutlet private weak var timerButton: UIButton!
+    @IBOutlet private weak var alermButton: UIButton!
     @IBOutlet private weak var sendButton: UIButton!
     @IBOutlet weak var deadlineLabel: UILabel!
     @IBOutlet weak var deadlineClearButton: UIButton!
@@ -17,7 +17,7 @@ final class KeyboardTextView: UIView {
             textView.delegate = delegate
         }
     }
-    var addAction: ((String, Date?) -> Void) = { _, _ in }
+    var sendAction: ((String, Date?) -> Void) = { _, _ in }
 
     private var deadline: Date?
     private let formatter = DateFormatter()
@@ -31,7 +31,7 @@ final class KeyboardTextView: UIView {
             textView.reloadInputViews()
             textView.tintColor = UIColor.black
             return view
-        } else if view == timerButton {
+        } else if view == alermButton {
             textView.tintColor = UIColor.clear
             return view
         }
@@ -47,7 +47,7 @@ final class KeyboardTextView: UIView {
         textView.text = title
         self.deadline = deadline
         invalidateIntrinsicContentSize()
-        timerButton.isEnabled = true
+        alermButton.isEnabled = true
 
         setDeadline(at: deadline)
         textView.becomeFirstResponder()
@@ -60,12 +60,12 @@ final class KeyboardTextView: UIView {
         textView.resignFirstResponder()
     }
 
-    @IBAction func tapAddButton(_ sender: Any) {
+    @IBAction func tapSendButton(_ sender: Any) {
         if let title = textView.text {
-            addAction(title, deadline)
+            sendAction(title, deadline)
         }
     }
-    @IBAction func tapTimerButton(_ sender: Any) {
+    @IBAction func tapAlermButton(_ sender: Any) {
         let datePickerView = AlarmPickerView(with: Void())
         datePickerView.cancelAction = { [unowned self] in
             self.setDeadline(at: nil)
