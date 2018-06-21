@@ -20,13 +20,13 @@
                     <rect key="frame" x="60" y="8" width="200" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="tby-k0-aIH"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="tby-k0-aIH"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-X5-7fv">
-                    <rect key="frame" x="8" y="0.0" width="44" height="44"/>
+                    <rect key="frame" x="8" y="8" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="chH-7l-iAx"/>
                         <constraint firstAttribute="width" constant="44" id="nvH-PT-xCN"/>
@@ -37,8 +37,8 @@
                         <action selector="tapAlermButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="MuZ-ND-yIY"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHj-zW-NLt">
-                    <rect key="frame" x="268" y="0.0" width="44" height="44"/>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHj-zW-NLt">
+                    <rect key="frame" x="268" y="8" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="4Ui-bq-r0q"/>
                         <constraint firstAttribute="width" constant="44" id="cY8-zK-Sez"/>
@@ -86,12 +86,12 @@
             <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vh1-a3-ct8" firstAttribute="top" secondItem="j7g-w9-BIA" secondAttribute="bottom" constant="4" id="1WT-Lt-Abw"/>
+                <constraint firstItem="j7g-w9-BIA" firstAttribute="top" secondItem="GBf-X5-7fv" secondAttribute="top" id="95t-78-sVz"/>
                 <constraint firstItem="vh1-a3-ct8" firstAttribute="leading" secondItem="j7g-w9-BIA" secondAttribute="leading" id="ESt-Xj-fIp"/>
                 <constraint firstItem="eHj-zW-NLt" firstAttribute="leading" secondItem="j7g-w9-BIA" secondAttribute="trailing" constant="8" id="EdS-I6-dUT"/>
                 <constraint firstItem="j7g-w9-BIA" firstAttribute="leading" secondItem="GBf-X5-7fv" secondAttribute="trailing" constant="8" id="H9u-6f-o3Q"/>
-                <constraint firstItem="eHj-zW-NLt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="So0-XJ-Dbm"/>
                 <constraint firstItem="vh1-a3-ct8" firstAttribute="trailing" secondItem="j7g-w9-BIA" secondAttribute="trailing" id="XbG-l8-jbs"/>
-                <constraint firstItem="GBf-X5-7fv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ZQH-k0-ytf"/>
+                <constraint firstItem="eHj-zW-NLt" firstAttribute="top" secondItem="j7g-w9-BIA" secondAttribute="top" id="Z4M-oR-rJI"/>
                 <constraint firstItem="j7g-w9-BIA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" identifier="444" id="aJY-tk-fkK"/>
                 <constraint firstItem="eHj-zW-NLt" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-8" id="ggX-gG-QfX"/>
                 <constraint firstItem="GBf-X5-7fv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="jFy-ih-Wba"/>
@@ -112,8 +112,8 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_add_circle" width="24" height="24"/>
-        <image name="ic_alarm" width="24" height="24"/>
+        <image name="ic_add_circle" width="36" height="36"/>
+        <image name="ic_alarm" width="36" height="36"/>
         <image name="ic_clear" width="24" height="24"/>
     </resources>
 </document>
