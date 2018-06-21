@@ -57,6 +57,12 @@ class Memo: RealmSwift.Object {
             self.updatedAt = Date()
             realm.add(task)
         }
+
+        if task.done {
+            task.removeAlermNotification()
+        } else {
+            task.setAlermNotification()
+        }
     }
 
     func addTask(title: String, deadline: Date?) {
