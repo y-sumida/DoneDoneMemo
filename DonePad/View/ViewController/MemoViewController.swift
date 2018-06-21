@@ -53,7 +53,8 @@ final class MemoViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.contentInset.bottom = 60
+        tableView.contentInset.bottom = 100
+        tableView.scrollIndicatorInsets.bottom = 100
 
         tableView.registerNib(type: TaskCell.self)
 
@@ -272,8 +273,8 @@ extension MemoViewController {
     }
 
     func keyboardWillHide(_ notification: Notification) {
-        tableView.contentInset.bottom = 60
-        tableView.scrollIndicatorInsets.bottom = 60
+        tableView.contentInset.bottom = 100
+        tableView.scrollIndicatorInsets.bottom = 100
         accessoryView.sendAction = {[unowned self] title, deadline in
             self.addTask(title: title, deadline: deadline)
             self.accessoryView.hideKeyboard()
