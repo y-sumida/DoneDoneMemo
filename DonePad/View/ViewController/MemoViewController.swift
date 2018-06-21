@@ -295,7 +295,7 @@ extension MemoViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard viewModel.numberOfTasks == 0 else { return nil }
-        return EmptyView(with: "まだタスクがありません。")
+        return EmptyView(with: "タスクがありません")
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -322,6 +322,10 @@ extension MemoViewController: UITableViewDelegate {
             tableView.beginUpdates()
             viewModel.deleteTask(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            if viewModel.numberOfTasks == 0 {
+                // 0件表示のためリロード
+                tableView.reloadData()
+            }
             tableView.endUpdates()
         }
     }
