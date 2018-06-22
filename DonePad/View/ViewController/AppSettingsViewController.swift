@@ -77,6 +77,11 @@ extension AppSettingsViewController: UITableViewDataSource {
             cell.textLabel?.text = viewModel.title(for: indexPath)
             cell.accessoryType = .disclosureIndicator
             return cell
+        case (1, 0):
+            // TODO それっぽいセル作る
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.textLabel?.text = viewModel.title(for: indexPath)
+            return cell
         default:
             return UITableViewCell()
         }
@@ -85,13 +90,19 @@ extension AppSettingsViewController: UITableViewDataSource {
 
 extension AppSettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if case(0, 1) = (indexPath.section, indexPath.row) {
+        switch (indexPath.section, indexPath.row) {
+        case (0, 1):
             let vc = LicensesViewController(with: Void())
             let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: nil)
             backButton.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 17, weight: .light)], for: .normal)
             backButton.tintColor = UIColor.black
             navigationItem.backBarButtonItem = backButton
             navigationController?.pushViewController(vc, animated: true)
+        case (1, 0):
+            guard let url = URL(string: "App-Prefs:root=NOTIFICATIONS_ID&path=" + (Bundle.main.bundleIdentifier ?? "")) else { return }
+            UIApplication.shared.open(url)
+        default:
+            break
         }
     }
 }

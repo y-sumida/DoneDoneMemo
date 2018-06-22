@@ -2,11 +2,14 @@ import Foundation
 
 struct AppSettingsViewModel {
     func numberOfSections() -> Int {
-        return 1
+        return 2
     }
 
     func numberOfRowsInSection(section: Int) -> Int {
-        return 2
+        switch section {
+        case 0: return 2
+        default: return 1
+        }
     }
 
     func title(for index: IndexPath) -> String {
@@ -15,6 +18,8 @@ struct AppSettingsViewModel {
             return "version"
         case (0, 1):
             return "License"
+        case (1, 0):
+            return "Alarm"
         default:
             return ""
         }
@@ -23,6 +28,7 @@ struct AppSettingsViewModel {
     func titleForHeaderInsection(section: Int) -> String? {
         switch section {
         case 0: return "DonPad"
+        case 1: return "Settings"
         default: return nil
         }
     }
