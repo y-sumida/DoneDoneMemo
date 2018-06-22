@@ -55,13 +55,17 @@ extension AppSettingsViewController: UITableViewDataSource {
         return viewModel.numberOfRowsInSection(section: section)
     }
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.titleForHeaderInsection(section: section)
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0):
             let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
             let cell = AppSettingsVersionCell.dequeue(from: tableView, for: indexPath, with: version)
             return cell
-        case 1:
+        case (0, 1):
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = viewModel.title(for: indexPath)
             cell.accessoryType = .disclosureIndicator
@@ -74,7 +78,7 @@ extension AppSettingsViewController: UITableViewDataSource {
 
 extension AppSettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        if case(0, 1) = (indexPath.section, indexPath.row) {
             let vc = LicensesViewController(with: Void())
             let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: nil)
             backButton.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 17, weight: .light)], for: .normal)
