@@ -55,8 +55,15 @@ extension AppSettingsViewController: UITableViewDataSource {
         return viewModel.numberOfRowsInSection(section: section)
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.titleForHeaderInsection(section: section)
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UITableViewHeaderFooterView()
+        headerView.textLabel?.text = viewModel.titleForHeaderInsection(section: section)
+        headerView.contentView.backgroundColor = UIColor.clear
+        return headerView
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
