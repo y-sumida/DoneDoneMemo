@@ -32,9 +32,7 @@ final class AppSettingsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.indexPathsForSelectedRows?.forEach {
-            tableView.deselectRow(at: $0, animated: true)
-        }
+        deselectRows()
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.enterForeground(_:)), name: .UIApplicationDidBecomeActive, object: nil)
     }
@@ -52,11 +50,18 @@ final class AppSettingsViewController: UIViewController {
             }).disposed(by: disposeBag)
     }
 
+    private func deselectRows() {
+        tableView.indexPathsForSelectedRows?.forEach {
+            tableView.deselectRow(at: $0, animated: true)
+        }
+    }
+
     @objc func close() {
         self.dismiss(animated: true, completion: nil)
     }
 
     @objc func enterForeground(_ notify: Notification) {
+        deselectRows()
         viewModel.checkPush()
     }
 }
