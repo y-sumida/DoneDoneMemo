@@ -2,6 +2,10 @@ import Foundation
 import UserNotifications
 import RxSwift
 
+enum AppSettingsType {
+    case alam, version, license
+}
+
 class AppSettingsViewModel {
     let allowPush = Variable<Bool>(false)
 
@@ -44,6 +48,19 @@ class AppSettingsViewModel {
         case 0: return "Settings"
         case 1: return "DonPad"
         default: return nil
+        }
+    }
+
+    func dataType(for index: IndexPath) -> AppSettingsType? {
+        switch (index.section, index.row) {
+        case (0, 0):
+            return .alam
+        case (1, 0):
+            return .version
+        case (1, 1):
+            return .license
+        default:
+            return nil
         }
     }
 }
