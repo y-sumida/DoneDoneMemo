@@ -35,6 +35,8 @@ final class AppSettingsViewController: UIViewController {
         tableView.indexPathsForSelectedRows?.forEach {
             tableView.deselectRow(at: $0, animated: true)
         }
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.enterForeground(_:)), name: .UIApplicationDidBecomeActive, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,13 +45,19 @@ final class AppSettingsViewController: UIViewController {
 
     private func bind() {
         viewModel.allowPush.asObservable()
-            .bind(onNext: {
-                print($0)
+            .bind(onNext: {[weak self] _ in
+                DispatchQueue.main.async(execute: {
+                    self?.tableView.reloadData()
+                })
             }).disposed(by: disposeBag)
     }
 
     @objc func close() {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @objc func enterForeground(_ notify: Notification) {
+        viewModel.checkPush()
     }
 }
 
