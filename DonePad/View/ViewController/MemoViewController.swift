@@ -58,26 +58,6 @@ final class MemoViewController: UIViewController {
 
         tableView.registerNib(type: TaskCell.self)
 
-        accessoryView = KeyboardTextView(with: Void())
-        accessoryView.delegate = self
-        accessoryView.sendAction = {[unowned self] title, deadline in
-            self.addTask(title: title, deadline: deadline)
-            self.accessoryView.hideKeyboard()
-        }
-        accessoryView.showPreferenceAction = {[unowned self] in
-            let alert = UIAlertController(title: "アラームを使うには通知設定をONにしてください", message: "設定画面を開きますか", preferredStyle: .alert)
-            let showSetting = UIAlertAction(title: "開く", style: .default, handler: { _ in
-                guard let url = URL(string: "App-Prefs:root=NOTIFICATIONS_ID&path=" + (Bundle.main.bundleIdentifier ?? "")) else { return }
-                UIApplication.shared.open(url)
-            })
-            let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: { _ in })
-            alert.addAction(showSetting)
-            alert.addAction(cancel)
-            DispatchQueue.main.async(execute: {
-                self.present(alert, animated: true, completion: nil)
-            })
-        }
-
         setupNavigationItems()
 
         bindKeyboardEvent()
@@ -108,6 +88,7 @@ final class MemoViewController: UIViewController {
     // https://stackoverflow.com/questions/46282987/iphone-x-how-to-handle-view-controller-inputaccessoryview
     override var inputAccessoryView: UIView? {
         if _inputAccessoryView == nil {
+            setupAccessoryView()
             _inputAccessoryView = WrapperView()
             _inputAccessoryView.backgroundColor = UIColor(red: 0.902, green: 0.902, blue: 0.902, alpha: 1)
 
@@ -246,6 +227,28 @@ final class MemoViewController: UIViewController {
         let setting = UIBarButtonItem(customView: settingButton)
         barItems.append(setting)
         navigationItem.rightBarButtonItems = barItems
+    }
+
+    private func setupAccessoryView() {
+        accessoryView = KeyboardTextView(with: Void())
+        accessoryView.delegate = self
+        accessoryView.sendAction = {[unowned self] title, deadline in
+            self.addTask(title: title, deadline: deadline)
+            self.accessoryView.hideKeyboard()
+        }
+        accessoryView.showPreferenceAction = {[unowned self] in
+            let alert = UIAlertController(title: "アラームを使うには通知設定をONにしてください", message: "設定画面を開きますか", preferredStyle: .alert)
+            let showSetting = UIAlertAction(title: "開く", style: .default, handler: { _ in
+                guard let url = URL(string: "App-Prefs:root=NOTIFICATIONS_ID&path=" + (Bundle.main.bundleIdentifier ?? "")) else { return }
+                UIApplication.shared.open(url)
+            })
+            let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: { _ in })
+            alert.addAction(showSetting)
+            alert.addAction(cancel)
+            DispatchQueue.main.async(execute: {
+                self.present(alert, animated: true, completion: nil)
+            })
+        }
     }
 
     @IBAction func tapListButton(_ sender: Any) {
