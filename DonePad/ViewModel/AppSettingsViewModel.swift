@@ -1,6 +1,20 @@
 import Foundation
+import UserNotifications
+import RxSwift
 
 class AppSettingsViewModel {
+    let allowPush = Variable<Bool>(false)
+
+    init() {
+        checkPush()
+    }
+
+    func checkPush() {
+        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { [weak self] in
+            self?.allowPush.value = $0.authorizationStatus == .authorized
+        })
+    }
+
     func numberOfSections() -> Int {
         return 2
     }
