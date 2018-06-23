@@ -1,6 +1,8 @@
 import UIKit
 import Instantiate
 import InstantiateStandard
+import RxSwift
+import RxCocoa
 
 final class AppSettingsViewController: UIViewController {
     // StoryboardInstantiatable
@@ -9,6 +11,8 @@ final class AppSettingsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     private var viewModel = AppSettingsViewModel()
+
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +27,8 @@ final class AppSettingsViewController: UIViewController {
         closeButton.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 17, weight: .light)], for: .normal)
         navigationItem.leftBarButtonItem = closeButton
         navigationItem.title = "アプリの設定"
+
+        bind()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +40,13 @@ final class AppSettingsViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    private func bind() {
+        viewModel.allowPush.asObservable()
+            .bind(onNext: {
+                print($0)
+            }).disposed(by: disposeBag)
     }
 
     @objc func close() {
