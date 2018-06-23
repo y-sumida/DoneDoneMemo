@@ -11,7 +11,6 @@ final class AppSettingsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     private var viewModel = AppSettingsViewModel()
-
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -91,9 +90,9 @@ extension AppSettingsViewController: UITableViewDataSource {
             cell.accessoryType = .disclosureIndicator
             return cell
         case (1, 0):
-            // TODO それっぽいセル作る
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
             cell.textLabel?.text = viewModel.title(for: indexPath)
+            cell.detailTextLabel?.text = viewModel.allowPush.value ? "On" : "Off"
             return cell
         default:
             return UITableViewCell()
