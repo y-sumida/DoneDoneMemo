@@ -1,6 +1,6 @@
 import Foundation
 
-struct AppSettingsViewModel {
+class AppSettingsViewModel {
     func numberOfSections() -> Int {
         return 2
     }
