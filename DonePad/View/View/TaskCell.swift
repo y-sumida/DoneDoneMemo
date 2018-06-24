@@ -69,9 +69,13 @@ extension TaskCell: Reusable, NibType {
             deadlineLabel.isHidden = false
             deadlineLabelHeight.constant = 18
             deadlineLabel.text = formatter.string(from: deadline)
+            if deadline.timeIntervalSinceNow < 0 && !dependency.done {
+                deadlineLabel.textColor = UIColor.red
+            }
         } else {
             deadlineLabel.isHidden = true
             deadlineLabelHeight.constant = 0
+            deadlineLabel.textColor = UIColor(red: 0.298, green: 0.298, blue: 0.298, alpha: 0.85)
         }
         done = dependency.done
     }
