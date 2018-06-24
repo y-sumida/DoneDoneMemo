@@ -34,7 +34,10 @@ final class AppSettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         deselectRows()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.enterForeground(_:)), name: .UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.rx.notification(.UIApplicationDidBecomeActive, object: nil)
+            .subscribe(onNext: {[weak self] notification in
+                self?.enterForeground(notification)
+            }).disposed(by: disposeBag)
     }
 
     override func didReceiveMemoryWarning() {
