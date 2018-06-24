@@ -90,13 +90,13 @@ final class KeyboardTextView: UIView {
     }
 
     private func bind() {
-        // タスクが空っぽの場合は登録不可
+        // タスクが空っぽの場合はアラームセット不可
         textView.rx.text
             .map {
                 guard let text = $0 else { return false }
                 return text.isNotEmpty
             }
-            .bind(to: sendButton.rx.isEnabled)
+            .bind(to: alermButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
 
