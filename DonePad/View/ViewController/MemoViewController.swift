@@ -258,13 +258,13 @@ final class MemoViewController: UIViewController {
 
 extension MemoViewController {
     func bindKeyboardEvent() {
-        NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.rx.notification(.UIKeyboardWillShow, object: nil)
             .bind { [unowned self] notification in
                 self.keyboardWillShow(notification)
             }
             .disposed(by: disposeBag)
 
-        NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.rx.notification(.UIKeyboardWillHide, object: nil)
             .bind { [unowned self] notification in
                 self.keyboardWillHide(notification)
             }
