@@ -12,6 +12,7 @@ final class KeyboardTextView: UIView {
     @IBOutlet private weak var sendButton: UIButton!
     @IBOutlet weak var deadlineLabel: UILabel!
     @IBOutlet weak var deadlineClearButton: UIButton!
+    @IBOutlet weak var deadlineViewHeight: NSLayoutConstraint!
     weak var delegate: UITextViewDelegate? {
         didSet {
             textView.delegate = delegate
@@ -41,7 +42,10 @@ final class KeyboardTextView: UIView {
 
     override var intrinsicContentSize: CGSize {
         let textSize = self.textView.sizeThatFits(CGSize(width: self.textView.bounds.width, height: CGFloat.greatestFiniteMagnitude))
-        return CGSize(width: self.bounds.width, height: 8 + textSize.height + 4 + 20 + 8)
+        if deadline == nil {
+            return CGSize(width: self.bounds.width, height: 8 + textSize.height + 0 + 8)
+        }
+        return CGSize(width: self.bounds.width, height: 8 + textSize.height + 24 + 8)
     }
 
     func showKeyboard(title: String = "", deadline: Date? = nil) {
@@ -67,6 +71,7 @@ final class KeyboardTextView: UIView {
         }
     }
     @IBAction func tapAlermButton(_ sender: Any) {
+        deadlineViewHeight.constant = 24
         let datePickerView = AlarmPickerView(with: Void())
         datePickerView.cancelAction = { [unowned self] in
             self.setDeadline(at: nil)
@@ -82,6 +87,7 @@ final class KeyboardTextView: UIView {
 
         textView.inputView = datePickerView
         textView.reloadInputViews()
+        invalidateIntrinsicContentSize()
         showNotificationAlert()
     }
 
@@ -118,15 +124,20 @@ final class KeyboardTextView: UIView {
         if let date = deadline {
             deadlineLabel.text = formatter.string(from: date)
             deadlineClearButton.isHidden = false
+            deadlineViewHeight.constant = 24
+            invalidateIntrinsicContentSize()
         } else {
-            deadlineLabel.text = "期限なし"
+            deadlineLabel.text = ""
             deadlineClearButton.isHidden = true
+            deadlineViewHeight.constant = 0
+            invalidateIntrinsicContentSize()
         }
     }
 }
 
 extension KeyboardTextView: NibInstantiatable {
     func inject(_ dependency: Void) {
+        deadlineViewHeight.constant = 0
         textView.layer.cornerRadius = 4
         sendButton.layer.cornerRadius = 18
         deadlineClearButton.layer.cornerRadius = 10
