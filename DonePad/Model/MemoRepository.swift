@@ -151,7 +151,7 @@ class Task: RealmSwift.Object {
 
     func setAlermNotification() {
         UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [id])
-        guard let date = deadline else { return }
+        guard let date = deadline, date.timeIntervalSinceNow > 0 else { return }
 
         let calendar = Calendar(identifier: .gregorian)
         var alerm = DateComponents()
