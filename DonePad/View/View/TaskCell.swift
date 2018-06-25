@@ -67,9 +67,15 @@ extension TaskCell: Reusable, NibType {
         formatter.dateFormat = "yyyy/M/d(EEE) HH:mm"
         titleLabel.text = dependency.title
         if let deadline = dependency.deadline {
+            let calendar = Calendar.current
+            if calendar.isDate(Date(), inSameDayAs: deadline) {
+                formatter.dateFormat = "HH:mm"
+                deadlineLabel.text = "今日 " + formatter.string(from: deadline)
+            } else {
+                deadlineLabel.text = formatter.string(from: deadline)
+            }
             deadlineLabel.isHidden = false
             deadlineLabelHeight.constant = 18
-            deadlineLabel.text = formatter.string(from: deadline)
             if deadline.timeIntervalSinceNow < 0 && !dependency.done {
                 deadlineLabel.textColor = UIColor.red
             }
