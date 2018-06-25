@@ -107,11 +107,10 @@ final class KeyboardTextView: UIView {
 
     private func showNotificationAlert() {
         let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert]) {[unowned self] (granted, _) in
+        center.requestAuthorization(options: [.alert]) {(granted, _) in
             if granted {
                 print("OK")
             } else {
-                self.showPreferenceAction()
                 print("NG")
             }
         }
