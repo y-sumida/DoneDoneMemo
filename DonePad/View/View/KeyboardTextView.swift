@@ -52,7 +52,6 @@ final class KeyboardTextView: UIView {
         textView.text = title
         self.deadline = deadline
         invalidateIntrinsicContentSize()
-        alermButton.isEnabled = true
 
         setDeadline(at: deadline)
         textView.becomeFirstResponder()
