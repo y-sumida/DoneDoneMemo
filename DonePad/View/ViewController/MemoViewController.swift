@@ -11,7 +11,7 @@ final class MemoViewController: UIViewController {
         }
     }
     var _inputAccessoryView: UIView!
-    private var accessoryView: KeyboardTextView!
+    private let accessoryView = KeyboardTextView(with: Void())
     private let disposeBag = DisposeBag()
 
     private var editingIndex: IndexPath?
@@ -62,6 +62,8 @@ final class MemoViewController: UIViewController {
 
         bindKeyboardEvent()
 
+        setupAccessoryView()
+
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.showEditMenu))
         tableView.addGestureRecognizer(longPressRecognizer)
     }
@@ -88,7 +90,6 @@ final class MemoViewController: UIViewController {
     // https://stackoverflow.com/questions/46282987/iphone-x-how-to-handle-view-controller-inputaccessoryview
     override var inputAccessoryView: UIView? {
         if _inputAccessoryView == nil {
-            setupAccessoryView()
             _inputAccessoryView = WrapperView()
             _inputAccessoryView.backgroundColor = UIColor(red: 0.902, green: 0.902, blue: 0.902, alpha: 1)
 
@@ -230,7 +231,6 @@ final class MemoViewController: UIViewController {
     }
 
     private func setupAccessoryView() {
-        accessoryView = KeyboardTextView(with: Void())
         accessoryView.delegate = self
         accessoryView.sendAction = {[unowned self] title, deadline in
             self.addTask(title: title, deadline: deadline)
