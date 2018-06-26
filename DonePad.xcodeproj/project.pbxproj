@@ -50,7 +50,6 @@
 		A99B54EA204C278B002DFA2B /* Instantiate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99B54E9204C278A002DFA2B /* Instantiate.framework */; };
 		A99B54F320516DB7002DFA2B /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54F120516DB7002DFA2B /* TaskCell.swift */; };
 		A99B54F420516DB7002DFA2B /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99B54F220516DB7002DFA2B /* TaskCell.xib */; };
-		A99B54F62056BDD4002DFA2B /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54F52056BDD4002DFA2B /* AddButton.swift */; };
 		A99B54F8205805F0002DFA2B /* MemoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A99B54F7205805F0002DFA2B /* MemoViewController.storyboard */; };
 		A99B54FA205FEB04002DFA2B /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54F9205FEB04002DFA2B /* MemoViewController.swift */; };
 		A99B54FC206BC9C2002DFA2B /* KeyboardTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B54FB206BC9C2002DFA2B /* KeyboardTextView.swift */; };
@@ -121,7 +120,6 @@
 		A99B54E9204C278A002DFA2B /* Instantiate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Instantiate.framework; path = Carthage/Build/iOS/Instantiate.framework; sourceTree = "<group>"; };
 		A99B54F120516DB7002DFA2B /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		A99B54F220516DB7002DFA2B /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
-		A99B54F52056BDD4002DFA2B /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		A99B54F7205805F0002DFA2B /* MemoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoViewController.storyboard; sourceTree = "<group>"; };
 		A99B54F9205FEB04002DFA2B /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
 		A99B54FB206BC9C2002DFA2B /* KeyboardTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTextView.swift; sourceTree = "<group>"; };
@@ -279,7 +277,6 @@
 		A99B54F020516DA1002DFA2B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A99B54F52056BDD4002DFA2B /* AddButton.swift */,
 				A98A278020D15BFB002C0D69 /* AlarmPickerView.swift */,
 				A98A277E20D15A9C002C0D69 /* AlarmPickerView.xib */,
 				A977D82F20C80F6D0025A097 /* AppSettingsVersionCell.swift */,
@@ -491,7 +488,6 @@
 				A917D10320A0883C008DE98C /* MemoCollectionViewController.swift in Sources */,
 				A977D83120C80F6D0025A097 /* AppSettingsVersionCell.swift in Sources */,
 				A99B54E020483144002DFA2B /* MemoListViewModel.swift in Sources */,
-				A99B54F62056BDD4002DFA2B /* AddButton.swift in Sources */,
 				A958FC1620A1DCE800EC86DE /* MemoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
