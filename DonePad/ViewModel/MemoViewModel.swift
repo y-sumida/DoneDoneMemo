@@ -39,7 +39,6 @@ struct MemoViewModel {
         memo = MemoRipository().findMemoById(id)
     }
 
-    // TODO: CRUD処理
     func addTask(title: String, deadline: Date?) {
        memo.addTask(title: title, deadline: deadline)
     }

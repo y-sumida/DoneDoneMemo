@@ -19,7 +19,6 @@ struct MemoListViewModel {
         return memos[index]
     }
 
-    // TODO: CRUD処理
     mutating func deleteMemo(at index: Int) {
         // TODO ゴミ箱行きにしたい
         memos.remove(at: index)
