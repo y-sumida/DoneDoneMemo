@@ -57,6 +57,14 @@
 		A99FD650207110710052587F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99FD64F207110710052587F /* StringExtension.swift */; };
 		A9AD387320AC777F0014EBB9 /* MemoSettingsContentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9AD387220AC777F0014EBB9 /* MemoSettingsContentViewController.storyboard */; };
 		A9AD387520AC78D50014EBB9 /* MemoSettingsContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD387420AC78D50014EBB9 /* MemoSettingsContentViewController.swift */; };
+		A9E122FA20E3C30900310411 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E122A320E3C30800310411 /* GoogleMobileAds.framework */; };
+		A9E1233220E3C77700310411 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E1232B20E3C77700310411 /* FirebaseCore.framework */; };
+		A9E1233320E3C77700310411 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E1232C20E3C77700310411 /* FirebaseAnalytics.framework */; };
+		A9E1233420E3C77700310411 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E1232D20E3C77700310411 /* GoogleToolboxForMac.framework */; };
+		A9E1233520E3C77700310411 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E1232E20E3C77700310411 /* nanopb.framework */; };
+		A9E1233620E3C77700310411 /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E1232F20E3C77700310411 /* FirebaseNanoPB.framework */; };
+		A9E1233720E3C77700310411 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E1233020E3C77700310411 /* FirebaseInstanceID.framework */; };
+		A9E1233820E3C77700310411 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E1233120E3C77700310411 /* FirebaseCoreDiagnostics.framework */; };
 		A9E1AFC520C016CD0001170B /* LicenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1AFC320C016CD0001170B /* LicenseCell.swift */; };
 		A9E1AFC620C016CD0001170B /* LicenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E1AFC420C016CD0001170B /* LicenseCell.xib */; };
 /* End PBXBuildFile section */
@@ -127,6 +135,16 @@
 		A99FD64F207110710052587F /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A9AD387220AC777F0014EBB9 /* MemoSettingsContentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoSettingsContentViewController.storyboard; sourceTree = "<group>"; };
 		A9AD387420AC78D50014EBB9 /* MemoSettingsContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsContentViewController.swift; sourceTree = "<group>"; };
+		A9E1229A20E3C30800310411 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		A9E122A320E3C30800310411 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		A9E1232920E3C3B100310411 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		A9E1232B20E3C77700310411 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		A9E1232C20E3C77700310411 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		A9E1232D20E3C77700310411 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = "<group>"; };
+		A9E1232E20E3C77700310411 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		A9E1232F20E3C77700310411 /* FirebaseNanoPB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseNanoPB.framework; sourceTree = "<group>"; };
+		A9E1233020E3C77700310411 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		A9E1233120E3C77700310411 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
 		A9E1AFC320C016CD0001170B /* LicenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseCell.swift; sourceTree = "<group>"; };
 		A9E1AFC420C016CD0001170B /* LicenseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LicenseCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,10 +156,18 @@
 			files = (
 				A99B54EA204C278B002DFA2B /* Instantiate.framework in Frameworks */,
 				A99B54E8204C257A002DFA2B /* InstantiateStandard.framework in Frameworks */,
+				A9E1233220E3C77700310411 /* FirebaseCore.framework in Frameworks */,
 				A99B54D12045A5E9002DFA2B /* RxBlocking.framework in Frameworks */,
+				A9E1233320E3C77700310411 /* FirebaseAnalytics.framework in Frameworks */,
+				A9E1233420E3C77700310411 /* GoogleToolboxForMac.framework in Frameworks */,
 				A99B54D22045A5E9002DFA2B /* RealmSwift.framework in Frameworks */,
+				A9E122FA20E3C30900310411 /* GoogleMobileAds.framework in Frameworks */,
+				A9E1233620E3C77700310411 /* FirebaseNanoPB.framework in Frameworks */,
 				A99B54D32045A5E9002DFA2B /* Realm.framework in Frameworks */,
 				A99B54D42045A5EA002DFA2B /* RxCocoa.framework in Frameworks */,
+				A9E1233720E3C77700310411 /* FirebaseInstanceID.framework in Frameworks */,
+				A9E1233820E3C77700310411 /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				A9E1233520E3C77700310411 /* nanopb.framework in Frameworks */,
 				A99B54D52045A5EA002DFA2B /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +185,7 @@
 		A90FF02A2044526600124266 = {
 			isa = PBXGroup;
 			children = (
+				A9E1227820E3C30800310411 /* Firebase */,
 				A90FF0352044526600124266 /* DonePad */,
 				A90FF04A2044526600124266 /* DonePadTests */,
 				A90FF0342044526600124266 /* Products */,
@@ -305,6 +332,39 @@
 				A99FD64F207110710052587F /* StringExtension.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		A9E1227820E3C30800310411 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				A9E1232A20E3C77700310411 /* Analytics */,
+				A9E1232920E3C3B100310411 /* module.modulemap */,
+				A9E1229A20E3C30800310411 /* Firebase.h */,
+				A9E122A220E3C30800310411 /* AdMob */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		A9E122A220E3C30800310411 /* AdMob */ = {
+			isa = PBXGroup;
+			children = (
+				A9E122A320E3C30800310411 /* GoogleMobileAds.framework */,
+			);
+			path = AdMob;
+			sourceTree = "<group>";
+		};
+		A9E1232A20E3C77700310411 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				A9E1232B20E3C77700310411 /* FirebaseCore.framework */,
+				A9E1232C20E3C77700310411 /* FirebaseAnalytics.framework */,
+				A9E1232D20E3C77700310411 /* GoogleToolboxForMac.framework */,
+				A9E1232E20E3C77700310411 /* nanopb.framework */,
+				A9E1232F20E3C77700310411 /* FirebaseNanoPB.framework */,
+				A9E1233020E3C77700310411 /* FirebaseInstanceID.framework */,
+				A9E1233120E3C77700310411 /* FirebaseCoreDiagnostics.framework */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -627,11 +687,33 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Firebase/MLModelInterpreter",
+					"$(PROJECT_DIR)/Firebase/MLVisionBarcodeModel",
+					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase/ABTesting",
+					"$(PROJECT_DIR)/Firebase/DynamicLinks",
+					"$(PROJECT_DIR)/Firebase/MLVisionTextModel",
+					"$(PROJECT_DIR)/Firebase/Firestore",
+					"$(PROJECT_DIR)/Firebase/Auth",
+					"$(PROJECT_DIR)/Firebase/MLVisionFaceModel",
+					"$(PROJECT_DIR)/Firebase/RemoteConfig",
+					"$(PROJECT_DIR)/Firebase/AdMob",
+					"$(PROJECT_DIR)/Firebase/Crash",
+					"$(PROJECT_DIR)/Firebase/Storage",
+					"$(PROJECT_DIR)/Firebase/MLVisionLabelModel",
+					"$(PROJECT_DIR)/Firebase/MLVision",
+					"$(PROJECT_DIR)/Firebase/Functions",
+					"$(PROJECT_DIR)/Firebase/Performance",
+					"$(PROJECT_DIR)/Firebase/Invites",
+					"$(PROJECT_DIR)/Firebase/Messaging",
+					"$(PROJECT_DIR)/Firebase/Analytics",
 				);
 				INFOPLIST_FILE = DonePad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "y-sumida.DonePad";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Firebase";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -646,11 +728,33 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Firebase/MLModelInterpreter",
+					"$(PROJECT_DIR)/Firebase/MLVisionBarcodeModel",
+					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase/ABTesting",
+					"$(PROJECT_DIR)/Firebase/DynamicLinks",
+					"$(PROJECT_DIR)/Firebase/MLVisionTextModel",
+					"$(PROJECT_DIR)/Firebase/Firestore",
+					"$(PROJECT_DIR)/Firebase/Auth",
+					"$(PROJECT_DIR)/Firebase/MLVisionFaceModel",
+					"$(PROJECT_DIR)/Firebase/RemoteConfig",
+					"$(PROJECT_DIR)/Firebase/AdMob",
+					"$(PROJECT_DIR)/Firebase/Crash",
+					"$(PROJECT_DIR)/Firebase/Storage",
+					"$(PROJECT_DIR)/Firebase/MLVisionLabelModel",
+					"$(PROJECT_DIR)/Firebase/MLVision",
+					"$(PROJECT_DIR)/Firebase/Functions",
+					"$(PROJECT_DIR)/Firebase/Performance",
+					"$(PROJECT_DIR)/Firebase/Invites",
+					"$(PROJECT_DIR)/Firebase/Messaging",
+					"$(PROJECT_DIR)/Firebase/Analytics",
 				);
 				INFOPLIST_FILE = DonePad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "y-sumida.DonePad";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Firebase";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -3,11 +3,13 @@ import Instantiate
 import InstantiateStandard
 import RxSwift
 import RxCocoa
+import GoogleMobileAds
 
 final class AppSettingsViewController: UIViewController {
     // StoryboardInstantiatable
     typealias Dependency = Void
 
+    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet private weak var tableView: UITableView!
 
     private var viewModel = AppSettingsViewModel()
@@ -28,6 +30,11 @@ final class AppSettingsViewController: UIViewController {
         navigationItem.title = "アプリの設定"
 
         bind()
+
+        // TestAd
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +64,27 @@ final class AppSettingsViewController: UIViewController {
         tableView.indexPathsForSelectedRows?.forEach {
             tableView.deselectRow(at: $0, animated: true)
         }
+    }
+
+    private func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: view.safeAreaLayoutGuide.bottomAnchor,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
 
     @objc func close() {

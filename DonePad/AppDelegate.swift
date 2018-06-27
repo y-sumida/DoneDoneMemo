@@ -1,5 +1,6 @@
 import UIKit
 import UserNotifications
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -12,6 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // フォアグラウンド通知のハンドリング
         let center = UNUserNotificationCenter.current()
         center.delegate = UIApplication.shared.delegate as? UNUserNotificationCenterDelegate
+
+        // AdMob
+        FirebaseApp.configure()
+        GADMobileAds.configure(withApplicationID: "1:1045084145019:ios:518e62eaa5399ee2")
 
         return true
     }
