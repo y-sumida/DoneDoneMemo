@@ -329,22 +329,26 @@ extension MemoViewController: UITableViewDelegate {
         viewModel.toggleDone(at: indexPath.row)
         self.tableView.deselectRow(at: indexPath, animated: false)
     }
-    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        accessoryView.hideKeyboard()
-        return "削除"
-    }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete, viewModel.numberOfTasks > indexPath.row {
-            tableView.beginUpdates()
-            viewModel.deleteTask(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            if viewModel.numberOfTasks == 0 {
-                // 0件表示のためリロード
-                tableView.reloadData()
-            }
-            tableView.endUpdates()
-        }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive,
+                                              title: "削除",
+                                              handler: {[unowned self] (_, _, completion: (Bool) -> Void) in
+                                                self.accessoryView.hideKeyboard()
+                                                if self.viewModel.numberOfTasks > indexPath.row {
+                                                    self.tableView.beginUpdates()
+                                                    self.viewModel.deleteTask(at: indexPath.row)
+                                                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                                                    if self.viewModel.numberOfTasks == 0 {
+                                                        // 0件表示のためリロード
+                                                        self.tableView.reloadData()
+                                                    }
+                                                    self.tableView.endUpdates()
+                                                }
+                                                completion(true)
+        })
+
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }
 
