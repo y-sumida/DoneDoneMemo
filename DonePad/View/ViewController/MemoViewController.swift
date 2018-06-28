@@ -348,7 +348,23 @@ extension MemoViewController: UITableViewDelegate {
                                                 completion(true)
         })
 
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        let editAction = UIContextualAction(style: .normal,
+                                              title: "編集",
+                                              handler: {[unowned self] (_, _, completion: (Bool) -> Void) in
+                                                self.accessoryView.hideKeyboard()
+                                                if let task = self.viewModel.task(at: indexPath.row) {
+                                                    self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .bottom)
+                                                    self.editingIndex = indexPath
+                                                    self.accessoryView.sendAction = {title, deadline in
+                                                        self.editTask(at: indexPath, title: title, deadline: deadline)
+                                                        self.accessoryView.hideKeyboard()
+                                                    }
+                                                    self.accessoryView.showKeyboard(title: task.title, deadline: task.deadline)
+                                                }
+                                                completion(true)
+        })
+
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction   ])
     }
 }
 
