@@ -212,6 +212,19 @@ final class MemoViewController: UIViewController {
         }
     }
 
+    private func deleteTask(at indexPath: IndexPath) {
+        if viewModel.numberOfTasks > indexPath.row {
+            tableView.beginUpdates()
+            viewModel.deleteTask(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            if viewModel.numberOfTasks == 0 {
+                // 0件表示のためリロード
+                tableView.reloadData()
+            }
+            tableView.endUpdates()
+        }
+    }
+
     private func setupNavigationItems() {
         var barItems: [UIBarButtonItem] = []
 
@@ -340,16 +353,7 @@ extension MemoViewController: UITableViewDelegate {
                                               title: "削除",
                                               handler: {[unowned self] (_, _, completion: (Bool) -> Void) in
                                                 self.accessoryView.hideKeyboard()
-                                                if self.viewModel.numberOfTasks > indexPath.row {
-                                                    self.tableView.beginUpdates()
-                                                    self.viewModel.deleteTask(at: indexPath.row)
-                                                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                                                    if self.viewModel.numberOfTasks == 0 {
-                                                        // 0件表示のためリロード
-                                                        self.tableView.reloadData()
-                                                    }
-                                                    self.tableView.endUpdates()
-                                                }
+                                                self.deleteTask(at: indexPath)
                                                 completion(true)
         })
 
