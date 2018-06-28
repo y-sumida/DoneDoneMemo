@@ -194,16 +194,21 @@ final class MemoViewController: UIViewController {
     @objc private func showEditMenu(sender: UILongPressGestureRecognizer) {
         if case .began = sender.state {
             let point = sender.location(in: tableView)
-            if let indexPath = tableView.indexPathForRow(at: point),
-                let task = viewModel.task(at: indexPath.row) {
-                tableView.selectRow(at: indexPath, animated: false, scrollPosition: .bottom)
-                editingIndex = indexPath
-                accessoryView.sendAction = {[unowned self] title, deadline in
-                    self.editTask(at: indexPath, title: title, deadline: deadline)
-                    self.accessoryView.hideKeyboard()
-                }
-                accessoryView.showKeyboard(title: task.title, deadline: task.deadline)
+            if let indexPath = tableView.indexPathForRow(at: point) {
+                editTask(at: indexPath)
             }
+        }
+    }
+
+    private func editTask(at indexPath: IndexPath) {
+        if let task = viewModel.task(at: indexPath.row) {
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .bottom)
+            editingIndex = indexPath
+            accessoryView.sendAction = {[unowned self] title, deadline in
+                self.editTask(at: indexPath, title: title, deadline: deadline)
+                self.accessoryView.hideKeyboard()
+            }
+            accessoryView.showKeyboard(title: task.title, deadline: task.deadline)
         }
     }
 
@@ -352,15 +357,7 @@ extension MemoViewController: UITableViewDelegate {
                                               title: "編集",
                                               handler: {[unowned self] (_, _, completion: (Bool) -> Void) in
                                                 self.accessoryView.hideKeyboard()
-                                                if let task = self.viewModel.task(at: indexPath.row) {
-                                                    self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .bottom)
-                                                    self.editingIndex = indexPath
-                                                    self.accessoryView.sendAction = {title, deadline in
-                                                        self.editTask(at: indexPath, title: title, deadline: deadline)
-                                                        self.accessoryView.hideKeyboard()
-                                                    }
-                                                    self.accessoryView.showKeyboard(title: task.title, deadline: task.deadline)
-                                                }
+                                                self.editTask(at: indexPath)
                                                 completion(true)
         })
 
