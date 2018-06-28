@@ -350,24 +350,20 @@ extension MemoViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive,
-                                              title: "削除",
-                                              handler: {[unowned self] (_, _, completion: (Bool) -> Void) in
+                                              title: nil) {[unowned self] (_, _, completion: (Bool) -> Void) in
                                                 self.accessoryView.hideKeyboard()
                                                 self.deleteTask(at: indexPath)
-                                                completion(true)
-        })
+                                                completion(true)}
         deleteAction.image = UIImage(named: "ic_delete")
 
         let editAction = UIContextualAction(style: .normal,
-                                              title: "編集",
-                                              handler: {[unowned self] (_, _, completion: (Bool) -> Void) in
+                                            title: nil) {[unowned self] (_, _, completion: (Bool) -> Void) in
                                                 self.accessoryView.hideKeyboard()
                                                 self.editTask(at: indexPath)
-                                                completion(true)
-        })
+                                                completion(true)}
         editAction.image = UIImage(named: "ic_edit")
 
-        return UISwipeActionsConfiguration(actions: [deleteAction, editAction   ])
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 }
 
