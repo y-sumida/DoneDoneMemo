@@ -356,6 +356,7 @@ extension MemoViewController: UITableViewDelegate {
                                                 self.deleteTask(at: indexPath)
                                                 completion(true)
         })
+        deleteAction.image = UIImage(named: "ic_delete")
 
         let editAction = UIContextualAction(style: .normal,
                                               title: "編集",
@@ -364,6 +365,7 @@ extension MemoViewController: UITableViewDelegate {
                                                 self.editTask(at: indexPath)
                                                 completion(true)
         })
+        editAction.image = UIImage(named: "ic_edit")
 
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction   ])
     }
