@@ -65,6 +65,8 @@
 		A9E1233620E3C77700310411 /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E1232F20E3C77700310411 /* FirebaseNanoPB.framework */; };
 		A9E1233720E3C77700310411 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E1233020E3C77700310411 /* FirebaseInstanceID.framework */; };
 		A9E1233820E3C77700310411 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E1233120E3C77700310411 /* FirebaseCoreDiagnostics.framework */; };
+		A9E1233A20E66EE200310411 /* TutorialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E1233920E66EE200310411 /* TutorialViewController.storyboard */; };
+		A9E1233C20E66F2D00310411 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1233B20E66F2D00310411 /* TutorialViewController.swift */; };
 		A9E1AFC520C016CD0001170B /* LicenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1AFC320C016CD0001170B /* LicenseCell.swift */; };
 		A9E1AFC620C016CD0001170B /* LicenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E1AFC420C016CD0001170B /* LicenseCell.xib */; };
 /* End PBXBuildFile section */
@@ -145,6 +147,8 @@
 		A9E1232F20E3C77700310411 /* FirebaseNanoPB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseNanoPB.framework; sourceTree = "<group>"; };
 		A9E1233020E3C77700310411 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		A9E1233120E3C77700310411 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		A9E1233920E66EE200310411 /* TutorialViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TutorialViewController.storyboard; sourceTree = "<group>"; };
+		A9E1233B20E66F2D00310411 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		A9E1AFC320C016CD0001170B /* LicenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseCell.swift; sourceTree = "<group>"; };
 		A9E1AFC420C016CD0001170B /* LicenseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LicenseCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,6 +276,7 @@
 				A9AD387220AC777F0014EBB9 /* MemoSettingsContentViewController.storyboard */,
 				A9345F4220B1A0FE0015B34F /* MemoSettingsViewController.storyboard */,
 				A99B54F7205805F0002DFA2B /* MemoViewController.storyboard */,
+				A9E1233920E66EE200310411 /* TutorialViewController.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				A99B54F9205FEB04002DFA2B /* MemoViewController.swift */,
 				A9345F4A20B307420015B34F /* ZoomInAnimator.swift */,
 				A9289F0420B43F6800CF46EF /* ZoomOutAnimator.swift */,
+				A9E1233B20E66F2D00310411 /* TutorialViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -465,6 +471,7 @@
 				A977D83820C972C40025A097 /* GoogleService-Info.plist in Resources */,
 				A977D83220C80F6D0025A097 /* AppSettingsVersionCell.xib in Resources */,
 				A958FC1720A1DCE800EC86DE /* MemoCell.xib in Resources */,
+				A9E1233A20E66EE200310411 /* TutorialViewController.storyboard in Resources */,
 				A9289F0C20BD83C300CF46EF /* AppSettingsViewController.storyboard in Resources */,
 				A98A277F20D15A9C002C0D69 /* AlarmPickerView.xib in Resources */,
 				A9E1AFC620C016CD0001170B /* LicenseCell.xib in Resources */,
@@ -533,6 +540,7 @@
 				A99FD650207110710052587F /* StringExtension.swift in Sources */,
 				A99B54E220483D99002DFA2B /* MemoRepository.swift in Sources */,
 				A9345F4B20B307420015B34F /* ZoomInAnimator.swift in Sources */,
+				A9E1233C20E66F2D00310411 /* TutorialViewController.swift in Sources */,
 				A9289F0E20BD840900CF46EF /* AppSettingsViewController.swift in Sources */,
 				A99B54FC206BC9C2002DFA2B /* KeyboardTextView.swift in Sources */,
 				A90CF30D20ADB202000C9ECE /* MemoSettingsTitleCell.swift in Sources */,

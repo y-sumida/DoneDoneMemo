@@ -144,6 +144,7 @@ final class MemoViewController: UIViewController {
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         tableView.reloadSections([0], with: .automatic)
         tableView.endUpdates()
+        showTutorialView()
     }
 
     private func editTask(at indexPath: IndexPath, title: String, deadline: Date?) {
@@ -405,5 +406,24 @@ extension MemoViewController: UIViewControllerTransitioningDelegate {
 class WrapperView: UIView {
     override var intrinsicContentSize: CGSize {
         return CGSize.zero
+    }
+}
+
+extension MemoViewController: UIPopoverPresentationControllerDelegate {
+    private func showTutorialView() {
+        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) else { return }
+
+        let vc = TutorialViewController(with: Void())
+        vc.modalPresentationStyle = .popover
+        vc.preferredContentSize = CGSize(width: 300, height: 300)
+        vc.popoverPresentationController?.sourceView = cell
+        vc.popoverPresentationController?.sourceRect = cell.frame
+        vc.popoverPresentationController?.permittedArrowDirections = .any
+        vc.popoverPresentationController?.delegate = self
+        present(vc, animated: true, completion: nil)
+    }
+
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
     }
 }
