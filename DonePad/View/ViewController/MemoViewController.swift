@@ -414,10 +414,10 @@ extension MemoViewController: UIPopoverPresentationControllerDelegate {
     private func showTutorialView() {
         guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) else { return }
 
-        let message = "スワイプすると編集/削除メニューがあります。\n長押しでも編集できます。"
+        let message = "スワイプすると編集/削除メニューがあります。\n\n長押しでも編集できます。"
         let vc = TutorialViewController(with: message)
         vc.modalPresentationStyle = .popover
-        vc.preferredContentSize = CGSize(width: 300, height: 300)
+        vc.preferredContentSize = CGSize(width: 300, height: 200)
         vc.popoverPresentationController?.sourceView = cell
         vc.popoverPresentationController?.sourceRect = cell.frame
         vc.popoverPresentationController?.permittedArrowDirections = .any
