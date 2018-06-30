@@ -144,7 +144,6 @@ final class MemoViewController: UIViewController {
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         tableView.reloadSections([0], with: .automatic)
         tableView.endUpdates()
-        showTutorialView()
     }
 
     private func editTask(at indexPath: IndexPath, title: String, deadline: Date?) {
@@ -254,6 +253,7 @@ final class MemoViewController: UIViewController {
         accessoryView.sendAction = {[unowned self] title, deadline in
             self.addTask(title: title, deadline: deadline)
             self.accessoryView.hideKeyboard()
+            self.showTutorialView()
         }
         accessoryView.showPreferenceAction = {[unowned self] in
             let alert = UIAlertController(title: "アラームを使うには通知設定をONにしてください", message: "設定画面を開きますか", preferredStyle: .alert)
@@ -313,6 +313,7 @@ extension MemoViewController {
         accessoryView.sendAction = {[unowned self] title, deadline in
             self.addTask(title: title, deadline: deadline)
             self.accessoryView.hideKeyboard()
+            self.showTutorialView()
         }
         accessoryView.hideKeyboard()
     }
