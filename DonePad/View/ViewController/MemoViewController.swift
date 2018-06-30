@@ -422,6 +422,7 @@ extension MemoViewController: UIPopoverPresentationControllerDelegate {
         vc.popoverPresentationController?.sourceRect = cell.frame
         vc.popoverPresentationController?.permittedArrowDirections = .any
         vc.popoverPresentationController?.delegate = self
+        vc.popoverPresentationController?.backgroundColor = UIColor.white
         present(vc, animated: true, completion: nil)
     }
 
