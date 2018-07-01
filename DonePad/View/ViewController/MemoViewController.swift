@@ -417,7 +417,7 @@ extension MemoViewController: UIPopoverPresentationControllerDelegate {
         let message = "スワイプすると編集/削除メニューがあります。\n\n長押しでも編集できます。"
         let vc = TutorialViewController(with: message)
         vc.modalPresentationStyle = .popover
-        vc.preferredContentSize = CGSize(width: 300, height: 200)
+        vc.preferredContentSize = CGSize(width: 300, height: 180)
         vc.popoverPresentationController?.sourceView = cell
         vc.popoverPresentationController?.sourceRect = cell.frame
         vc.popoverPresentationController?.permittedArrowDirections = .any
