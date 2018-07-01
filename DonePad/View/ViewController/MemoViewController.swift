@@ -11,7 +11,7 @@ final class MemoViewController: UIViewController {
         }
     }
     var _inputAccessoryView: UIView!
-    private let accessoryView = KeyboardTextView(with: Void())
+    private let accessoryView = KeyboardTextView(with: "タスク")
     private let disposeBag = DisposeBag()
 
     private var editingIndex: IndexPath?

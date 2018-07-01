@@ -6,13 +6,14 @@ import RxCocoa
 import UserNotifications
 
 final class KeyboardTextView: UIView {
-    typealias Dependency = Void
+    typealias Dependency = String
     @IBOutlet private weak var textView: UITextView!
     @IBOutlet private weak var alermButton: UIButton!
     @IBOutlet private weak var sendButton: UIButton!
     @IBOutlet weak var deadlineLabel: UILabel!
     @IBOutlet weak var deadlineClearButton: UIButton!
     @IBOutlet weak var deadlineViewHeight: NSLayoutConstraint!
+    @IBOutlet private weak var placeholderLabel: UILabel!
     weak var delegate: UITextViewDelegate? {
         didSet {
             textView.delegate = delegate
@@ -103,6 +104,15 @@ final class KeyboardTextView: UIView {
             }
             .bind(to: alermButton.rx.isEnabled)
             .disposed(by: disposeBag)
+
+        // タスクが空っぽの場合はプレースホルダー表示
+        textView.rx.text
+            .map {
+                guard let text = $0 else { return false }
+                return text.isNotEmpty
+            }
+            .bind(to: placeholderLabel.rx.isHidden)
+            .disposed(by: disposeBag)
     }
 
     private func showNotificationAlert() {
@@ -134,7 +144,8 @@ final class KeyboardTextView: UIView {
 }
 
 extension KeyboardTextView: NibInstantiatable {
-    func inject(_ dependency: Void) {
+    func inject(_ dependency: String) {
+        placeholderLabel.text = dependency
         deadlineViewHeight.constant = 0
         textView.layer.cornerRadius = 4
         sendButton.layer.cornerRadius = 18

@@ -82,6 +82,12 @@
                         <constraint firstItem="QAe-jH-oNN" firstAttribute="leading" secondItem="vh1-a3-ct8" secondAttribute="leading" id="xiK-qH-2IB"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjH-RV-2Su">
+                    <rect key="frame" x="64" y="16" width="196" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.0" alpha="0.39768835616438358" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -89,12 +95,15 @@
                 <constraint firstItem="j7g-w9-BIA" firstAttribute="top" secondItem="GBf-X5-7fv" secondAttribute="top" id="95t-78-sVz"/>
                 <constraint firstItem="vh1-a3-ct8" firstAttribute="leading" secondItem="j7g-w9-BIA" secondAttribute="leading" id="ESt-Xj-fIp"/>
                 <constraint firstItem="eHj-zW-NLt" firstAttribute="leading" secondItem="j7g-w9-BIA" secondAttribute="trailing" constant="8" id="EdS-I6-dUT"/>
+                <constraint firstItem="j7g-w9-BIA" firstAttribute="leading" secondItem="pjH-RV-2Su" secondAttribute="leading" constant="-4" id="FOM-xW-6f5"/>
                 <constraint firstItem="j7g-w9-BIA" firstAttribute="leading" secondItem="GBf-X5-7fv" secondAttribute="trailing" constant="8" id="H9u-6f-o3Q"/>
                 <constraint firstItem="vh1-a3-ct8" firstAttribute="trailing" secondItem="j7g-w9-BIA" secondAttribute="trailing" id="XbG-l8-jbs"/>
                 <constraint firstItem="eHj-zW-NLt" firstAttribute="top" secondItem="j7g-w9-BIA" secondAttribute="top" id="Z4M-oR-rJI"/>
                 <constraint firstItem="j7g-w9-BIA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" identifier="444" id="aJY-tk-fkK"/>
+                <constraint firstItem="j7g-w9-BIA" firstAttribute="top" secondItem="pjH-RV-2Su" secondAttribute="top" constant="-8" id="eeD-1p-8qF"/>
                 <constraint firstItem="eHj-zW-NLt" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-8" id="ggX-gG-QfX"/>
                 <constraint firstItem="GBf-X5-7fv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="jFy-ih-Wba"/>
+                <constraint firstItem="j7g-w9-BIA" firstAttribute="trailing" secondItem="pjH-RV-2Su" secondAttribute="trailing" id="ntY-r7-Ubc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vh1-a3-ct8" secondAttribute="bottom" constant="8" id="o4E-aW-BaQ"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -106,6 +115,7 @@
                 <outlet property="deadlineClearButton" destination="Ux4-V5-HPY" id="ryL-hP-c6e"/>
                 <outlet property="deadlineLabel" destination="QAe-jH-oNN" id="dZe-Kp-ME3"/>
                 <outlet property="deadlineViewHeight" destination="PH1-p0-fxb" id="5Ax-Jw-yQn"/>
+                <outlet property="placeholderLabel" destination="pjH-RV-2Su" id="yqN-mp-9Du"/>
                 <outlet property="sendButton" destination="eHj-zW-NLt" id="zJa-DS-OBq"/>
                 <outlet property="textView" destination="j7g-w9-BIA" id="ai0-Nh-wwp"/>
             </connections>
