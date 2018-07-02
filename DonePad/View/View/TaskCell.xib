@@ -47,12 +47,21 @@
                         <color key="textColor" red="0.29803921568627451" green="0.29803921568627451" blue="0.29803921568627451" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_warning" translatesAutoresizingMaskIntoConstraints="NO" id="ngz-86-3fp">
+                        <rect key="frame" x="97.5" y="49" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="evt-2E-4pn"/>
+                            <constraint firstAttribute="width" constant="24" id="rXq-RM-mdS"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="Avt-ZL-Zte" secondAttribute="bottom" constant="8" id="2oE-GR-MZT"/>
+                    <constraint firstItem="ngz-86-3fp" firstAttribute="leading" secondItem="Avt-ZL-Zte" secondAttribute="trailing" constant="8" id="GKX-UH-Q7Y"/>
                     <constraint firstItem="KYd-49-X7G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="Mck-05-NDR"/>
                     <constraint firstItem="Avt-ZL-Zte" firstAttribute="top" secondItem="KYd-49-X7G" secondAttribute="bottom" constant="4" id="ObY-w9-T3H"/>
                     <constraint firstItem="KYd-49-X7G" firstAttribute="leading" secondItem="Sya-SE-E1o" secondAttribute="trailing" constant="8" id="de9-0L-GKM"/>
+                    <constraint firstItem="ngz-86-3fp" firstAttribute="centerY" secondItem="Avt-ZL-Zte" secondAttribute="centerY" id="euK-lN-diW"/>
                     <constraint firstItem="Sya-SE-E1o" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fGG-6t-YBb"/>
                     <constraint firstItem="Avt-ZL-Zte" firstAttribute="leading" secondItem="KYd-49-X7G" secondAttribute="leading" id="k3A-Nq-Uv4"/>
                     <constraint firstAttribute="trailingMargin" secondItem="KYd-49-X7G" secondAttribute="trailing" constant="8" id="ngr-Uy-FLs"/>
@@ -65,11 +74,13 @@
                 <outlet property="deadlineLabelHeight" destination="00j-OH-wun" id="CW0-qP-eHw"/>
                 <outlet property="iconView" destination="Sya-SE-E1o" id="2Ea-Na-h1n"/>
                 <outlet property="titleLabel" destination="KYd-49-X7G" id="kte-SC-NTU"/>
+                <outlet property="warningImageView" destination="ngz-86-3fp" id="jKq-cD-PKf"/>
             </connections>
             <point key="canvasLocation" x="33" y="71.5"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="ic_checkbox" width="24" height="24"/>
+        <image name="ic_warning" width="24" height="24"/>
     </resources>
 </document>

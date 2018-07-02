@@ -9,9 +9,11 @@ final class TaskCell: UITableViewCell {
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var deadlineLabel: UILabel!
     @IBOutlet weak var deadlineLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var warningImageView: UIImageView!
 
     private let doneImage = UIImage(named: "ic_done")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
     private let boxImage = UIImage(named: "ic_checkbox")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+    private let warningImage = UIImage(named: "ic_warning")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
 
     private var done: Bool = false {
         didSet {
@@ -45,6 +47,7 @@ final class TaskCell: UITableViewCell {
         iconView.image = doneImage
         iconView.tintColor = UIColor.lightGray
         deadlineLabel.textColor = UIColor(red: 0.298, green: 0.298, blue: 0.298, alpha: 0.85)
+        warningImageView.isHidden = true
     }
 
     private func uncheck() {
@@ -66,6 +69,9 @@ extension TaskCell: Reusable, NibType {
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy/M/d(EEE) HH:mm"
         titleLabel.text = dependency.title
+        warningImageView.isHidden = true
+        warningImageView.image = warningImage
+        warningImageView.tintColor = UIColor.red
         if let deadline = dependency.deadline {
             let calendar = Calendar.current
             if calendar.isDate(Date(), inSameDayAs: deadline) {
@@ -78,6 +84,7 @@ extension TaskCell: Reusable, NibType {
             deadlineLabelHeight.constant = 18
             if deadline.timeIntervalSinceNow < 0 && !dependency.done {
                 deadlineLabel.textColor = UIColor.red
+                warningImageView.isHidden = false
             }
         } else {
             deadlineLabel.isHidden = true
