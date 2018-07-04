@@ -47,8 +47,9 @@ final class TaskCell: UITableViewCell {
 
         iconView.image = doneImage
         iconView.tintColor = UIColor.lightGray
-        deadlineLabel.textColor = UIColor(red: 0.298, green: 0.298, blue: 0.298, alpha: 0.85)
         warningImageView.isHidden = true
+
+        setupDeadline()
     }
 
     private func uncheck() {
@@ -62,9 +63,15 @@ final class TaskCell: UITableViewCell {
 
         iconView.image = boxImage
         iconView.tintColor = UIColor.gray
+
+        setupDeadline()
     }
 
     private func setupDeadline() {
+        deadlineLabel.isHidden = true
+        deadlineLabelHeight.constant = 0
+        deadlineLabel.textColor = UIColor(red: 0.298, green: 0.298, blue: 0.298, alpha: 0.85)
+
         if let date = deadline {
             let calendar = Calendar.current
             if calendar.isDate(Date(), inSameDayAs: date) {
@@ -79,10 +86,6 @@ final class TaskCell: UITableViewCell {
                 deadlineLabel.textColor = UIColor.red
                 warningImageView.isHidden = false
             }
-        } else {
-            deadlineLabel.isHidden = true
-            deadlineLabelHeight.constant = 0
-            deadlineLabel.textColor = UIColor(red: 0.298, green: 0.298, blue: 0.298, alpha: 0.85)
         }
     }
 }
