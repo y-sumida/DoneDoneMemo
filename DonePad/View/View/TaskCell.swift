@@ -24,8 +24,9 @@ final class TaskCell: UITableViewCell {
             }
         }
     }
-
     private let formatter = DateFormatter()
+
+    private var deadline: Date?
 
     func toggleTask() {
         setSelected(true, animated: true)
@@ -62,6 +63,28 @@ final class TaskCell: UITableViewCell {
         iconView.image = boxImage
         iconView.tintColor = UIColor.gray
     }
+
+    private func setupDeadline() {
+        if let date = deadline {
+            let calendar = Calendar.current
+            if calendar.isDate(Date(), inSameDayAs: date) {
+                formatter.dateFormat = "HH:mm"
+                deadlineLabel.text = "今日 " + formatter.string(from: date)
+            } else {
+                deadlineLabel.text = formatter.string(from: date)
+            }
+            deadlineLabel.isHidden = false
+            deadlineLabelHeight.constant = 18
+            if date.timeIntervalSinceNow < 0 && !done {
+                deadlineLabel.textColor = UIColor.red
+                warningImageView.isHidden = false
+            }
+        } else {
+            deadlineLabel.isHidden = true
+            deadlineLabelHeight.constant = 0
+            deadlineLabel.textColor = UIColor(red: 0.298, green: 0.298, blue: 0.298, alpha: 0.85)
+        }
+    }
 }
 
 extension TaskCell: Reusable, NibType {
@@ -72,25 +95,10 @@ extension TaskCell: Reusable, NibType {
         warningImageView.isHidden = true
         warningImageView.image = warningImage
         warningImageView.tintColor = UIColor.red
-        if let deadline = dependency.deadline {
-            let calendar = Calendar.current
-            if calendar.isDate(Date(), inSameDayAs: deadline) {
-                formatter.dateFormat = "HH:mm"
-                deadlineLabel.text = "今日 " + formatter.string(from: deadline)
-            } else {
-                deadlineLabel.text = formatter.string(from: deadline)
-            }
-            deadlineLabel.isHidden = false
-            deadlineLabelHeight.constant = 18
-            if deadline.timeIntervalSinceNow < 0 && !dependency.done {
-                deadlineLabel.textColor = UIColor.red
-                warningImageView.isHidden = false
-            }
-        } else {
-            deadlineLabel.isHidden = true
-            deadlineLabelHeight.constant = 0
-            deadlineLabel.textColor = UIColor(red: 0.298, green: 0.298, blue: 0.298, alpha: 0.85)
-        }
+
         done = dependency.done
+        deadline = dependency.deadline
+
+        setupDeadline()
     }
 }
