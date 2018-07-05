@@ -9,6 +9,18 @@ final class TaskDetailViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     override func viewDidLoad() {
+        setupNavigationItem()
+        tableView.dataSource = self
+    }
+
+    @objc func close() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @objc func save() {
+        close()
+    }
+
+    private func setupNavigationItem() {
         navigationItem.title = "詳細"
         let closeButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.close))
         closeButton.tintColor = UIColor.black
@@ -18,15 +30,6 @@ final class TaskDetailViewController: UIViewController {
         saveButton.tintColor = UIColor.black
         saveButton.setTitleTextAttributes([.foregroundColor: UIColor.lightGray, .font: UIFont.systemFont(ofSize: 17, weight: .light)], for: .disabled)
         navigationItem.rightBarButtonItem = saveButton
-
-        tableView.dataSource = self
-    }
-
-    @objc func close() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    @objc func save() {
-        close()
     }
 }
 
