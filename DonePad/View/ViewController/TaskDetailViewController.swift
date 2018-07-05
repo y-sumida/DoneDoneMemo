@@ -6,6 +6,8 @@ final class TaskDetailViewController: UIViewController {
     // StoryboardInstantiatable
     typealias Dependency = Void
 
+    @IBOutlet private weak var tableView: UITableView!
+
     override func viewDidLoad() {
         navigationItem.title = "詳細"
         let closeButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.close))
@@ -16,6 +18,8 @@ final class TaskDetailViewController: UIViewController {
         saveButton.tintColor = UIColor.black
         saveButton.setTitleTextAttributes([.foregroundColor: UIColor.lightGray, .font: UIFont.systemFont(ofSize: 17, weight: .light)], for: .disabled)
         navigationItem.rightBarButtonItem = saveButton
+
+        tableView.dataSource = self
     }
 
     @objc func close() {
@@ -28,4 +32,20 @@ final class TaskDetailViewController: UIViewController {
 
 extension TaskDetailViewController: StoryboardInstantiatable {
     func inject(_ dependency: Void) {}
+}
+
+extension TaskDetailViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // TODO あとでVMつくる
+        return 2 // タイトル, 締切
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1 // TODO あとで調整
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // TODO あとでセル作る
+        return UITableViewCell()
+    }
 }
