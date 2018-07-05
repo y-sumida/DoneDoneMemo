@@ -8,6 +8,8 @@ final class TaskDetailViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
+    private var viewModel: TaskViewModel!
+
     override func viewDidLoad() {
         setupNavigationItem()
         tableView.dataSource = self
@@ -34,7 +36,9 @@ final class TaskDetailViewController: UIViewController {
 }
 
 extension TaskDetailViewController: StoryboardInstantiatable {
-    func inject(_ dependency: Task) {}
+    func inject(_ dependency: Task) {
+        viewModel = TaskViewModel(from: dependency)
+    }
 }
 
 extension TaskDetailViewController: UITableViewDataSource {
