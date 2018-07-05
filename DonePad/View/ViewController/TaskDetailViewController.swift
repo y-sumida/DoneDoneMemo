@@ -4,7 +4,7 @@ import InstantiateStandard
 
 final class TaskDetailViewController: UIViewController {
     // StoryboardInstantiatable
-    typealias Dependency = Void
+    typealias Dependency = Task
 
     @IBOutlet private weak var tableView: UITableView!
 
@@ -31,7 +31,7 @@ final class TaskDetailViewController: UIViewController {
 }
 
 extension TaskDetailViewController: StoryboardInstantiatable {
-    func inject(_ dependency: Void) {}
+    func inject(_ dependency: Task) {}
 }
 
 extension TaskDetailViewController: UITableViewDataSource {

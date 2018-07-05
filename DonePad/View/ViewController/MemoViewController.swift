@@ -360,9 +360,11 @@ extension MemoViewController: UITableViewDelegate {
 
         let editAction = UIContextualAction(style: .normal,
                                             title: nil) {[unowned self] (_, _, completion: (Bool) -> Void) in
-                                                let vc = TaskDetailViewController(with: Void())
-                                                let navi = UINavigationController(rootViewController: vc)
-                                                self.navigationController?.present(navi, animated: true, completion: nil)
+                                                if let task = self.viewModel.task(at: indexPath.row) {
+                                                    let vc = TaskDetailViewController(with: task)
+                                                    let navi = UINavigationController(rootViewController: vc)
+                                                    self.navigationController?.present(navi, animated: true, completion: nil)
+                                                }
                                                 completion(true)}
         editAction.image = UIImage(named: "ic_edit")
 
