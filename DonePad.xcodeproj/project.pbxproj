@@ -24,6 +24,8 @@
 		A9289F1820BEDA0500CF46EF /* LicensesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9289F1720BEDA0500CF46EF /* LicensesViewController.storyboard */; };
 		A9289F1A20BEDA4000CF46EF /* LicensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9289F1920BEDA4000CF46EF /* LicensesViewController.swift */; };
 		A9289F1C20BEDA8400CF46EF /* LicensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9289F1B20BEDA8400CF46EF /* LicensesViewModel.swift */; };
+		A933492220EE5537001B0004 /* TaskDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A933492120EE5537001B0004 /* TaskDetailViewController.storyboard */; };
+		A933492420EE5569001B0004 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933492320EE5569001B0004 /* TaskDetailViewController.swift */; };
 		A9345F4320B1A0FE0015B34F /* MemoSettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9345F4220B1A0FE0015B34F /* MemoSettingsViewController.storyboard */; };
 		A9345F4520B1A1490015B34F /* MemoSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9345F4420B1A1490015B34F /* MemoSettingsViewController.swift */; };
 		A9345F4B20B307420015B34F /* ZoomInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9345F4A20B307420015B34F /* ZoomInAnimator.swift */; };
@@ -103,6 +105,8 @@
 		A9289F1720BEDA0500CF46EF /* LicensesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LicensesViewController.storyboard; sourceTree = "<group>"; };
 		A9289F1920BEDA4000CF46EF /* LicensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesViewController.swift; sourceTree = "<group>"; };
 		A9289F1B20BEDA8400CF46EF /* LicensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesViewModel.swift; sourceTree = "<group>"; };
+		A933492120EE5537001B0004 /* TaskDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetailViewController.storyboard; sourceTree = "<group>"; };
+		A933492320EE5569001B0004 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		A9345F4220B1A0FE0015B34F /* MemoSettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoSettingsViewController.storyboard; sourceTree = "<group>"; };
 		A9345F4420B1A1490015B34F /* MemoSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsViewController.swift; sourceTree = "<group>"; };
 		A9345F4A20B307420015B34F /* ZoomInAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInAnimator.swift; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 				A9AD387220AC777F0014EBB9 /* MemoSettingsContentViewController.storyboard */,
 				A9345F4220B1A0FE0015B34F /* MemoSettingsViewController.storyboard */,
 				A99B54F7205805F0002DFA2B /* MemoViewController.storyboard */,
+				A933492120EE5537001B0004 /* TaskDetailViewController.storyboard */,
 				A9E1233920E66EE200310411 /* TutorialViewController.storyboard */,
 			);
 			path = StoryBoard;
@@ -290,9 +295,10 @@
 				A9AD387420AC78D50014EBB9 /* MemoSettingsContentViewController.swift */,
 				A9345F4420B1A1490015B34F /* MemoSettingsViewController.swift */,
 				A99B54F9205FEB04002DFA2B /* MemoViewController.swift */,
+				A933492320EE5569001B0004 /* TaskDetailViewController.swift */,
+				A9E1233B20E66F2D00310411 /* TutorialViewController.swift */,
 				A9345F4A20B307420015B34F /* ZoomInAnimator.swift */,
 				A9289F0420B43F6800CF46EF /* ZoomOutAnimator.swift */,
-				A9E1233B20E66F2D00310411 /* TutorialViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -460,6 +466,7 @@
 			files = (
 				A99B54FE206BC9F0002DFA2B /* KeyboardTextView.xib in Resources */,
 				A9289F1820BEDA0500CF46EF /* LicensesViewController.storyboard in Resources */,
+				A933492220EE5537001B0004 /* TaskDetailViewController.storyboard in Resources */,
 				A99B54F420516DB7002DFA2B /* TaskCell.xib in Resources */,
 				A9AD387320AC777F0014EBB9 /* MemoSettingsContentViewController.storyboard in Resources */,
 				A90CF30E20ADB202000C9ECE /* MemoSettingsTitleCell.xib in Resources */,
@@ -531,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A99B54E6204AD12B002DFA2B /* MemoViewModel.swift in Sources */,
+				A933492420EE5569001B0004 /* TaskDetailViewController.swift in Sources */,
 				A9289F1420BECD4600CF46EF /* LicenseModel.swift in Sources */,
 				A99B54F320516DB7002DFA2B /* TaskCell.swift in Sources */,
 				A9345F4520B1A1490015B34F /* MemoSettingsViewController.swift in Sources */,
