@@ -13,6 +13,7 @@ final class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         setupNavigationItem()
         tableView.dataSource = self
+        tableView.registerNib(type: InputTextCell.self)
     }
 
     @objc func close() {
@@ -52,7 +53,8 @@ extension TaskDetailViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO あとでセル作る
-        return UITableViewCell()
+        // TODO タイトル以外のセル
+        let cell = InputTextCell.dequeue(from: tableView, for: indexPath, with: viewModel.title)
+        return cell
     }
 }
