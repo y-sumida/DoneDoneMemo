@@ -12,7 +12,7 @@ final class MemoSettingsContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.registerNib(type: MemoSettingsTitleCell.self)
+        tableView.registerNib(type: InputTextCell.self)
         tableView.dataSource = self
     }
 
@@ -38,7 +38,7 @@ extension MemoSettingsContentViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = MemoSettingsTitleCell.dequeue(from: tableView, for: indexPath, with: viewModel.title)
+        let cell = InputTextCell.dequeue(from: tableView, for: indexPath, with: viewModel.title)
         return cell
     }
 

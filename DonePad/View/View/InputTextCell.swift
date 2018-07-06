@@ -3,7 +3,7 @@ import Instantiate
 import InstantiateStandard
 import RxSwift
 
-class MemoSettingsTitleCell: UITableViewCell {
+class InputTextCell: UITableViewCell {
     typealias Dependency = Variable<String>
 
     @IBOutlet weak var titleTextField: UITextField!
@@ -25,7 +25,7 @@ class MemoSettingsTitleCell: UITableViewCell {
     }
 }
 
-extension MemoSettingsTitleCell: Reusable, NibType {
+extension InputTextCell: Reusable, NibType {
     func inject(_ dependency: Variable<String>) {
         bindValue = dependency
         titleTextField.text = bindValue.value
