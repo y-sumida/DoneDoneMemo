@@ -6,6 +6,10 @@ struct TaskViewModel {
 
     var title: Variable<String> = Variable("")
 
+    var numberOfSections: Int {
+        return 2 // タイトル、期限
+    }
+
     init(from task: Task) {
         self.task = task
         title.value = task.title

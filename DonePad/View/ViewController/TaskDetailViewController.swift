@@ -44,8 +44,7 @@ extension TaskDetailViewController: StoryboardInstantiatable {
 
 extension TaskDetailViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        // TODO あとでVMつくる
-        return 2 // タイトル, 締切
+        return viewModel.numberOfSections
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
