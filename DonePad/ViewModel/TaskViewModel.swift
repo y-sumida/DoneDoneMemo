@@ -14,4 +14,10 @@ struct TaskViewModel {
         self.task = task
         title.value = task.title
     }
+
+    func numberOfRowsInSection(section: Int) -> Int {
+        switch section {
+        default: return 1 // とりあえず
+        }
+    }
 }
