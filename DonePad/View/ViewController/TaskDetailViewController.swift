@@ -14,6 +14,7 @@ final class TaskDetailViewController: UIViewController {
         setupNavigationItem()
         tableView.dataSource = self
         tableView.registerNib(type: InputTextCell.self)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
     @objc func close() {
@@ -52,8 +53,16 @@ extension TaskDetailViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO タイトル以外のセル
-        let cell = InputTextCell.dequeue(from: tableView, for: indexPath, with: viewModel.title)
-        return cell
+        switch indexPath.section {
+        case 0:
+            let cell = InputTextCell.dequeue(from: tableView, for: indexPath, with: viewModel.title)
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.textLabel?.text = viewModel.deadline.value?.description ?? "期限なし" // TODO 日付の書式
+            return cell
+        default:
+            return UITableViewCell()
+        }
     }
 }
