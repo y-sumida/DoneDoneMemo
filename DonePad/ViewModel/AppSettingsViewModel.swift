@@ -7,15 +7,19 @@ enum AppSettingsType {
 }
 
 class AppSettingsViewModel {
-    let allowPush = Variable<Bool>(false)
+    var allowPush: Observable<Bool> {
+        return _allowPush.asObservable()
+    }
+
+    private let _allowPush = Variable<Bool>(false)
 
     init() {
         checkPush()
     }
 
     func checkPush() {
-        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { [weak self] in
-            self?.allowPush.value = $0.authorizationStatus == .authorized
+        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { [weak self] v in
+            self?._allowPush.value = v.authorizationStatus == .authorized
         })
     }
 

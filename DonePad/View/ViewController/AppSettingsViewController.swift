@@ -15,6 +15,8 @@ final class AppSettingsViewController: UIViewController {
     private var viewModel = AppSettingsViewModel()
     private let disposeBag = DisposeBag()
 
+    private var allowPush = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,9 +54,10 @@ final class AppSettingsViewController: UIViewController {
     }
 
     private func bind() {
-        viewModel.allowPush.asObservable()
-            .bind(onNext: {[weak self] _ in
+        viewModel.allowPush
+            .bind(onNext: {[weak self] value in
                 DispatchQueue.main.async(execute: {
+                    self?.allowPush = value
                     self?.tableView.reloadData()
                 })
             }).disposed(by: disposeBag)
@@ -128,7 +131,7 @@ extension AppSettingsViewController: UITableViewDataSource {
         case .alam:
             let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
             cell.textLabel?.text = viewModel.title(for: indexPath)
-            cell.detailTextLabel?.text = viewModel.allowPush.value ? "On" : "Off"
+            cell.detailTextLabel?.text = allowPush ? "On" : "Off"
             return cell
         case .version:
             let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
