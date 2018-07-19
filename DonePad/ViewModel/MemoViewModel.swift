@@ -15,6 +15,13 @@ struct MemoViewModel {
         return memo.tasks.count
     }
 
+    var shouldShowTutorial: Bool {
+        let defaults = UserDefaults.standard
+        guard let value = defaults.value(forKey: "showedTutorial") as? Bool else { return false }
+
+        return !value
+    }
+
     init(from memo: Memo) {
         self.memo = memo
     }
@@ -27,6 +34,12 @@ struct MemoViewModel {
         } else {
             memo = MemoRipository().createMemo()
         }
+    }
+
+    func showedTutorial() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "showedTutorial")
+        defaults.setValue(true, forKey: "showedTutorial")
     }
 
     func task(at index: Int) -> Task? {

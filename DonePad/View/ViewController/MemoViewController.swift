@@ -416,7 +416,7 @@ class WrapperView: UIView {
 extension MemoViewController: UIPopoverPresentationControllerDelegate {
     private func showTutorialView() {
         guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) else { return }
-
+        guard viewModel.shouldShowTutorial else { return }
         let message = "スワイプすると編集/削除メニューがあります。\n\n長押しでも編集できます。"
         let vc = TutorialViewController(with: message)
         vc.modalPresentationStyle = .popover
@@ -426,7 +426,7 @@ extension MemoViewController: UIPopoverPresentationControllerDelegate {
         vc.popoverPresentationController?.permittedArrowDirections = .any
         vc.popoverPresentationController?.delegate = self
         vc.popoverPresentationController?.backgroundColor = UIColor.white
-        present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: {self.viewModel.showedTutorial()})
     }
 
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
