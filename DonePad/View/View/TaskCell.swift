@@ -28,6 +28,12 @@ final class TaskCell: UITableViewCell {
 
     private var deadline: Date?
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        warningImageView.isHidden = true
+        deadline = nil
+    }
+
     func toggleTask() {
         setSelected(true, animated: true)
         done = !done
