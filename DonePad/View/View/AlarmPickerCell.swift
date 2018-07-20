@@ -48,6 +48,17 @@ class AlarmPickerCell: UITableViewCell {
 
         dateTextField.inputView = datePickerView
         dateTextField.reloadInputViews()
+
+        dateTextField.rx.text.asDriver()
+            .drive(onNext: {[unowned self] text in
+                if let value: String = text, value.isEmpty {
+                    self.dateTextField.text = "期限なし"
+                    self.dateTextField.resignFirstResponder() //TODO なぜかキーボードが閉じない
+                    self.bindValue.value = nil
+                    self.originalDate = nil
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
 
