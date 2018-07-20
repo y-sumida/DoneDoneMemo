@@ -8,6 +8,7 @@ class AlarmPickerCell: UITableViewCell {
 
     @IBOutlet weak var dateTextField: UITextField!
 
+    private let formatter = DateFormatter()
     private var disposeBag: DisposeBag!
     private var bindValue: Variable<Date?>!
 
@@ -20,6 +21,14 @@ class AlarmPickerCell: UITableViewCell {
     }
 
     func commonInit() {
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy/M/d(EEE) HH:mm"
+        if let date = bindValue.value {
+            dateTextField.text = formatter.string(from: date)
+        } else {
+            dateTextField.text = "期限なし"
+        }
+
         let datePickerView = AlarmPickerView(with: Void())
         datePickerView.cancelAction = { [unowned self] in
             self.dateTextField.resignFirstResponder() // TODO もとの値に戻す
@@ -27,7 +36,7 @@ class AlarmPickerCell: UITableViewCell {
         datePickerView.selectedDate
             .skip(1)
             .subscribe(onNext: { [unowned self] date in
-                self.dateTextField.text = date.description // TODO 書式
+                self.dateTextField.text = self.formatter.string(from: date)
                 self.bindValue.value = date
             }).disposed(by: disposeBag)
 
@@ -40,7 +49,6 @@ extension AlarmPickerCell: Reusable, NibType {
     func inject(_ dependency: Variable<Date?>) {
         bindValue = dependency
         disposeBag = DisposeBag()
-        dateTextField.text = dependency.value?.description ?? "期限なし"
         commonInit()
     }
 }
