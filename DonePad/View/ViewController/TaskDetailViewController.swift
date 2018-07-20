@@ -21,6 +21,7 @@ final class TaskDetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @objc func save() {
+        viewModel.updateTask()
         close()
     }
 

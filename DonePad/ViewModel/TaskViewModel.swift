@@ -22,4 +22,8 @@ struct TaskViewModel {
         default: return 1 // とりあえず
         }
     }
+
+    func updateTask() {
+        task.update(title: title.value, deadline: deadline.value)
+    }
 }

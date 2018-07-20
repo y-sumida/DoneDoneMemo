@@ -175,4 +175,13 @@ class Task: RealmSwift.Object {
     func removeAlermNotification() {
         UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [id])
     }
+
+    func update(title: String, deadline: Date?) {
+        let realm = try! Realm()
+        try! realm.write {
+            self.title = title
+            self.deadline = deadline
+            realm.add(self, update: true)
+        }
+    }
 }
