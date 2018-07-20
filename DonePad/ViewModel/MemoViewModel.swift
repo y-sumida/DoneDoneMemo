@@ -17,7 +17,7 @@ struct MemoViewModel {
 
     var shouldShowTutorial: Bool {
         let defaults = UserDefaults.standard
-        guard let value = defaults.value(forKey: "showedTutorial") as? Bool else { return false }
+        guard let value = defaults.value(forKey: "showedTutorial") as? Bool else { return true }
 
         return !value
     }
