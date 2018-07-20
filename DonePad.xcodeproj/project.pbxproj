@@ -27,6 +27,8 @@
 		A933492220EE5537001B0004 /* TaskDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A933492120EE5537001B0004 /* TaskDetailViewController.storyboard */; };
 		A933492420EE5569001B0004 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933492320EE5569001B0004 /* TaskDetailViewController.swift */; };
 		A933492620EE5D59001B0004 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933492520EE5D59001B0004 /* TaskViewModel.swift */; };
+		A933492921020FA3001B0004 /* AlarmPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933492721020FA2001B0004 /* AlarmPickerCell.swift */; };
+		A933492A21020FA3001B0004 /* AlarmPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A933492821020FA2001B0004 /* AlarmPickerCell.xib */; };
 		A9345F4320B1A0FE0015B34F /* MemoSettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9345F4220B1A0FE0015B34F /* MemoSettingsViewController.storyboard */; };
 		A9345F4520B1A1490015B34F /* MemoSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9345F4420B1A1490015B34F /* MemoSettingsViewController.swift */; };
 		A9345F4B20B307420015B34F /* ZoomInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9345F4A20B307420015B34F /* ZoomInAnimator.swift */; };
@@ -109,6 +111,8 @@
 		A933492120EE5537001B0004 /* TaskDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetailViewController.storyboard; sourceTree = "<group>"; };
 		A933492320EE5569001B0004 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		A933492520EE5D59001B0004 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		A933492721020FA2001B0004 /* AlarmPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPickerCell.swift; sourceTree = "<group>"; };
+		A933492821020FA2001B0004 /* AlarmPickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmPickerCell.xib; sourceTree = "<group>"; };
 		A9345F4220B1A0FE0015B34F /* MemoSettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoSettingsViewController.storyboard; sourceTree = "<group>"; };
 		A9345F4420B1A1490015B34F /* MemoSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsViewController.swift; sourceTree = "<group>"; };
 		A9345F4A20B307420015B34F /* ZoomInAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInAnimator.swift; sourceTree = "<group>"; };
@@ -319,12 +323,16 @@
 		A99B54F020516DA1002DFA2B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A933492721020FA2001B0004 /* AlarmPickerCell.swift */,
+				A933492821020FA2001B0004 /* AlarmPickerCell.xib */,
 				A98A278020D15BFB002C0D69 /* AlarmPickerView.swift */,
 				A98A277E20D15A9C002C0D69 /* AlarmPickerView.xib */,
 				A977D82F20C80F6D0025A097 /* AppSettingsVersionCell.swift */,
 				A977D83020C80F6D0025A097 /* AppSettingsVersionCell.xib */,
 				A977D83920CAB6260025A097 /* EmptyView.swift */,
 				A977D83B20CAB6670025A097 /* EmptyView.xib */,
+				A90CF30B20ADB202000C9ECE /* InputTextCell.swift */,
+				A90CF30C20ADB202000C9ECE /* InputTextCell.xib */,
 				A99B54FB206BC9C2002DFA2B /* KeyboardTextView.swift */,
 				A99B54FD206BC9F0002DFA2B /* KeyboardTextView.xib */,
 				A9E1AFC320C016CD0001170B /* LicenseCell.swift */,
@@ -333,8 +341,6 @@
 				A958FC1920A1E26200EC86DE /* MemoAddCell.xib */,
 				A958FC1420A1DCE800EC86DE /* MemoCell.swift */,
 				A958FC1520A1DCE800EC86DE /* MemoCell.xib */,
-				A90CF30B20ADB202000C9ECE /* InputTextCell.swift */,
-				A90CF30C20ADB202000C9ECE /* InputTextCell.xib */,
 				A99B54F120516DB7002DFA2B /* TaskCell.swift */,
 				A99B54F220516DB7002DFA2B /* TaskCell.xib */,
 			);
@@ -484,6 +490,7 @@
 				A9E1233A20E66EE200310411 /* TutorialViewController.storyboard in Resources */,
 				A9289F0C20BD83C300CF46EF /* AppSettingsViewController.storyboard in Resources */,
 				A98A277F20D15A9C002C0D69 /* AlarmPickerView.xib in Resources */,
+				A933492A21020FA3001B0004 /* AlarmPickerCell.xib in Resources */,
 				A9E1AFC620C016CD0001170B /* LicenseCell.xib in Resources */,
 				A917D10120A087EF008DE98C /* MemoCollectionViewController.storyboard in Resources */,
 				A958FC1B20A1E26200EC86DE /* MemoAddCell.xib in Resources */,
@@ -555,6 +562,7 @@
 				A9E1233C20E66F2D00310411 /* TutorialViewController.swift in Sources */,
 				A9289F0E20BD840900CF46EF /* AppSettingsViewController.swift in Sources */,
 				A99B54FC206BC9C2002DFA2B /* KeyboardTextView.swift in Sources */,
+				A933492921020FA3001B0004 /* AlarmPickerCell.swift in Sources */,
 				A90CF30D20ADB202000C9ECE /* InputTextCell.swift in Sources */,
 				A958FC1A20A1E26200EC86DE /* MemoAddCell.swift in Sources */,
 				A977D83A20CAB6260025A097 /* EmptyView.swift in Sources */,

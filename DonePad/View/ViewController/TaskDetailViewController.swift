@@ -14,7 +14,7 @@ final class TaskDetailViewController: UIViewController {
         setupNavigationItem()
         tableView.dataSource = self
         tableView.registerNib(type: InputTextCell.self)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.registerNib(type: AlarmPickerCell.self)
     }
 
     @objc func close() {
@@ -59,8 +59,7 @@ extension TaskDetailViewController: UITableViewDataSource {
             let cell = InputTextCell.dequeue(from: tableView, for: indexPath, with: viewModel.title)
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text = viewModel.deadline.value?.description ?? "期限なし" // TODO 日付の書式
+            let cell = AlarmPickerCell.dequeue(from: tableView, for: indexPath, with: viewModel.deadline)
             return cell
         default:
             return UITableViewCell()
