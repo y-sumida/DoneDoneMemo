@@ -1,6 +1,7 @@
 import UIKit
 import Instantiate
 import InstantiateStandard
+import RxSwift
 
 final class TaskDetailViewController: UIViewController {
     // StoryboardInstantiatable
@@ -10,11 +11,21 @@ final class TaskDetailViewController: UIViewController {
 
     private var viewModel: TaskViewModel!
 
+    private let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         setupNavigationItem()
         tableView.dataSource = self
         tableView.registerNib(type: InputTextCell.self)
         tableView.registerNib(type: AlarmPickerCell.self)
+
+        // キーボード外をタップしたときにキーボードを閉じる
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+        tapGesture.rx.event.subscribe { [unowned self] _ in
+            self.view.endEditing(true)
+            }.disposed(by: disposeBag)
     }
 
     @objc func close() {
