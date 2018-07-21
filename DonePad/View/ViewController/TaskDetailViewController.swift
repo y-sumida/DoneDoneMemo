@@ -16,6 +16,7 @@ final class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         setupNavigationItem()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.registerNib(type: InputTextCell.self)
         tableView.registerNib(type: AlarmPickerCell.self)
 
@@ -75,5 +76,11 @@ extension TaskDetailViewController: UITableViewDataSource {
         default:
             return UITableViewCell()
         }
+    }
+}
+
+extension TaskDetailViewController: UITableViewDelegate {
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        view.endEditing(true)
     }
 }
