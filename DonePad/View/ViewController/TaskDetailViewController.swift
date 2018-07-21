@@ -27,6 +27,7 @@ final class TaskDetailViewController: UIViewController {
         tapGesture.rx.event.subscribe { [unowned self] _ in
             self.view.endEditing(true)
             }.disposed(by: disposeBag)
+
     }
 
     @objc func close() {
@@ -47,6 +48,11 @@ final class TaskDetailViewController: UIViewController {
         saveButton.tintColor = UIColor.black
         saveButton.setTitleTextAttributes([.foregroundColor: UIColor.lightGray, .font: UIFont.systemFont(ofSize: 17, weight: .light)], for: .disabled)
         navigationItem.rightBarButtonItem = saveButton
+
+        viewModel.isEdited
+            .subscribe(onNext: { isEdited in
+                saveButton.isEnabled = isEdited
+            }).disposed(by: disposeBag)
     }
 }
 
