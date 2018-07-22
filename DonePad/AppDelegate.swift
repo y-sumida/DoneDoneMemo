@@ -49,3 +49,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         completionHandler([.alert])
     }
 }
+
+extension AppDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        // TODO 該当タスクのメモを開く
+    }
+}
