@@ -145,6 +145,8 @@ class Task: RealmSwift.Object {
     @objc dynamic var deletedAt: Date = Date()
     @objc dynamic var doneAt: Date = Date()
 
+    let memo = LinkingObjects(fromType: Memo.self, property: "tasks")
+
     override static func primaryKey() -> String? {
         return "id"
     }
