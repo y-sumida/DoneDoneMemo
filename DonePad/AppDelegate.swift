@@ -53,5 +53,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension AppDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         // TODO 該当タスクのメモを開く
+        print(response.notification.request.content.userInfo["memoId"])
     }
 }
