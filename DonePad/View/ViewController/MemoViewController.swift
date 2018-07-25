@@ -28,15 +28,15 @@ final class MemoViewController: UIViewController {
         // キーボード外をタップしたときにキーボードを閉じる
         let tapGesture = UITapGestureRecognizer()
         tapGesture.cancelsTouchesInView = false
-        tapGesture.rx.event.subscribe { [unowned self] _ in
-            self.accessoryView.hideKeyboard()
+        tapGesture.rx.event.subscribe { [weak self] _ in
+            self?.accessoryView.hideKeyboard()
             }.disposed(by: disposeBag)
         shadowView.addGestureRecognizer(tapGesture)
         // 下スワイプでキーボードを閉じる
         let swipeGesture = UISwipeGestureRecognizer()
         swipeGesture.direction = .down
-        swipeGesture.rx.event.subscribe { [unowned self] _ in
-            self.accessoryView.hideKeyboard()
+        swipeGesture.rx.event.subscribe { [weak self] _ in
+            self?.accessoryView.hideKeyboard()
             }.disposed(by: disposeBag)
         shadowView.addGestureRecognizer(swipeGesture)
 

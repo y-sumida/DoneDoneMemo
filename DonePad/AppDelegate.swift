@@ -50,7 +50,15 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        // TODO 該当タスクのメモを開く
-        print(response.notification.request.content.userInfo["memoId"])
+        if let id = response.notification.request.content.userInfo["memoId"] {
+            let defaults = UserDefaults.standard
+            defaults.removeObject(forKey: "memoId")
+            defaults.setValue(id, forKey: "memoId")
+
+            if let vc = UIStoryboard(name: "MemoViewController", bundle: nil).instantiateInitialViewController() {
+                window?.rootViewController = vc
+                window?.makeKeyAndVisible()
+            }
+        }
     }
 }
