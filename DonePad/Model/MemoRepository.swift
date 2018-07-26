@@ -169,6 +169,7 @@ class Task: RealmSwift.Object {
         let content = UNMutableNotificationContent()
         content.title = ""
         content.body = title
+        content.sound = UNNotificationSound.default()
         content.userInfo = ["memoId": memo.first?.id ?? ""]
 
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
