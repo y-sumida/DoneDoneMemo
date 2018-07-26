@@ -56,8 +56,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             defaults.setValue(id, forKey: "memoId")
 
             if let vc = UIStoryboard(name: "MemoViewController", bundle: nil).instantiateInitialViewController() {
-                window?.rootViewController = vc
-                window?.makeKeyAndVisible()
+                window?.rootViewController?.view.alpha = 0
+                UIView.animate(withDuration: 0.5) {
+                    self.window?.rootViewController = vc
+                    self.window?.makeKeyAndVisible()
+                    self.window?.rootViewController?.view.alpha = 1
+                }
             }
         }
     }

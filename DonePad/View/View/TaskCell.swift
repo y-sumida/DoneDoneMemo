@@ -88,7 +88,7 @@ final class TaskCell: UITableViewCell {
             }
             deadlineLabel.isHidden = false
             deadlineLabelHeight.constant = 18
-            if date.timeIntervalSinceNow < -60 && !done {
+            if date.timeIntervalSinceNow < 0 && !done {
                 deadlineLabel.textColor = UIColor.red
                 warningImageView.isHidden = false
             }
