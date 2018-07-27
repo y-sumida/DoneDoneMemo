@@ -37,6 +37,7 @@ class AlarmPickerCell: UITableViewCell {
             } else {
                 self.dateTextField.text = "期限なし"
             }
+            self.bindValue.value = self.originalDate
             self.dateTextField.resignFirstResponder()
         }
         datePickerView.selectedDate
