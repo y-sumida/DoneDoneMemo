@@ -241,7 +241,7 @@ final class MemoViewController: UIViewController {
 
         let settingButton = UIButton(type: .system)
         settingButton.addTarget(self, action: #selector(self.showSettings), for: .touchUpInside)
-        settingButton.setImage(UIImage(named: "ic_setting")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        settingButton.setImage(UIImage(named: "ic_edit")?.withRenderingMode(.alwaysTemplate), for: .normal)
         settingButton.tintColor = UIColor.black
         let setting = UIBarButtonItem(customView: settingButton)
         barItems.append(setting)
