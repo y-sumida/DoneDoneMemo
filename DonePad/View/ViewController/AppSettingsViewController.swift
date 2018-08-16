@@ -151,8 +151,9 @@ extension AppSettingsViewController: UITableViewDelegate {
         guard let type = viewModel.dataType(for: indexPath) else { return }
         switch type {
         case .alam:
-            guard let url = URL(string: "App-Prefs:root=NOTIFICATIONS_ID&path=" + (Bundle.main.bundleIdentifier ?? "")) else { return }
-            UIApplication.shared.open(url)
+            if let url = URL(string: UIApplicationOpenSettingsURLString), UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         case .version:
             break
         case .license:
